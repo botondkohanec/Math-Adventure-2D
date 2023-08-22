@@ -200,8 +200,8 @@ public class AssetSetter {
 
             gp.npc[37] = new NPC_Princess(gp);
             gp.npc[37].index = 37;
-            gp.npc[37].worldX = gp.tileSize*30;//*48;
-            gp.npc[37].worldY = gp.tileSize*10;//26;
+            gp.npc[37].worldX = gp.tileSize*48;
+            gp.npc[37].worldY = gp.tileSize*26;
 
             setNPCWolfMan(38, 14, 15);
             setNPCOrc(39, 14, 15);
