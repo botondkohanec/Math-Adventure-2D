@@ -1,0 +1,46 @@
+
+Q
+java:S1066""/Merge this if statement with the enclosing one.(ƒ×ßÅøÿÿÿÿ8ÈºƒÞ¡1
+R
+java:S1066Ö"/Merge this if statement with the enclosing one.(ƒ×ßÅøÿÿÿÿ8ÈºƒÞ¡1
+w
+java:S1104
+"UMake upPressed a static final constant or non-public and provide accessors if needed.(Ë¿á†øÿÿÿÿ8ÈºƒÞ¡1
+y
+java:S1104
+"WMake downPressed a static final constant or non-public and provide accessors if needed.(Ë¿á†øÿÿÿÿ8ÈºƒÞ¡1
+y
+java:S1104
+"WMake leftPressed a static final constant or non-public and provide accessors if needed.(Ë¿á†øÿÿÿÿ8ÈºƒÞ¡1
+z
+java:S1104
+"XMake rightPressed a static final constant or non-public and provide accessors if needed.(Ë¿á†øÿÿÿÿ8ÈºƒÞ¡1
+z
+java:S1104"XMake speakPressed a static final constant or non-public and provide accessors if needed.(ºâºäýÿÿÿÿ8ÈºƒÞ¡1
+v
+java:S1104"YMake checkDrawTime a static final constant or non-public and provide accessors if needed.(¨”á²8ÈºƒÞ¡1
+j
+java:S1104"MMake i a static final constant or non-public and provide accessors if needed.(à³‡Ã8ÈºƒÞ¡1
+j
+java:S1104"MMake j a static final constant or non-public and provide accessors if needed.(à³‡Ã8ÈºƒÞ¡1
+j
+java:S1659
+"HDeclare "downPressed" and all following declarations on a separate line.(Ë¿á†øÿÿÿÿ8£ÃƒÞ¡1
+<
+java:S1659"Declare "j" on a separate line.(à³‡Ã8£ÃƒÞ¡1
+o
+java:S3776"SRefactor this method to reduce its Cognitive Complexity from 145 to the 15 allowed.(Ý¼õA8£ÃƒÞ¡1
+S
+java:S2696c"6Make the enclosing method "static" or remove this set.(ªÚœ8²ÃƒÞ¡1
+S
+java:S2696g"6Make the enclosing method "static" or remove this set.(ú Ž­8²ÃƒÞ¡1
+X
+java:S2696k"6Make the enclosing method "static" or remove this set.(åËþÌüÿÿÿÿ8²ÃƒÞ¡1
+X
+java:S2696z"6Make the enclosing method "static" or remove this set.(ÂÒÜÏøÿÿÿÿ8²ÃƒÞ¡1
+T
+java:S2696€"6Make the enclosing method "static" or remove this set.(—»©˜8²ÃƒÞ¡1
+Y
+java:S2696›"6Make the enclosing method "static" or remove this set.(ÂÒÜÏøÿÿÿÿ8²ÃƒÞ¡1
+Y
+java:S2696³"6Make the enclosing method "static" or remove this set.(ÂÒÜÏøÿÿÿÿ8²ÃƒÞ¡1

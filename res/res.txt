@@ -1,0 +1,34 @@
+Code based on
+youtube.com : RyiSnow - How to Make a 2D Game in Java
+
+Used Pictures from pixabay.com
+devil picture - OpenClipart-Vectors
+forest picture - jwvein
+door picture - sipa
+knight picture - Janson_G
+orc picture - tunechick83
+wolfman picture - Viergacht
+
+Icon from icon-icons.com : Hodie Kun
+
+Used Music from pixabay.com
+The Britons - kmacleod
+Honor and Sword (Main) - Daddy_s_Music
+
+Used Sound Effects from pixabay.com
+Apple Munch - Pixabay
+Explosion - Pixabay
+Dead Wolf (Deep Growl) - Pixabay
+Orc Blade (Bloody Blade) - Pixabay
+Medieval Fanfare - Pixabay
+Knight spawn - Pixabay
+Slashkut - Pixabay
+Unlock the door - Pixabay
+Doorhit - Pixabay
+Key get - Pixabay
+Wolf & Devil Attack (Monster Bite) - Pixabay
+Miss (Swing) - Pixabay
+Boots (Leather Stress) - Pixabay
+Devil (Evil Demonic) Laugh - Pixabay
+Game Over (Defeat Background) - Pixabay
+Orc Death (Monster Sound Death) - Pixabay

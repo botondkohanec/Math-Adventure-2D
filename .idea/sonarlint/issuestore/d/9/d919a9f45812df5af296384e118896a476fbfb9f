@@ -1,0 +1,21 @@
+
+c
+java:S1192<"FDefine a constant instead of duplicating this literal "right" 4 times.(ó¹Ä¬8·–™”Ÿ1
+t
+java:S3776H"RRefactor this method to reduce its Cognitive Complexity from 62 to the 15 allowed.(¢Øß£ÿÿÿÿÿ8³™™”Ÿ1
+p
+java:S3776Œ"RRefactor this method to reduce its Cognitive Complexity from 45 to the 15 allowed.(ú®Œ8³™™”Ÿ1
+u
+java:S3776ß"RRefactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.(áª‡Âıÿÿÿÿ8Â™™”Ÿ1
+Y
+java:S2696¨"6Make the enclosing method "static" or remove this set.(Û Ñ úÿÿÿÿ8Û÷Ş”Ÿ1
+T
+java:S2696ª"6Make the enclosing method "static" or remove this set.(ô—˜ÿ8±€Å•Ÿ1
+Y
+java:S2696­"6Make the enclosing method "static" or remove this set.(„ €úÿÿÿÿ8±€Å•Ÿ1
+T
+java:S2696²"6Make the enclosing method "static" or remove this set.(Â ‚8±€Å•Ÿ1
+O
+java:S1128"-Remove this unused import 'object.OBJ_Apple'.(Îóş†ÿÿÿÿÿ8±€Å•Ÿ1
+M
+java:S1128"+Remove this unused import 'object.OBJ_Key'.(ñÑÆ•ÿÿÿÿÿ8±€Å•Ÿ1

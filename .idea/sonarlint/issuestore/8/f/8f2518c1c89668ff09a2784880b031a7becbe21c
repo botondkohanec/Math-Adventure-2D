@@ -1,0 +1,22 @@
+
+g	java:S112%"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8İ²–—1
+g	java:S112,"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8İ²–—1
+ˆ
+java:S1192£"eDefine a constant instead of duplicating this literal "The length of the side of a square: " 4 times.(æŸ¡ãıÿÿÿÿ8èíÖş™1
+…
+java:S1192Â"bDefine a constant instead of duplicating this literal "The side lengths of a rectangle: " 4 times.(á±³ùÿÿÿÿÿ8¯¯Úş™1
+p
+java:S1192S"NDefine a constant instead of duplicating this literal "Wrong answer!" 4 times.(ºò¸…üÿÿÿÿ8’ÏĞş™1
+k
+java:S1192j"IDefine a constant instead of duplicating this literal "Correct!" 3 times.(›±Œ­ùÿÿÿÿ8¨îÑş™1
+v
+java:S1192³"XDefine a constant instead of duplicating this literal ". How much is its area?" 4 times.(¸ÍÚÈ8¢¿Øş™1
+„
+java:S1192£"aDefine a constant instead of duplicating this literal ". How much is its circumference?" 4 times.(æŸ¡ãıÿÿÿÿ8èíÖş™1
+U	java:S106"9Replace this use of System.out or System.err by a logger.(”‚Áæ8ü²–—1
+{
+java:S2142$"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8ü²–—1
+{
+java:S2142+"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8Œ‚²–—1
+e
+java:S5361K"HReplace this call to "replaceAll()" by a call to the "replace()" method.(Ìù—ï8Œ‚²–—1
