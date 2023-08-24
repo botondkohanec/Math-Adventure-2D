@@ -147,11 +147,11 @@ public class CombatWolfMan extends Combat implements Runnable {
 
             Combat.playerVictory = true;
             switch (GamePanel.language) {
-                case GamePanel.eng: text = "Victory!";
+                case ENG: text = "Victory!";
                     break;
-                case GamePanel.hun: text = "Győzelem!";
+                case HUN: text = "Győzelem!";
                     break;
-                case GamePanel.fr: text = "Victoire!";
+                case FR: text = "Victoire!";
                     break;
                 default: text = "Victory!";
                     break;
@@ -164,11 +164,11 @@ public class CombatWolfMan extends Combat implements Runnable {
             }
             window.setVisible(false);
             switch (GamePanel.language) {
-                case GamePanel.eng: text = "VICTORY! You defeated the Beast!";
+                case ENG: text = "VICTORY! You defeated the Beast!";
                     break;
-                case GamePanel.hun: text = "GYŐZELEM! Legyőzted a Szörnyeteget!";
+                case HUN: text = "GYŐZELEM! Legyőzted a Szörnyeteget!";
                     break;
-                case GamePanel.fr: text = "VICTOIRE! Tu as vaincu le Monstre!";
+                case FR: text = "VICTOIRE! Tu as vaincu le Monstre!";
                     break;
                 default: text = "VICTORY! You defeated the Beast!";
                     break;
@@ -181,11 +181,11 @@ public class CombatWolfMan extends Combat implements Runnable {
 
             Combat.playerVictory = false;
             switch (GamePanel.language) {
-                case GamePanel.eng: text = "You lost!";
+                case ENG: text = "You lost!";
                     break;
-                case GamePanel.hun: text = "Vesztettél!";
+                case HUN: text = "Vesztettél!";
                     break;
-                case GamePanel.fr: text = "Tu as perdu!";
+                case FR: text = "Tu as perdu!";
                     break;
                 default: text = "You lost!";
                     break;
@@ -198,11 +198,11 @@ public class CombatWolfMan extends Combat implements Runnable {
             }
             window.setVisible(false);
             switch (GamePanel.language) {
-                case GamePanel.eng: text = "THE WOLFMAN DEFEATED YOU!";
+                case ENG: text = "THE WOLFMAN DEFEATED YOU!";
                     break;
-                case GamePanel.hun: text = "LEGYŐZÖTT A FARKASEMBER!";
+                case HUN: text = "LEGYŐZÖTT A FARKASEMBER!";
                     break;
-                case GamePanel.fr: text = "LE LOUP-GAROU T'A VAINCU!";
+                case FR: text = "LE LOUP-GAROU T'A VAINCU!";
                     break;
                 default: text = "THE WOLFMAN DEFEATED YOU!";
                     break;
@@ -220,11 +220,11 @@ public class CombatWolfMan extends Combat implements Runnable {
         String text = "";
         if(enemyHPLabel != null) enemyHPLabel.setVisible(false);
         switch (GamePanel.language) {
-            case eng: text = "Wolfman: ";
+            case ENG: text = "Wolfman: ";
                 break;
-            case hun: text = "Farkasember: ";
+            case HUN: text = "Farkasember: ";
                 break;
-            case fr: text = "Loup-garou: ";
+            case FR: text = "Loup-garou: ";
                 break;
             default: text = "Wolfman: ";
                 break;

@@ -295,15 +295,15 @@ public class CollisionChecker {
 
             Combat.NPCcombatIndex = i;
 
-            GamePanel.gameState = GamePanel.combatState;
+            GamePanel.gameState = GamePanel.GameState.COMBAT_STATE;
             if(target[i] instanceof NPC_Orc) {
 
-                GamePanel.combatNPC = GamePanel.orc;
+                GamePanel.combatNPC = GamePanel.CombatNPC.ORC;
                 AssetSetter.setOrcNumber(AssetSetter.getOrcNumber() - 1);
             }
             else if(target[i] instanceof NPC_WolfMan) {
 
-                GamePanel.combatNPC = GamePanel.wolf;
+                GamePanel.combatNPC = GamePanel.CombatNPC.WOLF;
                 AssetSetter.setWolfManNumber(AssetSetter.getWolfManNumber() - 1);
             }
 

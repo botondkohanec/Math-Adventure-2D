@@ -16,11 +16,11 @@ public class OBJ_Key extends SuperObject{
         name = "Key";
         switch (GamePanel.language) {
 
-            case GamePanel.eng: description = "Key - It's open a door";
+            case ENG: description = "Key - It's open a door";
                 break;
-            case GamePanel.hun: description = "Kulcs - Kinyit egy\najtót";
+            case HUN: description = "Kulcs - Kinyit egy\najtót";
                 break;
-            case GamePanel.fr: description = "Francia";
+            case FR: description = "Francia";
                 break;
             default: description = "Key - It's open a door";
                 break;

@@ -152,11 +152,11 @@ public class CombatOrc extends Combat implements Runnable {
             Combat.playerVictory = true;
             switch (GamePanel.language) {
 
-                case GamePanel.eng: text = "Victory!";
+                case ENG: text = "Victory!";
                     break;
-                case GamePanel.hun: text = "Győzelem!";
+                case HUN: text = "Győzelem!";
                     break;
-                case GamePanel.fr: text = "Victoire!";
+                case FR: text = "Victoire!";
                     break;
                 default: text = "Victory!";
                     break;
@@ -171,11 +171,11 @@ public class CombatOrc extends Combat implements Runnable {
 
             switch (GamePanel.language) {
 
-                case GamePanel.eng: text = "VICTORY! You defeated the Beast!";
+                case ENG: text = "VICTORY! You defeated the Beast!";
                     break;
-                case GamePanel.hun: text = "GYŐZELEM! Legyőzted a Szörnyeteget!";
+                case HUN: text = "GYŐZELEM! Legyőzted a Szörnyeteget!";
                     break;
-                case GamePanel.fr: text = "VICTOIRE! Tu as vaincu le Monstre!";
+                case FR: text = "VICTOIRE! Tu as vaincu le Monstre!";
                     break;
                 default: text = "VICTORY! You defeated the Beast!";
                     break;
@@ -189,11 +189,11 @@ public class CombatOrc extends Combat implements Runnable {
             Combat.playerVictory = false;
             switch (GamePanel.language) {
 
-                case GamePanel.eng: text = "You lost!";
+                case ENG: text = "You lost!";
                     break;
-                case GamePanel.hun: text = "Vesztettél!";
+                case HUN: text = "Vesztettél!";
                     break;
-                case GamePanel.fr: text = "Tu as perdu!";
+                case FR: text = "Tu as perdu!";
                     break;
                 default: text = "You lost!";
                     break;
@@ -208,11 +208,11 @@ public class CombatOrc extends Combat implements Runnable {
 
             switch (GamePanel.language) {
 
-                case GamePanel.eng: text = "THE ORC DEFEATED YOU!";
+                case ENG: text = "THE ORC DEFEATED YOU!";
                     break;
-                case GamePanel.hun: text = "LEGYŐZÖTT AZ ORK!";
+                case HUN: text = "LEGYŐZÖTT AZ ORK!";
                     break;
-                case GamePanel.fr: text = "LE ORC T'A VAINCU!";
+                case FR: text = "LE ORC T'A VAINCU!";
                     break;
                 default: text = "THE ORC DEFEATED YOU!";
                     break;
@@ -232,11 +232,11 @@ public class CombatOrc extends Combat implements Runnable {
 
         switch (GamePanel.language) {
 
-            case GamePanel.eng: text = "Orc: ";
+            case ENG: text = "Orc: ";
                 break;
-            case GamePanel.hun: text = "Ork: ";
+            case HUN: text = "Ork: ";
                 break;
-            case GamePanel.fr: text = "Orc: ";
+            case FR: text = "Orc: ";
                 break;
             default: text = "Orc: ";
                 break;

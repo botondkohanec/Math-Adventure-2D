@@ -48,35 +48,43 @@ public class GamePanel extends JPanel implements Runnable {
     public SuperObject[] obj = new SuperObject[100];
     public Entity[] npc = new Entity[100];
 
-    // GAME STATE
-    public static int gameState;
-    public static final int titleState = 0;
-    public static final int languageState = 1;
-    public static final int difficultyState = 2;
-    public static final int playState = 3;
-    public static final int pauseState = 4;
-    public static final int dialogueState = 5;
-    public static final int combatState = 6;
-    public static final int gameOverState = 7;
-    public static final int resourcesState = 8;
-    public static final int statusState = 9;
-    public static final int menuState = 10;
+    public enum GameState {
+        TITLE_STATE,
+        LANGUAGE_STATE,
+        DIFFICULTY_STATE,
+        PLAY_STATE,
+        PAUSE_STATE,
+        DIALOGUE_STATE,
+        COMBAT_STATE,
+        GAME_OVER_STATE,
+        RESOURCES_STATE,
+        STATUS_STATE,
+        MENU_STATE,
+        CONTROL_STATE;
+    }
+    public static GameState gameState;
 
-    public static int combatNPC;
-    public static final int orc = 1;
-    public static final int wolf = 2;
-    public static final int boss = 3;
+    public enum CombatNPC {
+        ORC,
+        WOLF,
+        BOSS;
+    }
+    public static CombatNPC combatNPC;
 
-    public static int language;
-    public static final int eng = 1;
-    public static final int hun = 2;
-    public static final int fr = 3;
+    public enum Language {
+        ENG,
+        HUN,
+        FR;
+    }
+    public static Language language = Language.ENG;
 
-    public static int difficulty;
-    public static final int easy = 1;
-    public static final int medium = 2;
-    public static final int hard = 3;
-    public static final int mathematician = 4;
+    public enum Difficulty {
+        EASY,
+        MEDIUM,
+        HARD,
+        MATHEMATICIAN;
+    }
+    public static Difficulty difficulty;
 
     int stop = 0;
     int coinIndex = 90;
@@ -93,7 +101,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     public void setUpGame() {
 
-        gameState = languageState;
+        gameState = GameState.LANGUAGE_STATE;
         ui.commandNum = 0;
         if(mapNum == 1) {
 
@@ -149,7 +157,7 @@ public class GamePanel extends JPanel implements Runnable {
                 se.openedClips.remove(i);
             }
         }
-        if(gameState == playState) {
+        if(gameState == GameState.PLAY_STATE) {
 
             stop = 0;
 
@@ -162,19 +170,19 @@ public class GamePanel extends JPanel implements Runnable {
                 }
             }
         }
-        if(gameState == statusState) {
+        if(gameState == GameState.STATUS_STATE) {
             stop = 0;
         }
-        if(gameState == pauseState) {
+        if(gameState == GameState.PAUSE_STATE) {
             stop = 0;
         }
-        if(gameState == combatState) {
+        if(gameState == GameState.COMBAT_STATE) {
 
             stop ++;
             if(stop <= 1) {
                 if(coinIndex > 98) coinIndex = 90;
                 String s = "";
-                if (combatNPC == orc) {
+                if (combatNPC == CombatNPC.ORC) {
 
                     CombatOrc combatOrc = new CombatOrc();
                     s = combatOrc.play();
@@ -193,7 +201,7 @@ public class GamePanel extends JPanel implements Runnable {
                         npc[Combat.NPCcombatIndex].solidArea = new Rectangle(0, 0, 0, 0);
                     }
                 }
-                else if(combatNPC == wolf) {
+                else if(combatNPC == CombatNPC.WOLF) {
 
                     CombatWolfMan combatWolfMan = new CombatWolfMan();
                     s = combatWolfMan.play();
@@ -217,7 +225,7 @@ public class GamePanel extends JPanel implements Runnable {
                         npc[Combat.NPCcombatIndex].solidArea = new Rectangle(0, 0, 0, 0);
                     }
                 }
-                else if(combatNPC == boss) {
+                else if(combatNPC == CombatNPC.BOSS) {
 
                     CombatBoss combatBoss = new CombatBoss();
                     s = combatBoss.play();
@@ -227,6 +235,11 @@ public class GamePanel extends JPanel implements Runnable {
                         obj[coinIndex].worldX = npc[2].worldX-10;
                         obj[coinIndex].worldY = npc[2].worldY-10;
                         coinIndex++;
+
+                        obj[99] = new OBJ_Key(99, this);
+                        obj[99].worldX = npc[2].worldX+5;
+                        obj[99].worldY = npc[2].worldY+5;
+
                         npc[2] = null;
                     } else {
                         npc[2].solidArea = new Rectangle(0, 0, 0, 0);
@@ -249,22 +262,22 @@ public class GamePanel extends JPanel implements Runnable {
             player.keyH.rightPressed = false;
             player.keyH.speakPressed = false;
         }
-        if(gameState == statusState) {
+        if(gameState == GameState.STATUS_STATE) {
             if(player.items[keyH.i+keyH.j*6] instanceof OBJ_Apple && ui.enterPressed) {
                 String text = "";
                 playSE(10);
                 player.items[keyH.i+keyH.j*6] = null;
                 int x = 0;
-                if(GamePanel.difficulty == GamePanel.easy) x = 100;
+                if(GamePanel.difficulty == Difficulty.EASY) x = 100;
                 else x = 50;
                 entity.Player.hp += x;
                 if(entity.Player.hp > entity.Player.maxHP) entity.Player.hp = entity.Player.maxHP;
                 switch (GamePanel.language) {
-                    case GamePanel.eng: text = "You got " +  x + " HP!";
+                    case ENG: text = "You got " +  x + " HP!";
                         break;
-                    case GamePanel.hun: text = "Szereztél " + x + " HP-t!";
+                    case HUN: text = "Szereztél " + x + " HP-t!";
                         break;
-                    case GamePanel.fr: text = "Tu as obtenu "+ x + " HP!";
+                    case FR: text = "Tu as obtenu "+ x + " HP!";
                         break;
                     default: text = "You got " + x + " HP!";
                         break;
@@ -272,7 +285,7 @@ public class GamePanel extends JPanel implements Runnable {
                 ui.addMessage(text);
             }
         }
-        if(gameState == menuState) {
+        if(gameState == GameState.MENU_STATE) {
             stop = 0;
         }
     }
@@ -288,10 +301,11 @@ public class GamePanel extends JPanel implements Runnable {
         if (keyH.checkDrawTime) { drawStart = System.nanoTime(); }
 
         // RESOURCES SCREEN
-        if (gameState == resourcesState) { ui.draw(g2); }
+        if (gameState == GameState.RESOURCES_STATE) { ui.draw(g2); }
 
         // TITLE & LANGUAGE SCREEN
-        if (gameState == titleState || gameState == languageState || gameState == difficultyState) {
+        if (gameState == GameState.TITLE_STATE || gameState == GameState.LANGUAGE_STATE ||
+                gameState == GameState.DIFFICULTY_STATE) {
             ui.draw(g2);
         }
 

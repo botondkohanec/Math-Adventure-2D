@@ -25,17 +25,17 @@ public class NPC_King extends Entity{
 
         String text1 = "", text2 = "";
         switch (GamePanel.language) {
-            case GamePanel.eng: text1 = """
+            case ENG: text1 = """
                     My daughter has been kidnapped.\nPlease, bring her back, I will give her
                     and the half of my kingdom to you.
                     """;
                 break;
-            case GamePanel.hun: text1 = """
+            case HUN: text1 = """
                     Elrabolták a leányomat! Kérlek hozd\nvissza Őt, és akkor odaadom neked
                     feleségül, s vele fele királyságomat.
                     """;
                 break;
-            case GamePanel.fr: text1 = """
+            case FR: text1 = """
                     Ma fille est enlevée. Récupéres-la\ns'il te plaît, je vais te la donner et
                     la moitié de mon royaume.
                     """;
@@ -49,11 +49,11 @@ public class NPC_King extends Entity{
         dialogues[0] = text1;
         text2 = "";
         switch (GamePanel.language) {
-            case GamePanel.eng: text2 = "Rescue my daughter, please!";
+            case ENG: text2 = "Rescue my daughter, please!";
                 break;
-            case GamePanel.hun: text2 = "Kérlek szabadítsd ki a leányomat!";
+            case HUN: text2 = "Kérlek szabadítsd ki a leányomat!";
                 break;
-            case GamePanel.fr: text2 = "Libères ma fille, s'il te plaît!";
+            case FR: text2 = "Libères ma fille, s'il te plaît!";
                 break;
             default: text2 = "Rescue my daughter, please!";
                 break;

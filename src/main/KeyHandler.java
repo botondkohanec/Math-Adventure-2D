@@ -26,42 +26,44 @@ public class KeyHandler implements KeyListener {
 
         int code = e.getKeyCode();
 
-        if(GamePanel.gameState == GamePanel.languageState   ||
-           GamePanel.gameState == GamePanel.titleState      ||
-           GamePanel.gameState == GamePanel.difficultyState ||
-           GamePanel.gameState == GamePanel.gameOverState   ||
-           GamePanel.gameState == GamePanel.statusState) {
+        if( GamePanel.gameState == GamePanel.GameState.LANGUAGE_STATE   ||
+            GamePanel.gameState == GamePanel.GameState.TITLE_STATE      ||
+            GamePanel.gameState == GamePanel.GameState.DIFFICULTY_STATE ||
+            GamePanel.gameState == GamePanel.GameState.GAME_OVER_STATE   ||
+            GamePanel.gameState == GamePanel.GameState.STATUS_STATE     ||
+            GamePanel.gameState == GamePanel.GameState.MENU_STATE       ||
+            GamePanel.gameState == GamePanel.GameState.CONTROL_STATE) {
             if (code == KeyEvent.VK_ENTER || code == KeyEvent.VK_SPACE) {
                 gp.ui.enterPressed = true;
             }
         }
 
         // LANGUAGE STATE
-        if(GamePanel.gameState == GamePanel.languageState) {
+        if(GamePanel.gameState == GamePanel.GameState.LANGUAGE_STATE) {
 
             if (code == KeyEvent.VK_W || code == KeyEvent.VK_UP) {
-
+                GamePanel.playSE(20);
                 gp.ui.commandNum--;
                 if(gp.ui.commandNum < 0) gp.ui.commandNum = 2;
             }
             if (code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN) {
-
+                GamePanel.playSE(20);
                 gp.ui.commandNum++;
                 if(gp.ui.commandNum > 2) gp.ui.commandNum = 0;
             }
         }
 
         // TITLE STATE
-        else if(GamePanel.gameState == GamePanel.titleState) {
+        else if(GamePanel.gameState == GamePanel.GameState.TITLE_STATE) {
 
             if (code == KeyEvent.VK_W || code == KeyEvent.VK_UP) {
-
+                GamePanel.playSE(20);
                 gp.ui.commandNum--;
                 if(gp.ui.commandNum < 0) gp.ui.commandNum = 2;
                 if(gp.ui.commandNum > 2) gp.ui.commandNum = 0;
             }
             if (code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN) {
-
+                GamePanel.playSE(20);
                 gp.ui.commandNum++;
                 if(gp.ui.commandNum < 0) gp.ui.commandNum = 2;
                 if(gp.ui.commandNum > 2) gp.ui.commandNum = 0;
@@ -69,22 +71,22 @@ public class KeyHandler implements KeyListener {
         }
 
         // DIFFICULTY STATE
-        else if(GamePanel.gameState == GamePanel.difficultyState) {
+        else if(GamePanel.gameState == GamePanel.GameState.DIFFICULTY_STATE) {
 
             if (code == KeyEvent.VK_W || code == KeyEvent.VK_UP) {
-
+                GamePanel.playSE(20);
                 gp.ui.commandNum--;
                 if(gp.ui.commandNum < 0) gp.ui.commandNum = 3;
             }
             if (code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN) {
-
+                GamePanel.playSE(20);
                 gp.ui.commandNum++;
                 if(gp.ui.commandNum > 3) gp.ui.commandNum = 0;
             }
         }
 
         // PLAY STATE
-        else if(GamePanel.gameState == GamePanel.playState) {
+        else if(GamePanel.gameState == GamePanel.GameState.PLAY_STATE) {
 
             if (code == KeyEvent.VK_W || code == KeyEvent.VK_UP)    upPressed = true;
             if (code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN)  downPressed = true;
@@ -96,15 +98,15 @@ public class KeyHandler implements KeyListener {
             }
 
             if(code == KeyEvent.VK_P) {
-                GamePanel.gameState = GamePanel.pauseState;
+                GamePanel.gameState = GamePanel.GameState.PAUSE_STATE;
             }
 
             if(code == KeyEvent.VK_C) {
-                GamePanel.gameState = GamePanel.statusState;
+                GamePanel.gameState = GamePanel.GameState.STATUS_STATE;
             }
 
             if(code == KeyEvent.VK_ESCAPE) {
-                GamePanel.gameState = GamePanel.menuState;
+                GamePanel.gameState = GamePanel.GameState.MENU_STATE;
             }
 
 
@@ -117,24 +119,24 @@ public class KeyHandler implements KeyListener {
         }
 
         // PAUSE STATE
-        else if(GamePanel.gameState == GamePanel.pauseState) {
+        else if(GamePanel.gameState == GamePanel.GameState.PAUSE_STATE) {
             if (code == KeyEvent.VK_P) {
-                GamePanel.gameState = GamePanel.playState;
+                GamePanel.gameState = GamePanel.GameState.PLAY_STATE;
             }
         }
 
         // DIALOGUE STATE
-        else if(GamePanel.gameState == GamePanel.dialogueState) {
-            if (code == KeyEvent.VK_ENTER) {GamePanel.gameState = GamePanel.playState;}
+        else if(GamePanel.gameState == GamePanel.GameState.DIALOGUE_STATE) {
+            if (code == KeyEvent.VK_ENTER) {GamePanel.gameState = GamePanel.GameState.PLAY_STATE;}
         }
 
         // COMBAT STATE
-        else if(GamePanel.gameState == GamePanel.combatState) {
+        else if(GamePanel.gameState == GamePanel.GameState.COMBAT_STATE) {
                 if (code == KeyEvent.VK_ESCAPE) {System.exit(0);}
             }
 
         // GAME OVER STATE
-        else if(GamePanel.gameState == GamePanel.gameOverState) {
+        else if(GamePanel.gameState == GamePanel.GameState.GAME_OVER_STATE) {
 
             if (code == KeyEvent.VK_W || code == KeyEvent.VK_UP) {
 
@@ -149,10 +151,10 @@ public class KeyHandler implements KeyListener {
         }
 
         // STATUS STATE
-        else if(GamePanel.gameState == GamePanel.statusState) {
+        else if(GamePanel.gameState == GamePanel.GameState.STATUS_STATE) {
 
             if (code == KeyEvent.VK_C) {
-                GamePanel.gameState = GamePanel.playState;
+                GamePanel.gameState = GamePanel.GameState.PLAY_STATE;
             }
             if ( (code == KeyEvent.VK_W || code == KeyEvent.VK_UP)    && j > 0) {
                 GamePanel.playSE(20);
@@ -173,10 +175,10 @@ public class KeyHandler implements KeyListener {
         }
 
         // MENU STATE
-        else if(GamePanel.gameState == GamePanel.menuState) {
+        else if(GamePanel.gameState == GamePanel.GameState.MENU_STATE) {
 
             if (code == KeyEvent.VK_ESCAPE) {
-                GamePanel.gameState = GamePanel.playState;
+                GamePanel.gameState = GamePanel.GameState.PLAY_STATE;
                 gp.ui.commandNum = 0;
             }
             if (code == KeyEvent.VK_W || code == KeyEvent.VK_UP) {
@@ -206,17 +208,26 @@ public class KeyHandler implements KeyListener {
 
         int code = e.getKeyCode();
 
-        if(GamePanel.gameState == GamePanel.languageState   ||
-           GamePanel.gameState == GamePanel.titleState      ||
-           GamePanel.gameState == GamePanel.difficultyState ||
-           GamePanel.gameState == GamePanel.gameOverState   ||
-           GamePanel.gameState == GamePanel.statusState) {
+        if( GamePanel.gameState == GamePanel.GameState.LANGUAGE_STATE   ||
+            GamePanel.gameState == GamePanel.GameState.TITLE_STATE      ||
+            GamePanel.gameState == GamePanel.GameState.DIFFICULTY_STATE ||
+            GamePanel.gameState == GamePanel.GameState.GAME_OVER_STATE   ||
+            GamePanel.gameState == GamePanel.GameState.STATUS_STATE     ||
+            GamePanel.gameState == GamePanel.GameState.CONTROL_STATE) {
             if (code == KeyEvent.VK_ENTER || code == KeyEvent.VK_SPACE) {
 
                 gp.ui.enterPressed = false;
                 gp.ui.commandNum = 0;
             }
         }
+
+
+        if(GamePanel.gameState == GamePanel.GameState.PLAY_STATE) {
+            gp.ui.enterPressed = false;
+            gp.ui.commandNum = 0;
+        }
+
+
 
         // PLAY STATE
         if (code == KeyEvent.VK_W || code == KeyEvent.VK_UP) upPressed = false;

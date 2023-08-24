@@ -17,14 +17,14 @@ public class OBJ_Apple extends SuperObject{
 
         name = "Apple";
         int x;
-        if(GamePanel.difficulty == GamePanel.easy) x = 100;
+        if(GamePanel.difficulty == GamePanel.Difficulty.EASY) x = 100;
         else x = 50;
         switch (GamePanel.language) {
-            case GamePanel.eng: description = "It gives " +  x + " HP";
+            case ENG: description = "It gives " +  x + " HP";
                 break;
-            case GamePanel.hun: description = "Ad " + x + " HP-t";
+            case HUN: description = "Ad " + x + " HP-t";
                 break;
-            case GamePanel.fr: description = "Francia "+ x + " HP";
+            case FR: description = "Francia "+ x + " HP";
                 break;
             default: description = "You got " + x + " HP";
                 break;

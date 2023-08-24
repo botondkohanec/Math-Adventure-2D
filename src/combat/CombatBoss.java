@@ -29,7 +29,7 @@ public class CombatBoss extends Combat implements Runnable {
     @Override
     public String play() {
 
-        if(difficulty == easy) enemyHP = 350;
+        if(GamePanel.difficulty == Difficulty.EASY) enemyHP = 350;
         else enemyHP = 500;
         this.startGameThread();
 
@@ -92,7 +92,7 @@ public class CombatBoss extends Combat implements Runnable {
                 }
 
                 int a = 8;
-                if(difficulty == easy) a += 2;
+                if(GamePanel.difficulty == Difficulty.EASY) a += 2;
                 for(int i = a; i >= 1; i--) {
                     showCountDown(i);
                     for(int j = 1; j <= 10; j++) {
@@ -144,11 +144,11 @@ public class CombatBoss extends Combat implements Runnable {
 
             Combat.playerVictory = true;
             switch (GamePanel.language) {
-                case eng: text = "Victory!";
+                case ENG: text = "Victory!";
                     break;
-                case hun: text = "Győzelem!";
+                case HUN: text = "Győzelem!";
                     break;
-                case fr: text = "Victoire!";
+                case FR: text = "Victoire!";
                     break;
                 default: text = "Victory!";
                     break;
@@ -161,11 +161,11 @@ public class CombatBoss extends Combat implements Runnable {
             }
             window.setVisible(false);
             switch (GamePanel.language) {
-                case eng: text = "VICTORY! You defeated the Beast!";
+                case ENG: text = "VICTORY! You defeated the Beast!";
                     break;
-                case hun: text = "GYŐZELEM! Legyőzted a Szörnyeteget!";
+                case HUN: text = "GYŐZELEM! Legyőzted a Szörnyeteget!";
                     break;
-                case fr: text = "VICTOIRE! Tu as vaincu le Monstre!";
+                case FR: text = "VICTOIRE! Tu as vaincu le Monstre!";
                     break;
                 default: text = "VICTORY! You defeated the Beast!";
                     break;
@@ -178,11 +178,11 @@ public class CombatBoss extends Combat implements Runnable {
 
             Combat.playerVictory = false;
             switch (GamePanel.language) {
-                case eng: text = "You lost!";
+                case ENG: text = "You lost!";
                     break;
-                case hun: text = "Vesztettél!";
+                case HUN: text = "Vesztettél!";
                     break;
-                case fr: text = "Tu as perdu!";
+                case FR: text = "Tu as perdu!";
                     break;
                 default: text = "You lost!";
                     break;
@@ -195,11 +195,11 @@ public class CombatBoss extends Combat implements Runnable {
             }
             window.setVisible(false);
             switch (GamePanel.language) {
-                case eng: text = "THE DEVIL DEFEATED YOU!";
+                case ENG: text = "THE DEVIL DEFEATED YOU!";
                     break;
-                case hun: text = "LEGYŐZÖTT AZ ÖRDÖG!";
+                case HUN: text = "LEGYŐZÖTT AZ ÖRDÖG!";
                     break;
-                case fr: text = "LE DIABLE T'A VAINCU!";
+                case FR: text = "LE DIABLE T'A VAINCU!";
                     break;
                 default: text = "THE DEVIL DEFEATED YOU!";
                     break;
@@ -216,11 +216,11 @@ public class CombatBoss extends Combat implements Runnable {
         String text = "";
         if(enemyHPLabel != null) enemyHPLabel.setVisible(false);
         switch (GamePanel.language) {
-            case eng: text = "Devil: ";
+            case ENG: text = "Devil: ";
                 break;
-            case hun: text = "Ördög: ";
+            case HUN: text = "Ördög: ";
                 break;
-            case fr: text = "Diable: ";
+            case FR: text = "Diable: ";
                 break;
             default: text = "Devil: ";
                 break;

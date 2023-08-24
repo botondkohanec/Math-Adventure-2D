@@ -80,11 +80,11 @@ public class GeometryDoor extends Combat {
 
         switch (GamePanel.language) {
 
-            case GamePanel.eng: text = "Wrong answer!";
+            case ENG: text = "Wrong answer!";
                 break;
-            case GamePanel.hun: text = "Nem talált!";
+            case HUN: text = "Nem talált!";
                 break;
-            case GamePanel.fr: text = "Mauvaise réponse!";
+            case FR: text = "Mauvaise réponse!";
                 break;
             default: text = "Wrong answer!";
                 break;
@@ -103,11 +103,11 @@ public class GeometryDoor extends Combat {
 
             switch (GamePanel.language) {
 
-                case GamePanel.eng: text = "Correct!";
+                case ENG: text = "Correct!";
                     break;
-                case GamePanel.hun: text = "Talált!";
+                case HUN: text = "Talált!";
                     break;
-                case GamePanel.fr: text = "Correct!";
+                case FR: text = "Correct!";
                     break;
                 default: text = "Correct!";
                     break;
@@ -118,11 +118,11 @@ public class GeometryDoor extends Combat {
             ok = true;
         } else {
             switch (GamePanel.language) {
-                case GamePanel.eng: text = "Wrong answer!";
+                case ENG: text = "Wrong answer!";
                     break;
-                case GamePanel.hun: text = "Nem talált!";
+                case HUN: text = "Nem talált!";
                     break;
-                case GamePanel.fr: text = "Mauvaise réponse!";
+                case FR: text = "Mauvaise réponse!";
                     break;
                 default: text = "Wrong answer!";
                     break;
@@ -160,11 +160,11 @@ public class GeometryDoor extends Combat {
         if(i == 1) {
             switch (GamePanel.language) {
 
-                case GamePanel.eng: text = "The length of the side of a square: " + a + ". How much is its circumference?";
+                case ENG: text = "The length of the side of a square: " + a + ". How much is its circumference?";
                     break;
-                case GamePanel.hun: text = "Négyzet oldalának hossza: " + a + ". Mennyi a kerülete?";
+                case HUN: text = "Négyzet oldalának hossza: " + a + ". Mennyi a kerülete?";
                     break;
-                case GamePanel.fr: text = "La longueur de côtés d'un carré: " + a + ". Combien est sa circonférence?";
+                case FR: text = "La longueur de côtés d'un carré: " + a + ". Combien est sa circonférence?";
                     break;
                 default: text = "The length of the side of a square: " + a + ". How much is its circumference?";
                     break;
@@ -176,11 +176,11 @@ public class GeometryDoor extends Combat {
 
             switch (GamePanel.language) {
 
-                case GamePanel.eng: text = "The length of the side of a square: " + a + ". How much is its area?";
+                case ENG: text = "The length of the side of a square: " + a + ". How much is its area?";
                     break;
-                case GamePanel.hun: text = "Négyzet oldalának hossza: " + a + ". Mennyi a területe?";
+                case HUN: text = "Négyzet oldalának hossza: " + a + ". Mennyi a területe?";
                     break;
-                case GamePanel.fr: text = "La longueur de côtés d'un carré: " + a + ". Combien est sa superficie?";
+                case FR: text = "La longueur de côtés d'un carré: " + a + ". Combien est sa superficie?";
                     break;
                 default: text = "The length of the side of a square: " + a + ". How much is its area?";
                     break;
@@ -191,11 +191,11 @@ public class GeometryDoor extends Combat {
         } else if (i == 3) {
 
             switch (GamePanel.language) {
-                case GamePanel.eng: text = "The side lengths of a rectangle: " + a + ", "+ b + ". How much is its circumference?";
+                case ENG: text = "The side lengths of a rectangle: " + a + ", "+ b + ". How much is its circumference?";
                     break;
-                case GamePanel.hun: text = "Téglalap oldalainak hossza: " + a + ", "+ b + ". Mennyi a kerülete?";
+                case HUN: text = "Téglalap oldalainak hossza: " + a + ", "+ b + ". Mennyi a kerülete?";
                     break;
-                case GamePanel.fr: text = "La longueur de côtés d'un rectangle: " + a + ", "+ b + ". Combien est sa circonférence?";
+                case FR: text = "La longueur de côtés d'un rectangle: " + a + ", "+ b + ". Combien est sa circonférence?";
                     break;
                 default: text = "The side lengths of a rectangle: " + a + ", "+ b + ". How much is its circumference?";
                     break;
@@ -206,11 +206,11 @@ public class GeometryDoor extends Combat {
         } else if (i == 4) {
 
             switch (GamePanel.language) {
-                case GamePanel.eng: text = "The side lengths of a rectangle: " + a + ", "+ b + ". How much is its area?";
+                case ENG: text = "The side lengths of a rectangle: " + a + ", "+ b + ". How much is its area?";
                     break;
-                case GamePanel.hun: text = "Téglalap oldalainak hossza: " + a + ", "+ b + ". Mennyi a területe?";
+                case HUN: text = "Téglalap oldalainak hossza: " + a + ", "+ b + ". Mennyi a területe?";
                     break;
-                case GamePanel.fr: text = "La longueur de côtés d'un rectangle: " + a + ", "+ b + ". Combien est sa superficie?";
+                case FR: text = "La longueur de côtés d'un rectangle: " + a + ", "+ b + ". Combien est sa superficie?";
                     break;
                 default: text = "The side lengths of a rectangle: " + a + ", "+ b + ". How much is its area?";
                     break;

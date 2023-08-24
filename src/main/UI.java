@@ -29,8 +29,8 @@ public class UI {
     BufferedImage tileImage;
 
     public boolean messageOn = false;
-    public ArrayList<String> messageList = new ArrayList<String>();
-    public ArrayList<Integer> messageCounter = new ArrayList<Integer>();
+    public ArrayList<String> messageList = new ArrayList<>();
+    public ArrayList<Integer> messageCounter = new ArrayList<>();
 
     public String currentDialogue = "";
     public int commandNum = 0;
@@ -80,28 +80,28 @@ public class UI {
         g2.setColor(Color.white);
 
         // LANGUAGE STATE
-        if(GamePanel.gameState == GamePanel.languageState) {
+        if(GamePanel.gameState == GamePanel.GameState.LANGUAGE_STATE) {
 
             if(enterPressed) {
 
                 enterPressed = false;
-                GamePanel.gameState = GamePanel.titleState;
-                if(gp.ui.commandNum == 0) GamePanel.language = GamePanel.eng;
-                if(gp.ui.commandNum == 1) GamePanel.language = GamePanel.hun;
-                if(gp.ui.commandNum == 2) GamePanel.language = GamePanel.fr;
+                GamePanel.gameState = GamePanel.GameState.TITLE_STATE;
+                if(gp.ui.commandNum == 0) GamePanel.language = GamePanel.Language.ENG;
+                if(gp.ui.commandNum == 1) GamePanel.language = GamePanel.Language.HUN;
+                if(gp.ui.commandNum == 2) GamePanel.language = GamePanel.Language.FR;
             }
 
             drawLanguageScreen();
         }
 
         // TITLE STATE
-        if(GamePanel.gameState == GamePanel.titleState) {
+        if(GamePanel.gameState == GamePanel.GameState.TITLE_STATE) {
 
             if(enterPressed) {
 
                 gp.ui.enterPressed = false;
-                if(gp.ui.commandNum == 0) GamePanel.gameState = GamePanel.difficultyState;
-                if(gp.ui.commandNum == 1) GamePanel.gameState = GamePanel.languageState;
+                if(gp.ui.commandNum == 0) GamePanel.gameState = GamePanel.GameState.DIFFICULTY_STATE;
+                if(gp.ui.commandNum == 1) GamePanel.gameState = GamePanel.GameState.LANGUAGE_STATE;
                 if(gp.ui.commandNum == 2) System.exit(0);
             }
 
@@ -109,28 +109,31 @@ public class UI {
         }
 
         // DIFFICULTY STATE
-        if(GamePanel.gameState == GamePanel.difficultyState) {
+        if(GamePanel.gameState == GamePanel.GameState.DIFFICULTY_STATE) {
 
             if(enterPressed) {
 
                 enterPressed = false;
-                if(gp.ui.commandNum == 0) GamePanel.difficulty = GamePanel.easy;
-                if(gp.ui.commandNum == 1) GamePanel.difficulty = GamePanel.medium;
-                if(gp.ui.commandNum == 2) GamePanel.difficulty = GamePanel.hard;
-                if(gp.ui.commandNum == 3) GamePanel.difficulty = GamePanel.mathematician;
+                if(gp.ui.commandNum == 0) GamePanel.difficulty = GamePanel.Difficulty.EASY;
+                if(gp.ui.commandNum == 1) GamePanel.difficulty = GamePanel.Difficulty.MEDIUM;
+                if(gp.ui.commandNum == 2) GamePanel.difficulty = GamePanel.Difficulty.HARD;
+                if(gp.ui.commandNum == 3) GamePanel.difficulty = GamePanel.Difficulty.MATHEMATICIAN;
                 gp.tileM = new TileManager(gp);
+                gp.player.setDefaultValues();
                 gp.aSetter.setObject();
                 gp.aSetter.setNPC();
-                GamePanel.gameState = GamePanel.playState;
+                GamePanel.gameState = GamePanel.GameState.PLAY_STATE;
                 gp.playMusic(0);
                 gp.ui.commandNum = 0;
+                messageList = new ArrayList<>();
+                messageCounter = new ArrayList<>();
             }
 
             drawDifficultyScreen();
         }
 
         // PLAY STATE
-        if(GamePanel.gameState == GamePanel.playState) {
+        if(GamePanel.gameState == GamePanel.GameState.PLAY_STATE) {
 
 
             drawSubWindowBlack(gp.screenWith - gp.tileSize*4-20-12, gp.tileSize / 2-10, 200, gp.tileSize+20);
@@ -148,22 +151,22 @@ public class UI {
         }
 
         // PAUSE STATE
-        if(GamePanel.gameState == GamePanel.pauseState) {
+        if(GamePanel.gameState == GamePanel.GameState.PAUSE_STATE) {
             drawPauseScreen();
         }
 
         // DIALOGUE STATE
-        if(GamePanel.gameState == GamePanel.dialogueState) {
+        if(GamePanel.gameState == GamePanel.GameState.DIALOGUE_STATE) {
             drawDialogueScreen();
         }
 
         // COMBAT STATE
-        if(GamePanel.gameState == GamePanel.combatState) {
+        if(GamePanel.gameState == GamePanel.GameState.COMBAT_STATE) {
             drawCombatScreen();
         }
 
         // GAME OVER STATE
-        if(GamePanel.gameState == GamePanel.gameOverState) {
+        if(GamePanel.gameState == GamePanel.GameState.GAME_OVER_STATE) {
 
             gp.stopMusic();
             if(i == 0) gp.playSE(2);
@@ -186,7 +189,7 @@ public class UI {
                     gp.aSetter.setNPC();
                     gp.player.hasKey = 0;
                     UI.i = 0;
-                    GamePanel.gameState = GamePanel.playState;
+                    GamePanel.gameState = GamePanel.GameState.PLAY_STATE;
                     gp.playMusic(0);
                 }
                 if (gp.ui.commandNum == 1) System.exit(0);
@@ -196,7 +199,7 @@ public class UI {
         }
 
         // RESOURCES STATE
-        if(GamePanel.gameState == GamePanel.resourcesState) {
+        if(GamePanel.gameState == GamePanel.GameState.RESOURCES_STATE) {
 
             if(commandNum == 0)         {
                 drawVictoryScreen();
@@ -226,20 +229,40 @@ public class UI {
         }
 
         // STATUS STATE
-        if(GamePanel.gameState == GamePanel.statusState) {
+        if(GamePanel.gameState == GamePanel.GameState.STATUS_STATE) {
             drawStatusState();
         }
 
         // MENU STATE
-        if(GamePanel.gameState == GamePanel.menuState) {
-//            if(enterPressed) {
-//
-//                gp.ui.enterPressed = false;
-//                if(gp.ui.commandNum == 0) GamePanel.gameState = GamePanel.difficultyState;
-//                if(gp.ui.commandNum == 1) GamePanel.gameState = GamePanel.languageState;
-//                if(gp.ui.commandNum == 2) System.exit(0);
-//            }
+        if(GamePanel.gameState == GamePanel.GameState.MENU_STATE) {
+            if(enterPressed) {
+
+                gp.ui.enterPressed = false;
+                if(gp.ui.commandNum == 0) ;
+                if(gp.ui.commandNum == 1) ;
+                if(gp.ui.commandNum == 2) ;
+                if(gp.ui.commandNum == 3) {
+                    commandNum = 0;
+                    GamePanel.gameState = GamePanel.GameState.CONTROL_STATE;
+                };
+                if(gp.ui.commandNum == 4) {
+                    gp.stopMusic();
+                    GamePanel.gameState = GamePanel.GameState.TITLE_STATE;
+                }
+                if(gp.ui.commandNum == 5) GamePanel.gameState = GamePanel.GameState.PLAY_STATE;
+            }
             drawMenuState();
+        }
+
+        // CONTROL STATE
+        if(GamePanel.gameState == GamePanel.GameState.CONTROL_STATE) {
+            drawControlState();
+            if(enterPressed) {
+                if (gp.ui.commandNum == 0) {
+                    gp.ui.enterPressed = false;
+                    GamePanel.gameState = GamePanel.GameState.MENU_STATE;
+                }
+            }
         }
     }
 
@@ -345,11 +368,11 @@ public class UI {
         String text = "";
         switch (GamePanel.language) {
 
-            case GamePanel.eng: text = "Math Adventure 2D";
+            case ENG: text = "Math Adventure 2D";
                 break;
-            case GamePanel.hun: text = "Matek Kaland 2D";
+            case HUN: text = "Matek Kaland 2D";
                 break;
-            case GamePanel.fr: text = "Aventures de Maths en 2D";
+            case FR: text = "Aventures de Maths en 2D";
                 break;
             default: text = "Math Adventure 2D";
                 break;
@@ -374,11 +397,11 @@ public class UI {
 
         switch (GamePanel.language) {
 
-            case GamePanel.eng: text = "NEW GAME";
+            case ENG: text = "NEW GAME";
                 break;
-            case GamePanel.hun: text = "ÚJ JÁTÉK";
+            case HUN: text = "ÚJ JÁTÉK";
                 break;
-            case GamePanel.fr: text = "NOUVEAU JEU";
+            case FR: text = "NOUVEAU JEU";
                 break;
             default: text = "NEW GAME";
                 break;
@@ -395,11 +418,11 @@ public class UI {
 
         switch (GamePanel.language) {
 
-            case GamePanel.eng: text = "LANGUAGE";
+            case ENG: text = "LANGUAGE";
                 break;
-            case GamePanel.hun: text = "NYELV";
+            case HUN: text = "NYELV";
                 break;
-            case GamePanel.fr: text = "FRANCIA";
+            case FR: text = "FRANCIA";
                 break;
             default: text = "LANGUAGE";
                 break;
@@ -416,11 +439,11 @@ public class UI {
 
         switch (GamePanel.language) {
 
-            case GamePanel.eng: text = "QUIT";
+            case ENG: text = "QUIT";
                 break;
-            case GamePanel.hun: text = "KILÉPÉS";
+            case HUN: text = "KILÉPÉS";
                 break;
-            case GamePanel.fr: text = "QUITTER";
+            case FR: text = "QUITTER";
                 break;
             default: text = "QUIT";
                 break;
@@ -449,11 +472,11 @@ public class UI {
 
         switch (GamePanel.language) {
 
-            case GamePanel.eng: text = "Easy";
+            case ENG: text = "Easy";
                 break;
-            case GamePanel.hun: text = "Könnyű";
+            case HUN: text = "Könnyű";
                 break;
-            case GamePanel.fr: text = "Facile";
+            case FR: text = "Facile";
                 break;
             default: text = "Easy";
                 break;
@@ -470,11 +493,11 @@ public class UI {
 
         switch (GamePanel.language) {
 
-            case GamePanel.eng: text = "Medium";
+            case ENG: text = "Medium";
                 break;
-            case GamePanel.hun: text = "Közepes";
+            case HUN: text = "Közepes";
                 break;
-            case GamePanel.fr: text = "Moyen";
+            case FR: text = "Moyen";
                 break;
             default: text = "Medium";
                 break;
@@ -491,11 +514,11 @@ public class UI {
 
         switch (GamePanel.language) {
 
-            case GamePanel.eng: text = "Hard";
+            case ENG: text = "Hard";
                 break;
-            case GamePanel.hun: text = "Nehéz";
+            case HUN: text = "Nehéz";
                 break;
-            case GamePanel.fr: text = "Difficile";
+            case FR: text = "Difficile";
                 break;
             default: text = "Hard";
                 break;
@@ -511,11 +534,11 @@ public class UI {
         }
 
         switch (GamePanel.language) {
-            case GamePanel.eng: text = "Mathematician";
+            case ENG: text = "Mathematician";
                 break;
-            case GamePanel.hun: text = "Matematikus";
+            case HUN: text = "Matematikus";
                 break;
-            case GamePanel.fr: text = "Mathématicien";
+            case FR: text = "Mathématicien";
                 break;
             default: text = "Mathematician";
                 break;
@@ -536,11 +559,11 @@ public class UI {
         String text = "";
         switch (GamePanel.language) {
 
-            case GamePanel.eng: text = "PAUSE";
+            case ENG: text = "PAUSE";
                 break;
-            case GamePanel.hun: text = "SZÜNET";
+            case HUN: text = "SZÜNET";
                 break;
-            case GamePanel.fr: text = "PAUSE";
+            case FR: text = "PAUSE";
                 break;
             default: text = "PAUSED";
                 break;
@@ -557,11 +580,11 @@ public class UI {
         String text = "";
         switch (GamePanel.language) {
 
-            case GamePanel.eng: text = "COMBAT";
+            case ENG: text = "COMBAT";
                 break;
-            case GamePanel.hun: text = "HARC";
+            case HUN: text = "HARC";
                 break;
-            case GamePanel.fr: text = "COMBAT";
+            case FR: text = "COMBAT";
                 break;
             default: text = "COMBAT";
                 break;
@@ -582,11 +605,11 @@ public class UI {
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 75F));
 
         switch (GamePanel.language) {
-            case GamePanel.eng: text = "GAME OVER";
+            case ENG: text = "GAME OVER";
                 break;
-            case GamePanel.hun: text = "VÉGE A JÁTÉKNAK";
+            case HUN: text = "VÉGE A JÁTÉKNAK";
                 break;
-            case GamePanel.fr: text = "FIN DE JEU";
+            case FR: text = "FIN DE JEU";
                 break;
             default: text = "GAME OVER";
                 break;
@@ -605,11 +628,11 @@ public class UI {
 
         switch (GamePanel.language) {
 
-            case GamePanel.eng: text = "Retry";
+            case ENG: text = "Retry";
                 break;
-            case GamePanel.hun: text = "Újra";
+            case HUN: text = "Újra";
                 break;
-            case GamePanel.fr: text = "De Nouveau";
+            case FR: text = "De Nouveau";
                 break;
             default: text = "Retry";
                 break;
@@ -624,11 +647,11 @@ public class UI {
         // Back to the title screen
         switch (GamePanel.language) {
 
-            case GamePanel.eng: text = "Quit";
+            case ENG: text = "Quit";
                 break;
-            case GamePanel.hun: text = "Kilép";
+            case HUN: text = "Kilép";
                 break;
-            case GamePanel.fr: text = "Quitter";
+            case FR: text = "Quitter";
                 break;
             default: text = "Quit";
                 break;
@@ -673,7 +696,7 @@ public class UI {
         x += gp.tileSize/2;
         y += gp.tileSize;
 
-        if(GamePanel.language == GamePanel.hun) {
+        if(GamePanel.language == GamePanel.Language.HUN) {
 
             g2.drawString("Szint", x, y);
             g2.drawString("" + entity.Player.level, x + 165, y);
@@ -710,7 +733,7 @@ public class UI {
             g2.drawString("Fegyver", x, y);
             g2.drawImage(swordImageUp, x + 136, y - 40, 3 * gp.tileSize / 2, 3 * gp.tileSize / 2, null);
         }
-        else if(GamePanel.language == GamePanel.fr) {
+        else if(GamePanel.language == GamePanel.Language.FR) {
 
             g2.drawString("Francia", x, y);
             g2.drawString("" + entity.Player.level, x + 165, y);
@@ -828,7 +851,7 @@ public class UI {
         x += 2*gp.tileSize;
         y += gp.tileSize;
 
-        if(GamePanel.language == GamePanel.hun) {
+        if(GamePanel.language == GamePanel.Language.HUN) {
 
             g2.drawString("Hang", x, y);
             if(commandNum == 0) {
@@ -865,7 +888,7 @@ public class UI {
                 g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
             }
         }
-        else if(GamePanel.language == GamePanel.fr) {
+        else if(GamePanel.language == GamePanel.Language.FR) {
 
             g2.drawString("Francia", x, y);
             if(commandNum == 0) {
@@ -939,6 +962,94 @@ public class UI {
             }
         }
     }
+    public void drawControlState() {
+        // WINDOW
+        int x = 4*gp.tileSize;
+        int y = 2*gp.tileSize;
+        int width = gp.screenWith-8*gp.tileSize;
+        int height = gp.screenHeight - 4*gp.tileSize;
+        drawSubWindow(x, y, width, height);
+
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 28F));
+        x += 2*gp.tileSize;
+        y += gp.tileSize;
+
+        if(GamePanel.language == GamePanel.Language.HUN) {
+
+            g2.drawString("Mozgás: ASDW, nyilak", x, y);
+            y += 50;
+
+            g2.drawString("Beszéd: E", x, y);
+            y += 50;
+
+            g2.drawString("Státusz: C", x, y);
+            y += 50;
+
+            g2.drawString("Játék megállítása: P", x, y);
+            y += 50;
+
+            g2.drawString("Menü: ESC", x, y);
+            y += 50;
+
+            g2.drawString("Enter: ENTER, SPACE", x, y);
+            y += 60;
+
+            g2.drawString("Vissza", x, y);
+            if(commandNum == 0) {
+                g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
+            }
+        }
+        else if(GamePanel.language == GamePanel.Language.FR) {
+
+            g2.drawString("Francia: ASDW or <-->..", x, y);
+            y += 50;
+
+            g2.drawString("Francia: E", x, y);
+            y += 50;
+
+            g2.drawString("Francia: C", x, y);
+            y += 50;
+
+            g2.drawString("Francia: P", x, y);
+            y += 50;
+
+            g2.drawString("Francia: ESC", x, y);
+            y += 50;
+
+            g2.drawString("Francia: ENTER, SPACE", x, y);
+            y += 60;
+
+            g2.drawString("Francia", x, y);
+            if(commandNum == 0) {
+                g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
+            }
+        }
+        else {
+            g2.drawString("Moving: ASDW, <-->..", x, y);
+            y += 50;
+
+            g2.drawString("Speaking: E", x, y);
+            y += 50;
+
+            g2.drawString("Status: C", x, y);
+            y += 50;
+
+            g2.drawString("Pause: P", x, y);
+            y += 50;
+
+            g2.drawString("Menu: ESC", x, y);
+            y += 50;
+
+            g2.drawString("Enter: ENTER, SPACE", x, y);
+            y += 60;
+
+            g2.drawString("Back", x, y);
+            if(commandNum == 0) {
+                g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
+            }
+        }
+    }
+
 
     public void drawVictoryScreen() {
 
@@ -948,11 +1059,11 @@ public class UI {
 
         switch (GamePanel.language) {
 
-            case GamePanel.eng: text = "VICTORY!";
+            case ENG: text = "VICTORY!";
                 break;
-            case GamePanel.hun: text = "GYŐZELEM!";
+            case HUN: text = "GYŐZELEM!";
                 break;
-            case GamePanel.fr: text = "VICTOIRE!";
+            case FR: text = "VICTOIRE!";
                 break;
             default: text = "VICTORY!";
                 break;
@@ -986,11 +1097,11 @@ public class UI {
         String text = "";
         switch (GamePanel.language) {
 
-            case GamePanel.eng: text = "The game is based on";
+            case ENG: text = "The game is based on";
                 break;
-            case GamePanel.hun: text = "A játék alapja";
+            case HUN: text = "A játék alapja";
                 break;
-            case GamePanel.fr: text = "Les jeux se fondent sur";
+            case FR: text = "Les jeux se fondent sur";
                 break;
             default: text = "The game is based on";
                 break;
@@ -1039,11 +1150,11 @@ public class UI {
         String text = "";
         switch (GamePanel.language) {
 
-            case GamePanel.eng: text = "Music & Audio";
+            case ENG: text = "Music & Audio";
                 break;
-            case GamePanel.hun: text = "Zene és Hang";
+            case HUN: text = "Zene és Hang";
                 break;
-            case GamePanel.fr: text = "Musique et Son";
+            case FR: text = "Musique et Son";
                 break;
             default: text = "Music & Audio";
                 break;
@@ -1095,11 +1206,11 @@ public class UI {
         String text = "";
         switch (GamePanel.language) {
 
-            case GamePanel.eng: text = "Picture resources";
+            case ENG: text = "Picture resources";
                 break;
-            case GamePanel.hun: text = "Kép források";
+            case HUN: text = "Kép források";
                 break;
-            case GamePanel.fr: text = "Sources des Images";
+            case FR: text = "Sources des Images";
                 break;
             default: text = "Picture resources";
                 break;
@@ -1119,11 +1230,11 @@ public class UI {
 
         switch (GamePanel.language) {
 
-            case GamePanel.eng: text = "Devil";
+            case ENG: text = "Devil";
                 break;
-            case GamePanel.hun: text = "Ördög";
+            case HUN: text = "Ördög";
                 break;
-            case GamePanel.fr: text = "Diable";
+            case FR: text = "Diable";
                 break;
             default: text = "Devil";
                 break;
@@ -1138,11 +1249,11 @@ public class UI {
 
         switch (GamePanel.language) {
 
-            case GamePanel.eng: text = "Forest (Background)";
+            case ENG: text = "Forest (Background)";
                 break;
-            case GamePanel.hun: text = "Erdő (Háttér)";
+            case HUN: text = "Erdő (Háttér)";
                 break;
-            case GamePanel.fr: text = "Fôret (Arrière-plan)";
+            case FR: text = "Fôret (Arrière-plan)";
                 break;
             default: text = "Forest (Background)";
                 break;
@@ -1157,11 +1268,11 @@ public class UI {
 
         switch (GamePanel.language) {
 
-            case GamePanel.eng: text = "Door";
+            case ENG: text = "Door";
                 break;
-            case GamePanel.hun: text = "Ajtó";
+            case HUN: text = "Ajtó";
                 break;
-            case GamePanel.fr: text = "Porte";
+            case FR: text = "Porte";
                 break;
             default: text = "Door";
                 break;
@@ -1176,11 +1287,11 @@ public class UI {
 
         switch (GamePanel.language) {
 
-            case GamePanel.eng: text = "Knight";
+            case ENG: text = "Knight";
                 break;
-            case GamePanel.hun: text = "Lovag";
+            case HUN: text = "Lovag";
                 break;
-            case GamePanel.fr: text = "Chevalier";
+            case FR: text = "Chevalier";
                 break;
             default: text = "Knight";
                 break;
@@ -1195,11 +1306,11 @@ public class UI {
 
         switch (GamePanel.language) {
 
-            case GamePanel.eng: text = "Orc";
+            case ENG: text = "Orc";
                 break;
-            case GamePanel.hun: text = "Ork";
+            case HUN: text = "Ork";
                 break;
-            case GamePanel.fr: text = "Orc";
+            case FR: text = "Orc";
                 break;
             default: text = "Orc";
                 break;
@@ -1214,11 +1325,11 @@ public class UI {
 
         switch (GamePanel.language) {
 
-            case GamePanel.eng: text = "Wolfman";
+            case ENG: text = "Wolfman";
                 break;
-            case GamePanel.hun: text = "Farkasember";
+            case HUN: text = "Farkasember";
                 break;
-            case GamePanel.fr: text = "Loup-garou";
+            case FR: text = "Loup-garou";
                 break;
             default: text = "Wolfman";
                 break;
@@ -1233,11 +1344,11 @@ public class UI {
 
         switch (GamePanel.language) {
 
-            case GamePanel.eng: text = "Icon";
+            case ENG: text = "Icon";
                 break;
-            case GamePanel.hun: text = "Ikon";
+            case HUN: text = "Ikon";
                 break;
-            case GamePanel.fr: text = "Icône";
+            case FR: text = "Icône";
                 break;
             default: text = "Icon";
                 break;
@@ -1260,11 +1371,11 @@ public class UI {
         String text = "";
         switch (GamePanel.language) {
 
-            case GamePanel.eng: text = "Language translations";
+            case ENG: text = "Language translations";
                 break;
-            case GamePanel.hun: text = "Fordítások";
+            case HUN: text = "Fordítások";
                 break;
-            case GamePanel.fr: text = "Traduction des languages";
+            case FR: text = "Traduction des languages";
                 break;
             default: text = "Language translations";
                 break;

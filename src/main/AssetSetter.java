@@ -157,7 +157,7 @@ public class AssetSetter {
             gp.npc[2].worldY = gp.tileSize*26;
 
             setNPCWolfMan(3,17, 25);
-            if(GamePanel.difficulty != GamePanel.easy) {
+            if(GamePanel.difficulty != GamePanel.Difficulty.EASY) {
 
                 setNPCWolfMan(4, 32, 10);
                 setNPCWolfMan(5, 22, 11);
