@@ -1,0 +1,53 @@
+
+t
+java:S1104"RMake worldX a static final constant or non-public and provide accessors if needed.(ª‡ãìýÿÿÿÿ8¨æü¹˜1
+t
+java:S1104"RMake worldY a static final constant or non-public and provide accessors if needed.(ª‡ãìýÿÿÿÿ8¨æü¹˜1
+s
+java:S1104"QMake speed a static final constant or non-public and provide accessors if needed.(³„Ïîùÿÿÿÿ8¨æü¹˜1
+q
+java:S1104"OMake up1 a static final constant or non-public and provide accessors if needed.(µ¼ä´úÿÿÿÿ8¨æü¹˜1
+q
+java:S1104"OMake up2 a static final constant or non-public and provide accessors if needed.(µ¼ä´úÿÿÿÿ8¨æü¹˜1
+s
+java:S1104"QMake down1 a static final constant or non-public and provide accessors if needed.(µ¼ä´úÿÿÿÿ8¨æü¹˜1
+s
+java:S1104"QMake down2 a static final constant or non-public and provide accessors if needed.(µ¼ä´úÿÿÿÿ8¨æü¹˜1
+s
+java:S1104"QMake left1 a static final constant or non-public and provide accessors if needed.(µ¼ä´úÿÿÿÿ8¨æü¹˜1
+s
+java:S1104"QMake left2 a static final constant or non-public and provide accessors if needed.(µ¼ä´úÿÿÿÿ8¨æü¹˜1
+t
+java:S1104"RMake right1 a static final constant or non-public and provide accessors if needed.(µ¼ä´úÿÿÿÿ8¨æü¹˜1
+t
+java:S1104"RMake right2 a static final constant or non-public and provide accessors if needed.(µ¼ä´úÿÿÿÿ8¨æü¹˜1
+r
+java:S1104"UMake direction a static final constant or non-public and provide accessors if needed.(Çññ¢8¨æü¹˜1
+v
+java:S1104"YMake spriteCounter a static final constant or non-public and provide accessors if needed.(¤žÀ8¨æü¹˜1
+z
+java:S1104"XMake speakCounter a static final constant or non-public and provide accessors if needed.(¦¾­‰ÿÿÿÿÿ8¨æü¹˜1
+r
+java:S1104"UMake spriteNum a static final constant or non-public and provide accessors if needed.(‹ö¸ù8¨æü¹˜1
+r
+java:S1104"UMake solidArea a static final constant or non-public and provide accessors if needed.(›ðÛ«8¨æü¹˜1
+z
+java:S1104"]Make solidAreaDefaultX a static final constant or non-public and provide accessors if needed.(š¶Ö±8¨æü¹˜1
+z
+java:S1104"]Make solidAreaDefaultY a static final constant or non-public and provide accessors if needed.(š¶Ö±8¨æü¹˜1
+y
+java:S1104"WMake collisionOn a static final constant or non-public and provide accessors if needed.(óêŽ½ýÿÿÿÿ8¨æü¹˜1
+
+java:S1104"]Make actionLockCounter a static final constant or non-public and provide accessors if needed.(ÄóÐœøÿÿÿÿ8¨æü¹˜1
+s
+java:S1104"QMake index a static final constant or non-public and provide accessors if needed.(×´úÕúÿÿÿÿ8¨æü¹˜1
+F
+java:S1659"$Declare "worldY" on a separate line.(ª‡ãìýÿÿÿÿ8Çæü¹˜1
+b
+java:S1659"@Declare "up2" and all following declarations on a separate line.(µ¼ä´úÿÿÿÿ8Çæü¹˜1
+L
+java:S1659"/Declare "solidAreaDefaultY" on a separate line.(š¶Ö±8Çæü¹˜1
+L
+java:S1197"*Move the array designators [] to the type.(À±ßûÿÿÿÿ8Çæü¹˜1
+o
+java:S3776>"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(ÄÚÐ¥8Öæü¹˜1

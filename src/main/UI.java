@@ -851,21 +851,27 @@ public class UI {
         x += 2*gp.tileSize;
         y += gp.tileSize;
 
+        g2.setStroke(new BasicStroke(3));
         if(GamePanel.language == GamePanel.Language.HUN) {
 
             g2.drawString("Hang", x, y);
+            g2.drawRect(x + 100, y-24, 150, 30);
+            g2.fillRect(x + 100, y-24, 30*GamePanel.se.volumeScale, 30);
             if(commandNum == 0) {
                 g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
             }
             y += 50;
 
             g2.drawString("Zene", x, y);
+            g2.drawRect(x + 100, y-24, 150, 30);
+            g2.fillRect(x + 100, y-24, 30*GamePanel.music.volumeScale, 30);
             if(commandNum == 1) {
                 g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
             }
             y += 50;
 
             g2.drawString("Teljes képernyő", x, y);
+            g2.drawRect(x + 220, y-24, 30, 30);
             if(commandNum == 2) {
                 g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
             }
@@ -891,18 +897,23 @@ public class UI {
         else if(GamePanel.language == GamePanel.Language.FR) {
 
             g2.drawString("Francia", x, y);
+            g2.drawRect(x + 100, y-24, 150, 30);
+            g2.fillRect(x + 100, y-24, 30*GamePanel.se.volumeScale, 30);
             if(commandNum == 0) {
                 g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
             }
             y += 50;
 
             g2.drawString("Francia", x, y);
+            g2.drawRect(x + 100, y-24, 150, 30);
+            g2.fillRect(x + 100, y-24, 30*GamePanel.music.volumeScale, 30);
             if(commandNum == 1) {
                 g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
             }
             y += 50;
 
             g2.drawString("Francia", x, y);
+            g2.drawRect(x + 220, y-24, 30, 30);
             if(commandNum == 2) {
                 g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
             }
@@ -927,18 +938,23 @@ public class UI {
         }
         else {
             g2.drawString("Sound", x, y);
+            g2.drawRect(x + 100, y-24, 150, 30);
+            g2.fillRect(x + 100, y-24, 30*GamePanel.se.volumeScale, 30);
             if(commandNum == 0) {
                 g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
             }
             y += 50;
 
             g2.drawString("Music", x, y);
+            g2.drawRect(x + 100, y-24, 150, 30);
+            g2.fillRect(x + 100, y-24, 30*GamePanel.music.volumeScale, 30);
             if(commandNum == 1) {
                 g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
             }
             y += 50;
 
             g2.drawString("Full screen", x, y);
+            g2.drawRect(x + 220, y-24, 30, 30);
             if(commandNum == 2) {
                 g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
             }

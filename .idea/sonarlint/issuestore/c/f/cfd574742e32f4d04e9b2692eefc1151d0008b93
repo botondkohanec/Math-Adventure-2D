@@ -1,0 +1,28 @@
+
+£
+java:S11861"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÂÒßçşÿÿÿÿ8¨Àƒ¶¢1
+k
+java:S3252-"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(ƒ¼–÷úÿÿÿÿ8´Àƒ¶¢1
+H
+java:S1128"+Remove this unused import 'main.GamePanel'.(¸áƒ§8ğ’¶¢1
+^
+java:S1128"<Remove this unused import 'java.awt.font.FontRenderContext'.(œ¨†‹úÿÿÿÿ8ğ’¶¢1
+S
+java:S1128"6Remove this unused import 'java.awt.font.GlyphVector'.(á¥¥“8ğ’¶¢1
+\
+java:S1128":Remove this unused import 'java.awt.geom.AffineTransform'.(˜ÊÊ¡ıÿÿÿÿ8ğ’¶¢1
+[
+java:S1128	"9Remove this unused import 'java.awt.image.BufferedImage'.(×íĞ‡şÿÿÿÿ8ğ’¶¢1
+X
+java:S1128
+";Remove this unused import 'java.awt.image.BufferedImageOp'.(Ÿ½°¢8ğ’¶¢1
+V
+java:S1128"9Remove this unused import 'java.awt.image.ImageObserver'.(¥Óô”8ğ’¶¢1
+V
+java:S1128"9Remove this unused import 'java.awt.image.RenderedImage'.(¤Ò£Ò8ğ’¶¢1
+h
+java:S1128"FRemove this unused import 'java.awt.image.renderable.RenderableImage'.(Å‰ÿ´úÿÿÿÿ8ğ’¶¢1
+_
+java:S1128"BRemove this unused import 'java.text.AttributedCharacterIterator'.(“µ8ğ’¶¢1
+L
+java:S1128"*Remove this unused import 'java.util.Map'.(¼è½Òşÿÿÿÿ8ğ’¶¢1

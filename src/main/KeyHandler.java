@@ -194,10 +194,28 @@ public class KeyHandler implements KeyListener {
                 GamePanel.playSE(20);
             }
             if (code == KeyEvent.VK_A || code == KeyEvent.VK_LEFT) {
-                GamePanel.playSE(20);
+                if(gp.ui.commandNum == 0 || gp.ui.commandNum == 1) {
+                    GamePanel.playSE(20);
+                    if(gp.ui.commandNum == 0 && GamePanel.se.volumeScale > 0) {
+                        GamePanel.se.volumeScale--;
+                    }
+                    if(gp.ui.commandNum == 1 && GamePanel.music.volumeScale > 0) {
+                        GamePanel.music.volumeScale--;
+                        GamePanel.music.chechVolume();
+                    }
+                }
             }
             if (code == KeyEvent.VK_D || code == KeyEvent.VK_RIGHT) {
-                GamePanel.playSE(20);
+                if(gp.ui.commandNum == 0 || gp.ui.commandNum == 1) {
+                    GamePanel.playSE(20);
+                    if(gp.ui.commandNum == 0 && GamePanel.se.volumeScale < 5) {
+                        GamePanel.se.volumeScale++;
+                    }
+                    if(gp.ui.commandNum == 1 && GamePanel.music.volumeScale < 5) {
+                        GamePanel.music.volumeScale++;
+                        GamePanel.music.chechVolume();
+                    }
+                }
             }
         }
 
