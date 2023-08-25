@@ -15,3 +15,7 @@ Y
 java:S2696­"6Make the enclosing method "static" or remove this set.(µÝÐÔúÿÿÿÿ8±€Å•Ÿ1
 Y
 java:S2696²"6Make the enclosing method "static" or remove this set.(šÅ¿îüÿÿÿÿ8±€Å•Ÿ1
+O
+java:S1128"-Remove this unused import 'object.OBJ_Apple'.(Îóþ†ÿÿÿÿÿ8´Å¼á¢1
+M
+java:S1128"+Remove this unused import 'object.OBJ_Key'.(ñÑÆ•ÿÿÿÿÿ8´Å¼á¢1

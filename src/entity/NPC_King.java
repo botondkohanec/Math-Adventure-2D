@@ -24,40 +24,23 @@ public class NPC_King extends Entity{
     public void setDialogue() {
 
         String text1 = "", text2 = "";
-        switch (GamePanel.language) {
-            case ENG: text1 = """
+        text1 = GamePanel.switchLanguage("""
                     My daughter has been kidnapped.\nPlease, bring her back, I will give her
                     and the half of my kingdom to you.
-                    """;
-                break;
-            case HUN: text1 = """
+                    """,
+                """
                     Elrabolták a leányomat! Kérlek hozd\nvissza Őt, és akkor odaadom neked
                     feleségül, s vele fele királyságomat.
-                    """;
-                break;
-            case FR: text1 = """
+                    """,
+                """
                     Ma fille est enlevée. Récupéres-la\ns'il te plaît, je vais te la donner et
                     la moitié de mon royaume.
-                    """;
-                break;
-            default: text1 = """
-                    My daughter has been kidnapped.\nPlease, bring her back, I will give her
-                    and the half of my kingdom to you.
-                    """;
-                break;
-        }
+                    """
+                );
         dialogues[0] = text1;
-        text2 = "";
-        switch (GamePanel.language) {
-            case ENG: text2 = "Rescue my daughter, please!";
-                break;
-            case HUN: text2 = "Kérlek szabadítsd ki a leányomat!";
-                break;
-            case FR: text2 = "Libères ma fille, s'il te plaît!";
-                break;
-            default: text2 = "Rescue my daughter, please!";
-                break;
-        }
+        text2 = GamePanel.switchLanguage("Rescue my daughter, please!",
+                "Kérlek szabadítsd ki a leányomat!",
+                "Libères ma fille, s'il te plaît!");
         dialogues[1] = text2;
     }
 

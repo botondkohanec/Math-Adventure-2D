@@ -77,6 +77,13 @@ public class GamePanel extends JPanel implements Runnable {
         FR;
     }
     public static Language language = Language.ENG;
+    public static String switchLanguage(String eng, String hun, String fr) {
+        switch (GamePanel.language) {
+            case HUN: return hun;
+            case FR: return fr;
+            default: return eng;
+        }
+    }
 
     public enum Difficulty {
         EASY,
@@ -272,16 +279,9 @@ public class GamePanel extends JPanel implements Runnable {
                 else x = 50;
                 entity.Player.hp += x;
                 if(entity.Player.hp > entity.Player.maxHP) entity.Player.hp = entity.Player.maxHP;
-                switch (GamePanel.language) {
-                    case ENG: text = "You got " +  x + " HP!";
-                        break;
-                    case HUN: text = "Szereztél " + x + " HP-t!";
-                        break;
-                    case FR: text = "Tu as obtenu "+ x + " HP!";
-                        break;
-                    default: text = "You got " + x + " HP!";
-                        break;
-                }
+                text = switchLanguage("You got " +  x + " HP!",
+                        "Szereztél " + x + " HP-t!",
+                        "Tu as obtenu "+ x + " HP!");
                 ui.addMessage(text);
             }
         }

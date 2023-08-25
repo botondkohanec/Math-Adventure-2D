@@ -78,17 +78,7 @@ public class GeometryDoor extends Combat {
             solutionLabel.setVisible(false);
         }
 
-        switch (GamePanel.language) {
-
-            case ENG: text = "Wrong answer!";
-                break;
-            case HUN: text = "Nem talált!";
-                break;
-            case FR: text = "Mauvaise réponse!";
-                break;
-            default: text = "Wrong answer!";
-                break;
-        }
+        text = GamePanel.switchLanguage("Wrong answer!", "Nem talált!", "Mauvaise réponse!");
         solutionLabel = new JLabel(text);
         solutionLabel.setForeground(Color.black);
         solutionLabel.setBackground(Color.white);
@@ -101,32 +91,13 @@ public class GeometryDoor extends Combat {
 
         if(answerInt == solution) {
 
-            switch (GamePanel.language) {
-
-                case ENG: text = "Correct!";
-                    break;
-                case HUN: text = "Talált!";
-                    break;
-                case FR: text = "Correct!";
-                    break;
-                default: text = "Correct!";
-                    break;
-            }
+            text = GamePanel.switchLanguage("Correct!", "Talált!", "Correct!");
             solutionLabel = new JLabel(text);
             solutionLabel.setForeground(Color.black);
             solutionLabel.setBackground(Color.green);
             ok = true;
         } else {
-            switch (GamePanel.language) {
-                case ENG: text = "Wrong answer!";
-                    break;
-                case HUN: text = "Nem talált!";
-                    break;
-                case FR: text = "Mauvaise réponse!";
-                    break;
-                default: text = "Wrong answer!";
-                    break;
-            }
+            text = GamePanel.switchLanguage("Wrong answer!", "Nem talált!", "Mauvaise réponse!");
             solutionLabel = new JLabel(text);
             solutionLabel.setForeground(Color.black);
             solutionLabel.setBackground(Color.red);
@@ -158,63 +129,40 @@ public class GeometryDoor extends Combat {
         String text = "";
 
         if(i == 1) {
-            switch (GamePanel.language) {
-
-                case ENG: text = "The length of the side of a square: " + a + ". How much is its circumference?";
-                    break;
-                case HUN: text = "Négyzet oldalának hossza: " + a + ". Mennyi a kerülete?";
-                    break;
-                case FR: text = "La longueur de côtés d'un carré: " + a + ". Combien est sa circonférence?";
-                    break;
-                default: text = "The length of the side of a square: " + a + ". How much is its circumference?";
-                    break;
-            }
+            text = GamePanel.switchLanguage(
+                    "The length of the side of a square: " + a + ". How much is its circumference?",
+                    "Négyzet oldalának hossza: " + a + ". Mennyi a kerülete?",
+                    "La longueur de côtés d'un carré: " + a + ". Combien est sa circonférence?");
             showQuestion(text);
 
             return 4 * a;
         } else if (i == 2) {
 
-            switch (GamePanel.language) {
-
-                case ENG: text = "The length of the side of a square: " + a + ". How much is its area?";
-                    break;
-                case HUN: text = "Négyzet oldalának hossza: " + a + ". Mennyi a területe?";
-                    break;
-                case FR: text = "La longueur de côtés d'un carré: " + a + ". Combien est sa superficie?";
-                    break;
-                default: text = "The length of the side of a square: " + a + ". How much is its area?";
-                    break;
-            }
+            text = GamePanel.switchLanguage(
+                    "The length of the side of a square: " + a + ". How much is its area?",
+                    "Négyzet oldalának hossza: " + a + ". Mennyi a területe?",
+                    "La longueur de côtés d'un carré: " + a + ". Combien est sa superficie?"
+            );
             showQuestion(text);
 
             return a * a;
         } else if (i == 3) {
 
-            switch (GamePanel.language) {
-                case ENG: text = "The side lengths of a rectangle: " + a + ", "+ b + ". How much is its circumference?";
-                    break;
-                case HUN: text = "Téglalap oldalainak hossza: " + a + ", "+ b + ". Mennyi a kerülete?";
-                    break;
-                case FR: text = "La longueur de côtés d'un rectangle: " + a + ", "+ b + ". Combien est sa circonférence?";
-                    break;
-                default: text = "The side lengths of a rectangle: " + a + ", "+ b + ". How much is its circumference?";
-                    break;
-            }
+            text = GamePanel.switchLanguage(
+                    "The side lengths of a rectangle: " + a + ", "+ b + ". How much is its circumference?",
+                    "Téglalap oldalainak hossza: " + a + ", "+ b + ". Mennyi a kerülete?",
+                    "La longueur de côtés d'un rectangle: " + a + ", "+ b + ". Combien est sa circonférence?"
+            );
             showQuestion(text);
 
             return (2*a)+(2*b);
         } else if (i == 4) {
 
-            switch (GamePanel.language) {
-                case ENG: text = "The side lengths of a rectangle: " + a + ", "+ b + ". How much is its area?";
-                    break;
-                case HUN: text = "Téglalap oldalainak hossza: " + a + ", "+ b + ". Mennyi a területe?";
-                    break;
-                case FR: text = "La longueur de côtés d'un rectangle: " + a + ", "+ b + ". Combien est sa superficie?";
-                    break;
-                default: text = "The side lengths of a rectangle: " + a + ", "+ b + ". How much is its area?";
-                    break;
-            }
+            text = GamePanel.switchLanguage(
+                    "The side lengths of a rectangle: " + a + ", "+ b + ". How much is its area?",
+                    "Téglalap oldalainak hossza: " + a + ", "+ b + ". Mennyi a területe?",
+                    "La longueur de côtés d'un rectangle: " + a + ", "+ b + ". Combien est sa superficie?"
+                    );
             showQuestion(text);
 
             return a*b;

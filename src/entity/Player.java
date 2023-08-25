@@ -205,16 +205,7 @@ public class Player extends Entity{
         gp.playSE(16);
         speed += 1;
         gp.obj[i] = null;
-        switch (GamePanel.language) {
-            case ENG: text = "Speed up!";
-                break;
-            case HUN: text = "Gyorsabb lettél!";
-                break;
-            case FR: text = "Tu t'as accéléré!";
-                break;
-            default: text = "Speed up!";
-                break;
-        }
+        text = GamePanel.switchLanguage("Speed up!", "Gyorsabb lettél!", "Tu t'as accéléré!");
         gp.ui.addMessage(text);
     }
     private void pickUpGApple(int i) {
@@ -222,16 +213,9 @@ public class Player extends Entity{
         gp.playSE(10);
         gp.obj[i] = null;
         entity.Player.hp = entity.Player.maxHP;
-        switch (GamePanel.language) {
-            case ENG: text = "You are completely healed!";
-                break;
-            case HUN: text = "Teljesen meggyógyultál!";
-                break;
-            case FR: text = "Tu t'es complètement rétabli!";
-                break;
-            default: text = "You are completely healed";
-                break;
-        }
+        text = GamePanel.switchLanguage("You are completely healed!",
+                "Teljesen meggyógyultál!",
+                "Tu t'es complètement rétabli!");
         gp.ui.addMessage(text);
     }
     private void pickUpApple(int i) {
@@ -252,16 +236,7 @@ public class Player extends Entity{
         itemsNumber++;
 
         String text;
-        switch (GamePanel.language) {
-            case ENG: text = "You got an apple!";
-                break;
-            case HUN: text = "Szereztél egy almát!";
-                break;
-            case FR: text = "Francia!";
-                break;
-            default: text = "You got a apple!";
-                break;
-        }
+        text = GamePanel.switchLanguage("You got an apple!", "Szereztél egy almát!", "Francia!");
         gp.ui.addMessage(text);
     }
     private void tryOpenKDoor(int i) {
@@ -276,16 +251,8 @@ public class Player extends Entity{
             }
             gp.obj[i] = null;
             hasKey--;
-            switch (GamePanel.language) {
-                case ENG: text = "You opened the door!";
-                    break;
-                case HUN: text = "Kinyitottad az ajtót!";
-                    break;
-                case FR: text = "Tu as ouvert la porte!";
-                    break;
-                default: text = "You opened the door!";
-                    break;
-            }
+            text = GamePanel.switchLanguage("You opened the door!", "Kinyitottad az ajtót!",
+                    "Tu as ouvert la porte!");
             gp.ui.addMessage(text);
 
             for(int l = 5; l >= 0; l--) {
@@ -300,16 +267,8 @@ public class Player extends Entity{
         }
         else {
             gp.playSE(7);
-            switch (GamePanel.language) {
-                case ENG: text = "You need a key!";
-                    break;
-                case HUN: text = "Szükséged van egy kulcsra!";
-                    break;
-                case FR: text = "Tu as besoin d'une clé!";
-                    break;
-                default: text = "You need a key!";
-                    break;
-            }
+            text = GamePanel.switchLanguage("You need a key!", "Szükséged van egy kulcsra!",
+                    "Tu as besoin d'une clé!");
             gp.ui.addMessage(text);
         }
     }
@@ -335,16 +294,8 @@ public class Player extends Entity{
                     throw new RuntimeException(e);
                 }
                 gp.obj[i] = null;
-                switch (GamePanel.language) {
-                    case ENG: text = "You opened the door!";
-                        break;
-                    case HUN: text = "Kinyitottad az ajtót!";
-                        break;
-                    case FR: text = "Tu as ouvert la porte!";
-                        break;
-                    default: text = "You opened the door!";
-                        break;
-                }
+                text = GamePanel.switchLanguage("You opened the door!", "Kinyitottad az ajtót!",
+                        "Tu as ouvert la porte!");
                 gp.ui.addMessage(text);
             } else gp.playSE(7);
 
@@ -371,16 +322,8 @@ public class Player extends Entity{
         gp.playSE(1);
         hasKey++;
         gp.obj[i] = null;
-        switch (GamePanel.language) {
-            case ENG: text = "You got a key!";
-                break;
-            case HUN: text = "Szereztél egy kulcsot!";
-                break;
-            case FR: text = "Tu as obtenu une clé!";
-                break;
-            default: text = "You got a key!";
-                break;
-        }
+        text = GamePanel.switchLanguage("You got a key!", "Szereztél egy kulcsot!",
+                "Tu as obtenu une clé!");
         gp.ui.addMessage(text);
     }
     private void pickUpMath_Coin(int i) {
@@ -389,16 +332,7 @@ public class Player extends Entity{
         gp.playSE(19);
         entity.Player.coin++;
         gp.obj[i] = null;
-        switch (GamePanel.language) {
-            case ENG: text = "You got a mathcoin!";
-                break;
-            case HUN: text = "Szereztél egy matérmét!";
-                break;
-            case FR: text = "Francia!";
-                break;
-            default: text = "You got a mathcoin!";
-                break;
-        }
+        text = GamePanel.switchLanguage("You got a mathcoin!", "Szereztél egy matérmét!", "Francia!");
         gp.ui.addMessage(text);
     }
 

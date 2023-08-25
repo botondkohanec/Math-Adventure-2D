@@ -366,17 +366,8 @@ public class UI {
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 60F));
 
         String text = "";
-        switch (GamePanel.language) {
-
-            case ENG: text = "Math Adventure 2D";
-                break;
-            case HUN: text = "Matek Kaland 2D";
-                break;
-            case FR: text = "Aventures de Maths en 2D";
-                break;
-            default: text = "Math Adventure 2D";
-                break;
-        }
+        text = GamePanel.switchLanguage("Math Adventure 2D", "Matek Kaland 2D",
+                "Aventures de Maths en 2D");
         int x = getXforCenteredText(text);
         int y = gp.tileSize*3;
 
@@ -395,17 +386,7 @@ public class UI {
         // MENU
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 40F));
 
-        switch (GamePanel.language) {
-
-            case ENG: text = "NEW GAME";
-                break;
-            case HUN: text = "ÚJ JÁTÉK";
-                break;
-            case FR: text = "NOUVEAU JEU";
-                break;
-            default: text = "NEW GAME";
-                break;
-        }
+        text = GamePanel.switchLanguage("NEW GAME", "ÚJ JÁTÉK", "NOUVEAU JEU");
         x = getXforCenteredText(text);
         y += gp.tileSize*3.5;
         g2.setColor(Color.black);
@@ -416,17 +397,7 @@ public class UI {
             g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
         }
 
-        switch (GamePanel.language) {
-
-            case ENG: text = "LANGUAGE";
-                break;
-            case HUN: text = "NYELV";
-                break;
-            case FR: text = "FRANCIA";
-                break;
-            default: text = "LANGUAGE";
-                break;
-        }
+        text = GamePanel.switchLanguage("LANGUAGE", "NYELV", "FRANCIA");
         x = getXforCenteredText(text);
         y += gp.tileSize;
         g2.setColor(Color.black);
@@ -437,17 +408,7 @@ public class UI {
             g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
         }
 
-        switch (GamePanel.language) {
-
-            case ENG: text = "QUIT";
-                break;
-            case HUN: text = "KILÉPÉS";
-                break;
-            case FR: text = "QUITTER";
-                break;
-            default: text = "QUIT";
-                break;
-        }
+        text = GamePanel.switchLanguage("QUIT", "KILÉPÉS", "QUITTER");
         x = getXforCenteredText(text);
         y += gp.tileSize;
         g2.setColor(Color.black);
@@ -470,17 +431,7 @@ public class UI {
         int y;
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 40F));
 
-        switch (GamePanel.language) {
-
-            case ENG: text = "Easy";
-                break;
-            case HUN: text = "Könnyű";
-                break;
-            case FR: text = "Facile";
-                break;
-            default: text = "Easy";
-                break;
-        }
+        text = GamePanel.switchLanguage("Easy", "Könnyű", "Facile");
         x = getXforCenteredText(text);
         y = gp.tileSize*3;
         g2.setColor(Color.black);
@@ -491,17 +442,7 @@ public class UI {
             g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
         }
 
-        switch (GamePanel.language) {
-
-            case ENG: text = "Medium";
-                break;
-            case HUN: text = "Közepes";
-                break;
-            case FR: text = "Moyen";
-                break;
-            default: text = "Medium";
-                break;
-        }
+        text = GamePanel.switchLanguage("Medium", "Közepes", "Moyen");
         x = getXforCenteredText(text);
         y += gp.tileSize;
         g2.setColor(Color.black);
@@ -512,17 +453,7 @@ public class UI {
             g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
         }
 
-        switch (GamePanel.language) {
-
-            case ENG: text = "Hard";
-                break;
-            case HUN: text = "Nehéz";
-                break;
-            case FR: text = "Difficile";
-                break;
-            default: text = "Hard";
-                break;
-        }
+        text = GamePanel.switchLanguage("Hard", "Nehéz", "Difficile");
         x = getXforCenteredText(text);
         y += gp.tileSize;
         g2.setColor(Color.black);
@@ -533,16 +464,7 @@ public class UI {
             g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
         }
 
-        switch (GamePanel.language) {
-            case ENG: text = "Mathematician";
-                break;
-            case HUN: text = "Matematikus";
-                break;
-            case FR: text = "Mathématicien";
-                break;
-            default: text = "Mathematician";
-                break;
-        }
+        text = GamePanel.switchLanguage("Mathematician", "Matematikus", "Mathématicien");
         x = getXforCenteredText(text);
         y += gp.tileSize;
         g2.setColor(Color.black);
@@ -557,17 +479,7 @@ public class UI {
 
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 80F));
         String text = "";
-        switch (GamePanel.language) {
-
-            case ENG: text = "PAUSE";
-                break;
-            case HUN: text = "SZÜNET";
-                break;
-            case FR: text = "PAUSE";
-                break;
-            default: text = "PAUSED";
-                break;
-        }
+        text = GamePanel.switchLanguage("PAUSE", "SZÜNET", "PAUSE");
         int x = getXforCenteredText(text);
         int y = gp.screenHeight/2;
 
@@ -578,17 +490,7 @@ public class UI {
         g2.setColor(Color.red);
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 80F));
         String text = "";
-        switch (GamePanel.language) {
-
-            case ENG: text = "COMBAT";
-                break;
-            case HUN: text = "HARC";
-                break;
-            case FR: text = "COMBAT";
-                break;
-            default: text = "COMBAT";
-                break;
-        }
+        text = GamePanel.switchLanguage("COMBAT", "HARC", "COMBAT");
         int x = getXforCenteredText(text);
         int y = gp.screenHeight/2;
 
@@ -604,16 +506,7 @@ public class UI {
         String text;
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 75F));
 
-        switch (GamePanel.language) {
-            case ENG: text = "GAME OVER";
-                break;
-            case HUN: text = "VÉGE A JÁTÉKNAK";
-                break;
-            case FR: text = "FIN DE JEU";
-                break;
-            default: text = "GAME OVER";
-                break;
-        }
+        text = GamePanel.switchLanguage("GAME OVER", "VÉGE A JÁTÉKNAK", "FIN DE JEU");
         // Shadow
         g2.setColor(Color.black);
         x = getXforCenteredText(text);
@@ -626,17 +519,7 @@ public class UI {
         // Retry
         g2.setFont(g2.getFont().deriveFont(50f));
 
-        switch (GamePanel.language) {
-
-            case ENG: text = "Retry";
-                break;
-            case HUN: text = "Újra";
-                break;
-            case FR: text = "De Nouveau";
-                break;
-            default: text = "Retry";
-                break;
-        }
+        text = GamePanel.switchLanguage("Retry", "Újra", "De Nouveau");
         x = getXforCenteredText(text);
         y += gp.tileSize*4;
         g2.drawString(text, x, y);
@@ -645,17 +528,7 @@ public class UI {
         }
 
         // Back to the title screen
-        switch (GamePanel.language) {
-
-            case ENG: text = "Quit";
-                break;
-            case HUN: text = "Kilép";
-                break;
-            case FR: text = "Quitter";
-                break;
-            default: text = "Quit";
-                break;
-        }
+        text = GamePanel.switchLanguage("Quit", "Kilép", "Quitter");
         x = getXforCenteredText(text);
         y += 55;
         g2.drawString(text, x, y);
@@ -696,116 +569,50 @@ public class UI {
         x += gp.tileSize/2;
         y += gp.tileSize;
 
-        if(GamePanel.language == GamePanel.Language.HUN) {
+        String text = "";
+        text = GamePanel.switchLanguage("Level", "Szint", "Francia");
+        g2.drawString(text, x, y);
+        g2.drawString("" + entity.Player.level, x + 165, y);
+        y += 50;
 
-            g2.drawString("Szint", x, y);
-            g2.drawString("" + entity.Player.level, x + 165, y);
-            y += 50;
+        text = GamePanel.switchLanguage("HP", "HP", "HP");
+        g2.drawString(text, x, y);
+        g2.drawString("" + entity.Player.hp+"/"+ entity.Player.maxHP, x + 165, y);
+        y += 50;
 
-            g2.drawString("HP", x, y);
-            g2.drawString("" + entity.Player.hp+"/"+ entity.Player.maxHP, x + 165, y);
-            y += 50;
+        text = GamePanel.switchLanguage("Attack", "Sebzés", "Francia");
+        g2.drawString(text, x, y);
+        g2.drawString("46-55", x + 165, y);
+        y += 50;
 
-            g2.drawString("Sebzés", x, y);
-            g2.drawString("46-55", x + 165, y);
-            y += 50;
+        text = GamePanel.switchLanguage("Armor","Páncélzat", "Francia");
+        g2.drawString(text, x, y);
+        g2.drawString("" + entity.Player.armor, x + 165, y);
+        y += 50;
 
-            g2.drawString("Páncélzat", x, y);
-            g2.drawString("" + entity.Player.armor, x + 165, y);
-            y += 50;
+        text = GamePanel.switchLanguage("Speed","Sebesség", "Francia");
+        g2.drawString(text, x, y);
+        g2.drawString("" + gp.player.speed, x + 165, y);
+        y += 50;
 
-            g2.drawString("Sebesség", x, y);
-            g2.drawString("" + gp.player.speed, x + 165, y);
-            y += 50;
+        text = GamePanel.switchLanguage("Experience","Tapasztalat", "Francia");
+        g2.drawString(text, x, y);
+        g2.drawString("" + entity.Player.exp, x + 165, y);
+        y += 50;
 
-            g2.drawString("Tapasztalat", x, y);
-            g2.drawString("" + entity.Player.exp, x + 165, y);
-            y += 50;
+        text = GamePanel.switchLanguage("Next Level","Köv. szint", "Francia");
+        g2.drawString(text, x, y);
+        g2.drawString("" + entity.Player.nextLevel, x + 165, y);
+        y += 50;
 
-            g2.drawString("Köv. szint", x, y);
-            g2.drawString("" + entity.Player.nextLevel, x + 165, y);
-            y += 50;
+        text = GamePanel.switchLanguage("Mathcoin","Matérme", "Francia");
+        g2.drawString(text, x, y);
+        g2.drawString("" + entity.Player.coin, x + 165, y);
+        y += 60;
 
-            g2.drawString("Matérme", x, y);
-            g2.drawString("" + entity.Player.coin, x + 165, y);
-            y += 60;
-
-            g2.drawString("Fegyver", x, y);
-            g2.drawImage(swordImageUp, x + 136, y - 40, 3 * gp.tileSize / 2, 3 * gp.tileSize / 2, null);
-        }
-        else if(GamePanel.language == GamePanel.Language.FR) {
-
-            g2.drawString("Francia", x, y);
-            g2.drawString("" + entity.Player.level, x + 165, y);
-            y += 50;
-
-            g2.drawString("HP", x, y);
-            g2.drawString("" + entity.Player.hp+"/"+ entity.Player.maxHP, x + 165, y);
-            y += 50;
-
-            g2.drawString("Francia", x, y);
-            g2.drawString("46-55", x + 165, y);
-            y += 50;
-
-            g2.drawString("Francia", x, y);
-            g2.drawString("" + entity.Player.armor, x + 165, y);
-            y += 50;
-
-            g2.drawString("Francia", x, y);
-            g2.drawString("" + gp.player.speed, x + 165, y);
-            y += 50;
-
-            g2.drawString("Francia", x, y);
-            g2.drawString("" + entity.Player.exp, x + 165, y);
-            y += 50;
-
-            g2.drawString("Francia", x, y);
-            g2.drawString("" + entity.Player.nextLevel, x + 165, y);
-            y += 50;
-
-            g2.drawString("Francia", x, y);
-            g2.drawString("" + entity.Player.coin, x + 165, y);
-            y += 60;
-
-            g2.drawString("Francia", x, y);
-            g2.drawImage(swordImageUp, x + 136, y - 40, 3 * gp.tileSize / 2, 3 * gp.tileSize / 2, null);
-        }
-        else {
-            g2.drawString("Level", x, y);
-            g2.drawString("" + entity.Player.level, x + 165, y);
-            y += 50;
-
-            g2.drawString("HP", x, y);
-            g2.drawString("" + entity.Player.hp+"/"+ entity.Player.maxHP, x + 165, y);
-            y += 50;
-
-            g2.drawString("Attack", x, y);
-            g2.drawString("46-55", x + 165, y);
-            y += 50;
-
-            g2.drawString("Armor", x, y);
-            g2.drawString("" + entity.Player.armor, x + 165, y);
-            y += 50;
-
-            g2.drawString("Speed", x, y);
-            g2.drawString("" + gp.player.speed, x + 165, y);
-            y += 50;
-
-            g2.drawString("Experience", x, y);
-            g2.drawString("" + entity.Player.exp, x + 165, y);
-            y += 50;
-
-            g2.drawString("Next Level", x, y);
-            g2.drawString("" + entity.Player.nextLevel, x + 165, y);
-            y += 50;
-
-            g2.drawString("Mathcoin", x, y);
-            g2.drawString("" + entity.Player.coin, x + 165, y);
-            y += 60;
-
-            g2.drawString("Weapon", x, y);
-            g2.drawImage(swordImageUp, x + 136, y - 40, 3 * gp.tileSize / 2, 3 * gp.tileSize / 2, null);
-        }
+        text = GamePanel.switchLanguage("Weapon","Fegyver", "Francia");
+        g2.drawString(text, x, y);
+        g2.drawImage(swordImageUp, x + 136, y - 40, 3 * gp.tileSize / 2, 3 * gp.tileSize / 2, null);
 
         x = 9*gp.tileSize;
         y = 3*gp.tileSize/4;
@@ -852,130 +659,52 @@ public class UI {
         y += gp.tileSize;
 
         g2.setStroke(new BasicStroke(3));
-        if(GamePanel.language == GamePanel.Language.HUN) {
+        String text = "";
 
-            g2.drawString("Hang", x, y);
-            g2.drawRect(x + 100, y-24, 150, 30);
-            g2.fillRect(x + 100, y-24, 30*GamePanel.se.volumeScale, 30);
-            if(commandNum == 0) {
-                g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
-            }
-            y += 50;
-
-            g2.drawString("Zene", x, y);
-            g2.drawRect(x + 100, y-24, 150, 30);
-            g2.fillRect(x + 100, y-24, 30*GamePanel.music.volumeScale, 30);
-            if(commandNum == 1) {
-                g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
-            }
-            y += 50;
-
-            g2.drawString("Teljes képernyő", x, y);
-            g2.drawRect(x + 220, y-24, 30, 30);
-            if(commandNum == 2) {
-                g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
-            }
-            y += 50;
-
-            g2.drawString("Irányítás", x, y);
-            if(commandNum == 3) {
-                g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
-            }
-            y += 75;
-
-            g2.drawString("Kilépés a játékból", x, y);
-            if(commandNum == 4) {
-                g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
-            }
-            y += 80;
-
-            g2.drawString("Vissza", x, y);
-            if(commandNum == 5) {
-                g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
-            }
+        text = GamePanel.switchLanguage("Sound","Hang", "Francia");
+        g2.drawString(text, x, y);
+        g2.drawRect(x + 100, y-24, 150, 30);
+        g2.fillRect(x + 100, y-24, 30*GamePanel.se.volumeScale, 30);
+        if(commandNum == 0) {
+            g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
         }
-        else if(GamePanel.language == GamePanel.Language.FR) {
+        y += 50;
 
-            g2.drawString("Francia", x, y);
-            g2.drawRect(x + 100, y-24, 150, 30);
-            g2.fillRect(x + 100, y-24, 30*GamePanel.se.volumeScale, 30);
-            if(commandNum == 0) {
-                g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
-            }
-            y += 50;
-
-            g2.drawString("Francia", x, y);
-            g2.drawRect(x + 100, y-24, 150, 30);
-            g2.fillRect(x + 100, y-24, 30*GamePanel.music.volumeScale, 30);
-            if(commandNum == 1) {
-                g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
-            }
-            y += 50;
-
-            g2.drawString("Francia", x, y);
-            g2.drawRect(x + 220, y-24, 30, 30);
-            if(commandNum == 2) {
-                g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
-            }
-            y += 50;
-
-            g2.drawString("Francia", x, y);
-            if(commandNum == 3) {
-                g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
-            }
-            y += 75;
-
-            g2.drawString("Francia", x, y);
-            if(commandNum == 4) {
-                g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
-            }
-            y += 80;
-
-            g2.drawString("Francia", x, y);
-            if(commandNum == 5) {
-                g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
-            }
+        text = GamePanel.switchLanguage("Music","Zene", "Francia");
+        g2.drawString(text, x, y);
+        g2.drawRect(x + 100, y-24, 150, 30);
+        g2.fillRect(x + 100, y-24, 30*GamePanel.music.volumeScale, 30);
+        if(commandNum == 1) {
+            g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
         }
-        else {
-            g2.drawString("Sound", x, y);
-            g2.drawRect(x + 100, y-24, 150, 30);
-            g2.fillRect(x + 100, y-24, 30*GamePanel.se.volumeScale, 30);
-            if(commandNum == 0) {
-                g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
-            }
-            y += 50;
+        y += 50;
 
-            g2.drawString("Music", x, y);
-            g2.drawRect(x + 100, y-24, 150, 30);
-            g2.fillRect(x + 100, y-24, 30*GamePanel.music.volumeScale, 30);
-            if(commandNum == 1) {
-                g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
-            }
-            y += 50;
+        text = GamePanel.switchLanguage("Full screen","Teljes képernyő", "Francia");
+        g2.drawString(text, x, y);
+        g2.drawRect(x + 220, y-24, 30, 30);
+        if(commandNum == 2) {
+            g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
+        }
+        y += 50;
 
-            g2.drawString("Full screen", x, y);
-            g2.drawRect(x + 220, y-24, 30, 30);
-            if(commandNum == 2) {
-                g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
-            }
-            y += 50;
+        text = GamePanel.switchLanguage("Control","Irányítás", "Francia");
+        g2.drawString(text, x, y);
+        if(commandNum == 3) {
+            g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
+        }
+        y += 75;
 
-            g2.drawString("Control", x, y);
-            if(commandNum == 3) {
-                g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
-            }
-            y += 75;
+        text = GamePanel.switchLanguage("End game","Kilépés a játékból", "Francia");
+        g2.drawString(text, x, y);
+        if(commandNum == 4) {
+            g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
+        }
+        y += 80;
 
-            g2.drawString("End game", x, y);
-            if(commandNum == 4) {
-                g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
-            }
-            y += 80;
-
-            g2.drawString("Back", x, y);
-            if(commandNum == 5) {
-                g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
-            }
+        text = GamePanel.switchLanguage("Back","Vissza", "Francia");
+        g2.drawString(text, x, y);
+        if(commandNum == 5) {
+            g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
         }
     }
     public void drawControlState() {
@@ -990,79 +719,37 @@ public class UI {
         x += 2*gp.tileSize;
         y += gp.tileSize;
 
-        if(GamePanel.language == GamePanel.Language.HUN) {
+        String text = "";
 
-            g2.drawString("Mozgás: ASDW, nyilak", x, y);
-            y += 50;
+        text = GamePanel.switchLanguage("Moving: ASDW, <-->..",
+                "Mozgás: ASDW, nyilak", "Francia");
+        g2.drawString(text, x, y);
+        y += 50;
 
-            g2.drawString("Beszéd: E", x, y);
-            y += 50;
+        text = GamePanel.switchLanguage("Speaking: E", "Beszéd: E", "Francia");
+        g2.drawString(text, x, y);
+        y += 50;
 
-            g2.drawString("Státusz: C", x, y);
-            y += 50;
+        text = GamePanel.switchLanguage("Status: C", "Státusz: C", "Francia");
+        g2.drawString(text, x, y);
+        y += 50;
 
-            g2.drawString("Játék megállítása: P", x, y);
-            y += 50;
+        text = GamePanel.switchLanguage("Pause: P", "Játék megállítása: P", "Francia");
+        g2.drawString(text, x, y);
+        y += 50;
 
-            g2.drawString("Menü: ESC", x, y);
-            y += 50;
+        text = GamePanel.switchLanguage("Menu: ESC", "Menü: ESC", "Francia");
+        g2.drawString(text, x, y);
+        y += 50;
 
-            g2.drawString("Enter: ENTER, SPACE", x, y);
-            y += 60;
+        text = GamePanel.switchLanguage("Enter: ENTER, SPACE", "Enter: ENTER, SPACE", "Francia");
+        g2.drawString(text, x, y);
+        y += 60;
 
-            g2.drawString("Vissza", x, y);
-            if(commandNum == 0) {
-                g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
-            }
-        }
-        else if(GamePanel.language == GamePanel.Language.FR) {
-
-            g2.drawString("Francia: ASDW or <-->..", x, y);
-            y += 50;
-
-            g2.drawString("Francia: E", x, y);
-            y += 50;
-
-            g2.drawString("Francia: C", x, y);
-            y += 50;
-
-            g2.drawString("Francia: P", x, y);
-            y += 50;
-
-            g2.drawString("Francia: ESC", x, y);
-            y += 50;
-
-            g2.drawString("Francia: ENTER, SPACE", x, y);
-            y += 60;
-
-            g2.drawString("Francia", x, y);
-            if(commandNum == 0) {
-                g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
-            }
-        }
-        else {
-            g2.drawString("Moving: ASDW, <-->..", x, y);
-            y += 50;
-
-            g2.drawString("Speaking: E", x, y);
-            y += 50;
-
-            g2.drawString("Status: C", x, y);
-            y += 50;
-
-            g2.drawString("Pause: P", x, y);
-            y += 50;
-
-            g2.drawString("Menu: ESC", x, y);
-            y += 50;
-
-            g2.drawString("Enter: ENTER, SPACE", x, y);
-            y += 60;
-
-            g2.drawString("Back", x, y);
-            if(commandNum == 0) {
-                g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
-            }
+        text = GamePanel.switchLanguage("Back", "Vissza", "Francia");
+        g2.drawString(text, x, y);
+        if(commandNum == 0) {
+            g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
         }
     }
 
@@ -1073,17 +760,7 @@ public class UI {
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 75F));
         String text = "";
 
-        switch (GamePanel.language) {
-
-            case ENG: text = "VICTORY!";
-                break;
-            case HUN: text = "GYŐZELEM!";
-                break;
-            case FR: text = "VICTOIRE!";
-                break;
-            default: text = "VICTORY!";
-                break;
-        }
+        text = GamePanel.switchLanguage("VICTORY!", "GYŐZELEM!", "VICTOIRE!");
         int x = getXforCenteredText(text);
         int y = gp.tileSize*3;
 
@@ -1111,17 +788,8 @@ public class UI {
         // TITLE NAME
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 60F));
         String text = "";
-        switch (GamePanel.language) {
-
-            case ENG: text = "The game is based on";
-                break;
-            case HUN: text = "A játék alapja";
-                break;
-            case FR: text = "Les jeux se fondent sur";
-                break;
-            default: text = "The game is based on";
-                break;
-        }
+        text = GamePanel.switchLanguage("The game is based on", "A játék alapja",
+                "Les jeux se fondent sur");
         int x = getXforCenteredText(text);
         int y = gp.tileSize*3;
 
@@ -1164,17 +832,7 @@ public class UI {
         // TITLE NAME
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 75F));
         String text = "";
-        switch (GamePanel.language) {
-
-            case ENG: text = "Music & Audio";
-                break;
-            case HUN: text = "Zene és Hang";
-                break;
-            case FR: text = "Musique et Son";
-                break;
-            default: text = "Music & Audio";
-                break;
-        }
+        text = GamePanel.switchLanguage("Music & Audio", "Zene és Hang", "Musique et Son");
         int x = getXforCenteredText(text);
         int y = gp.tileSize*3;
 
@@ -1220,17 +878,7 @@ public class UI {
         // TITLE NAME
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 75F));
         String text = "";
-        switch (GamePanel.language) {
-
-            case ENG: text = "Picture resources";
-                break;
-            case HUN: text = "Kép források";
-                break;
-            case FR: text = "Sources des Images";
-                break;
-            default: text = "Picture resources";
-                break;
-        }
+        text = GamePanel.switchLanguage("Picture resources", "Kép források", "Sources des Images");
         int x = getXforCenteredText(text);
         int y = gp.tileSize*3;
 
@@ -1244,17 +892,7 @@ public class UI {
         // RESOURCES
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 30F));
 
-        switch (GamePanel.language) {
-
-            case ENG: text = "Devil";
-                break;
-            case HUN: text = "Ördög";
-                break;
-            case FR: text = "Diable";
-                break;
-            default: text = "Devil";
-                break;
-        }
+        text = GamePanel.switchLanguage("Devil", "Ördög", "Diable");
         text += " - OpenClipart-Vectors (pixabay.com)";
         x = getXforCenteredText(text);
         y += gp.tileSize*1.75;
@@ -1263,17 +901,7 @@ public class UI {
         g2.setColor(Color.white);
         g2.drawString(text, x, y);
 
-        switch (GamePanel.language) {
-
-            case ENG: text = "Forest (Background)";
-                break;
-            case HUN: text = "Erdő (Háttér)";
-                break;
-            case FR: text = "Fôret (Arrière-plan)";
-                break;
-            default: text = "Forest (Background)";
-                break;
-        }
+        text = GamePanel.switchLanguage("Forest (Background)", "Erdő (Háttér)", "Fôret (Arrière-plan)");
         text += " - jwvein (pixabay.com)";
         x = getXforCenteredText(text);
         y += gp.tileSize;
@@ -1282,17 +910,7 @@ public class UI {
         g2.setColor(Color.white);
         g2.drawString(text, x, y);
 
-        switch (GamePanel.language) {
-
-            case ENG: text = "Door";
-                break;
-            case HUN: text = "Ajtó";
-                break;
-            case FR: text = "Porte";
-                break;
-            default: text = "Door";
-                break;
-        }
+        text = GamePanel.switchLanguage("Door", "Ajtó", "Porte");
         text += " - sipa (pixabay.com)";
         x = getXforCenteredText(text);
         y += gp.tileSize;
@@ -1301,17 +919,7 @@ public class UI {
         g2.setColor(Color.white);
         g2.drawString(text, x, y);
 
-        switch (GamePanel.language) {
-
-            case ENG: text = "Knight";
-                break;
-            case HUN: text = "Lovag";
-                break;
-            case FR: text = "Chevalier";
-                break;
-            default: text = "Knight";
-                break;
-        }
+        text = GamePanel.switchLanguage("Knight", "Lovag", "Chevalier");
         text += " - Janson_G (pixabay.com)";
         x = getXforCenteredText(text);
         y += gp.tileSize;
@@ -1320,17 +928,7 @@ public class UI {
         g2.setColor(Color.white);
         g2.drawString(text, x, y);
 
-        switch (GamePanel.language) {
-
-            case ENG: text = "Orc";
-                break;
-            case HUN: text = "Ork";
-                break;
-            case FR: text = "Orc";
-                break;
-            default: text = "Orc";
-                break;
-        }
+        text = GamePanel.switchLanguage("Orc", "Ork", "Orc");
         text += " - tunechick83 (pixabay.com)";
         x = getXforCenteredText(text);
         y += gp.tileSize;
@@ -1339,17 +937,7 @@ public class UI {
         g2.setColor(Color.white);
         g2.drawString(text, x, y);
 
-        switch (GamePanel.language) {
-
-            case ENG: text = "Wolfman";
-                break;
-            case HUN: text = "Farkasember";
-                break;
-            case FR: text = "Loup-garou";
-                break;
-            default: text = "Wolfman";
-                break;
-        }
+        text = GamePanel.switchLanguage("Wolfman", "Farkasember", "Loup-garou");
         text += " - Viergacht (pixabay.com)";
         x = getXforCenteredText(text);
         y += gp.tileSize;
@@ -1358,17 +946,7 @@ public class UI {
         g2.setColor(Color.white);
         g2.drawString(text, x, y);
 
-        switch (GamePanel.language) {
-
-            case ENG: text = "Icon";
-                break;
-            case HUN: text = "Ikon";
-                break;
-            case FR: text = "Icône";
-                break;
-            default: text = "Icon";
-                break;
-        }
+        text = GamePanel.switchLanguage("Icon", "Ikon", "Icône");
         text += " - Hodie Kun (icon-icons.com)";
         x = getXforCenteredText(text);
         y += gp.tileSize;
@@ -1385,17 +963,8 @@ public class UI {
         // TITLE NAME
         g2.setFont(g2.getFont().deriveFont(Font.BOLD, 60F));
         String text = "";
-        switch (GamePanel.language) {
-
-            case ENG: text = "Language translations";
-                break;
-            case HUN: text = "Fordítások";
-                break;
-            case FR: text = "Traduction des languages";
-                break;
-            default: text = "Language translations";
-                break;
-        }
+        text = GamePanel.switchLanguage("Language translations", "Fordítások",
+                "Traduction des languages");
         int x = getXforCenteredText(text);
         int y = gp.tileSize*3;
 

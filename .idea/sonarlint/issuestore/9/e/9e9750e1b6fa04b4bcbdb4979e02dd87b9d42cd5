@@ -1,19 +1,25 @@
 
-g	java:S112O"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8†Ş¤Èœ1
-g	java:S112g"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8†Ş¤Èœ1
-h	java:S112£"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8†Ş¤Èœ1
-h	java:S112Å"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8†Ş¤Èœ1
-u	java:S135F"YReduce the total number of break and continue statements in this loop to use at most one.(çå§¦8†Ş¤Èœ1
-U	java:S1067"9Replace this use of System.out or System.err by a logger.(”‚Áæ8¼á¤Èœ1
-o
-java:S3776D"RRefactor this method to reduce its Cognitive Complexity from 39 to the 15 allowed.(“–ış8¼á¤Èœ1
-{
-java:S2142N"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8¼á¤Èœ1
+g	java:S112O"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8åáá¢1
+g	java:S112g"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8åáá¢1
+h	java:S112š"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8åáá¢1
+h	java:S112¬"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8åáá¢1
+u	java:S135F"YReduce the total number of break and continue statements in this loop to use at most one.(çå§¦8åáá¢1
 X
-java:S2696Z"6Make the enclosing method "static" or remove this set.(¿á›÷üÿÿÿÿ8æ‡÷¶¢1
+java:S2696#"6Make the enclosing method "static" or remove this set.(Ã¯”•ıÿÿÿÿ8œåá¢1
+U	java:S1067"9Replace this use of System.out or System.err by a logger.(”‚Áæ8¬åá¢1
+o
+java:S3776D"RRefactor this method to reduce its Cognitive Complexity from 39 to the 15 allowed.(“–ış8¬åá¢1
 {
-java:S2142f"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8¼á¤Èœ1
+java:S2142N"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8¬åá¢1
+X
+java:S2696Z"6Make the enclosing method "static" or remove this set.(¿á›÷üÿÿÿÿ8¬åá¢1
+{
+java:S2142f"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8¬åá¢1
+T
+java:S2696”"6Make the enclosing method "static" or remove this set.(ƒ™ª›8¬åá¢1
 |
-java:S2142¢"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8Ìá¤Èœ1
+java:S2142™"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8¬åá¢1
+T
+java:S2696¦"6Make the enclosing method "static" or remove this set.(üÀ¼¶8¼åá¢1
 |
-java:S2142Ä"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8Ìá¤Èœ1
+java:S2142«"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8¼åá¢1

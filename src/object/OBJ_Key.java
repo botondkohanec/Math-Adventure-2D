@@ -14,17 +14,8 @@ public class OBJ_Key extends SuperObject{
         this.gp = gp;
 
         name = "Key";
-        switch (GamePanel.language) {
-
-            case ENG: description = "Key - It's open a door";
-                break;
-            case HUN: description = "Kulcs - Kinyit egy\najtót";
-                break;
-            case FR: description = "Francia";
-                break;
-            default: description = "Key - It's open a door";
-                break;
-        }
+        description = GamePanel.switchLanguage("Key - It's open a door",
+                "Kulcs - Kinyit egy\najtót", "Francia");
         try{
             image = ImageIO.read(getClass().getResourceAsStream("/objects/key_B.png"));
             uTool.scaleImage(image, gp.tileSize, gp.tileSize);

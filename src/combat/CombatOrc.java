@@ -150,17 +150,7 @@ public class CombatOrc extends Combat implements Runnable {
         if(enemyHP <=0 ) {
 
             Combat.playerVictory = true;
-            switch (GamePanel.language) {
-
-                case ENG: text = "Victory!";
-                    break;
-                case HUN: text = "Győzelem!";
-                    break;
-                case FR: text = "Victoire!";
-                    break;
-                default: text = "Victory!";
-                    break;
-            }
+            text = GamePanel.switchLanguage("Victory!", "Győzelem!", "Victoire!");
             showQuestion(text);
             try {
                 Thread.sleep(5000);
@@ -169,17 +159,9 @@ public class CombatOrc extends Combat implements Runnable {
             }
             window.setVisible(false);
 
-            switch (GamePanel.language) {
-
-                case ENG: text = "VICTORY! You defeated the Beast!";
-                    break;
-                case HUN: text = "GYŐZELEM! Legyőzted a Szörnyeteget!";
-                    break;
-                case FR: text = "VICTOIRE! Tu as vaincu le Monstre!";
-                    break;
-                default: text = "VICTORY! You defeated the Beast!";
-                    break;
-            }
+            text = GamePanel.switchLanguage("VICTORY! You defeated the Beast!",
+                    "GYŐZELEM! Legyőzted a Szörnyeteget!",
+                    "VICTOIRE! Tu as vaincu le Monstre!");
             endText = text;
             GamePanel.playSE(9);
 
@@ -187,17 +169,7 @@ public class CombatOrc extends Combat implements Runnable {
         } else if (entity.Player.hp <= 0) {
 
             Combat.playerVictory = false;
-            switch (GamePanel.language) {
-
-                case ENG: text = "You lost!";
-                    break;
-                case HUN: text = "Vesztettél!";
-                    break;
-                case FR: text = "Tu as perdu!";
-                    break;
-                default: text = "You lost!";
-                    break;
-            }
+            text = GamePanel.switchLanguage("You lost!", "Vesztettél!", "Tu as perdu!");
             showQuestion(text);
             try {
                 Thread.sleep(5000);
@@ -206,17 +178,8 @@ public class CombatOrc extends Combat implements Runnable {
             }
             window.setVisible(false);
 
-            switch (GamePanel.language) {
-
-                case ENG: text = "THE ORC DEFEATED YOU!";
-                    break;
-                case HUN: text = "LEGYŐZÖTT AZ ORK!";
-                    break;
-                case FR: text = "LE ORC T'A VAINCU!";
-                    break;
-                default: text = "THE ORC DEFEATED YOU!";
-                    break;
-            }
+            text = GamePanel.switchLanguage("THE ORC DEFEATED YOU!", "LEGYŐZÖTT AZ ORK!",
+                    "LE ORC T'A VAINCU!");
             endText = text;
 
             return  true;
@@ -230,17 +193,7 @@ public class CombatOrc extends Combat implements Runnable {
         String text = "";
         if(enemyHPLabel != null) enemyHPLabel.setVisible(false);
 
-        switch (GamePanel.language) {
-
-            case ENG: text = "Orc: ";
-                break;
-            case HUN: text = "Ork: ";
-                break;
-            case FR: text = "Orc: ";
-                break;
-            default: text = "Orc: ";
-                break;
-        }
+        text = GamePanel.switchLanguage("Orc: ", "Ork: ", "Orc: ");
         enemyHPLabel = new JLabel( text + enemyHP);
         enemyHPLabel.setBackground(Color.gray);
         enemyHPLabel.setForeground(Color.red);

@@ -19,16 +19,8 @@ public class OBJ_Apple extends SuperObject{
         int x;
         if(GamePanel.difficulty == GamePanel.Difficulty.EASY) x = 100;
         else x = 50;
-        switch (GamePanel.language) {
-            case ENG: description = "It gives " +  x + " HP";
-                break;
-            case HUN: description = "Ad " + x + " HP-t";
-                break;
-            case FR: description = "Francia "+ x + " HP";
-                break;
-            default: description = "You got " + x + " HP";
-                break;
-        }
+        description = GamePanel.switchLanguage("It gives " +  x + " HP",
+                "Ad " + x + " HP-t", "Francia "+ x + " HP");
         try{
             image = ImageIO.read(getClass().getResourceAsStream("/objects/apple_B.png"));
             uTool.scaleImage(image, gp.tileSize, gp.tileSize);

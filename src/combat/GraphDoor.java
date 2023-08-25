@@ -19,7 +19,7 @@ public class GraphDoor extends Combat {
     int i = 0;
     boolean ok = false;
 
-    int verticeSize = 30;
+    int verticeSize = 20;
 
     int verticeOne;
     int verticeTwo;
@@ -36,7 +36,7 @@ public class GraphDoor extends Combat {
     @Override
     public void createMainField() {
 
-        JFrame f = new JFrame("Draw a line");
+        JFrame f = new JFrame("Draw a graph");
         f.getContentPane().add(new DrawMyCercle());
         f.setSize(800, 600);
         f.setLocationRelativeTo(null);
@@ -60,16 +60,15 @@ public class GraphDoor extends Combat {
         public void paint(Graphics g) {
             g.setColor(Color.red);
 
-            g.fillOval(50, 350, verticeSize, verticeSize);
-            g.fillOval(125, 300, verticeSize, verticeSize);
-            g.fillOval(200, 225, verticeSize, verticeSize);
-            g.fillOval(275, 125, verticeSize, verticeSize);
-            g.fillOval(350, 150, verticeSize, verticeSize);
-            g.fillOval(550, 100, verticeSize, verticeSize);
-            g.fillOval(650, 350, verticeSize, verticeSize);
-            g.fillOval(550, 450, verticeSize, verticeSize);
-            g.fillOval(450, 550, verticeSize, verticeSize);
-            g.fillOval(350, 450, verticeSize, verticeSize);
+            int x = 370;
+            int y = 160;
+
+            int r1 = 200;
+            int r2 = 150;
+            int t = 0;
+
+            for(t = 1; t <= 15; t++)
+            g.fillOval((int)(Math.cos(t)*r1)+x, (int)(Math.sin(t)*r2)+y, verticeSize, verticeSize);
 
         }
     }

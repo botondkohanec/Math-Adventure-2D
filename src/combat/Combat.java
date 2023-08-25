@@ -149,17 +149,9 @@ public abstract class Combat implements Runnable {
         answer = answer.replaceAll(" ", "");
         answer = answer.replaceAll("\\+", "");
         if(solutionLabel != null) solutionLabel.setVisible(false);
-        switch (GamePanel.language) {
-
-            case ENG: text = "Wrong answer! The correct answer is: ";
-                break;
-            case HUN: text = "Nem talált! A helyes válasz: ";
-                break;
-            case FR: text = "Mauvaise réponse! La bonne solution est: ";
-                break;
-            default: text = "Wrong answer! The correct answer is: ";
-                break;
-        }
+        text = GamePanel.switchLanguage("Wrong answer! The correct answer is: ",
+                "Nem talált! A helyes válasz: ",
+                "Mauvaise réponse! La bonne solution est: ");
         solutionLabel = new JLabel(text);
         solutionLabel.setForeground(Color.black);
         solutionLabel.setBackground(Color.white);
@@ -170,17 +162,7 @@ public abstract class Combat implements Runnable {
         }
         if(answerInt == solution) {
             playSE(8);
-            switch (GamePanel.language) {
-
-                case ENG: text = "Correct!";
-                    break;
-                case HUN: text = "Talált!";
-                    break;
-                case FR: text = "Correct!";
-                    break;
-                default: text = "Correct!";
-                    break;
-            }
+            text = GamePanel.switchLanguage("Correct!", "Talált!", "Correct!");
             solutionLabel = new JLabel(text);
             solutionLabel.setForeground(Color.black);
             solutionLabel.setBackground(Color.green);
@@ -191,17 +173,9 @@ public abstract class Combat implements Runnable {
         } else if(entity.Player.hp > 0) {
             Combat.perfect = false;
             playSE(3);
-            switch (GamePanel.language) {
-
-                case ENG: text = "Wrong answer! The correct answer is: ";
-                    break;
-                case HUN: text = "Nem talált! A helyes válasz: ";
-                    break;
-                case FR: text = "Mauvaise réponse! La bonne solution est: ";
-                    break;
-                default: text = "Wrong answer! The correct answer is: ";
-                    break;
-            }
+            text = GamePanel.switchLanguage("Wrong answer! The correct answer is: ",
+                    "Nem talált! A helyes válasz: ",
+                    "Mauvaise réponse! La bonne solution est: ");
             solutionLabel = new JLabel(text + solution);
             solutionLabel.setForeground(Color.black);
             solutionLabel.setBackground(Color.red);
@@ -229,17 +203,7 @@ public abstract class Combat implements Runnable {
 
         String text = "";
         if(playerHPLabel != null) playerHPLabel.setVisible(false);
-        switch (GamePanel.language) {
-
-            case ENG: text = "Player: ";
-                break;
-            case HUN: text = "Játékos: ";
-                break;
-            case FR: text = "Joueur: ";
-                break;
-            default: text = "Player: ";
-                break;
-        }
+        text = GamePanel.switchLanguage("Player: ", "Játékos: ", "Joueur: ");
         playerHPLabel = new JLabel( text + entity.Player.hp);
         playerHPLabel.setBackground(Color.gray);
         playerHPLabel.setForeground(Color.red);
