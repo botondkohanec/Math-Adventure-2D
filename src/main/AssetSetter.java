@@ -117,6 +117,10 @@ public class AssetSetter {
             gp.obj[53] = new OBJ_Boots(53, gp);
             gp.obj[53].worldX = 2 * gp.tileSize;
             gp.obj[53].worldY = 4 * gp.tileSize;
+
+            gp.obj[88] = new OBJ_Integral(88, gp);
+            gp.obj[88].worldX = 30 * gp.tileSize;
+            gp.obj[88].worldY = 9 * gp.tileSize;
         }
     }
 

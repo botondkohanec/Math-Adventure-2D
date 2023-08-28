@@ -59,14 +59,14 @@ public class KeyHandler implements KeyListener {
             if (code == KeyEvent.VK_W || code == KeyEvent.VK_UP) {
                 GamePanel.playSE(20);
                 gp.ui.commandNum--;
-                if(gp.ui.commandNum < 0) gp.ui.commandNum = 2;
-                if(gp.ui.commandNum > 2) gp.ui.commandNum = 0;
+                if(gp.ui.commandNum < 0) gp.ui.commandNum = 3;
+                if(gp.ui.commandNum > 3) gp.ui.commandNum = 0;
             }
             if (code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN) {
                 GamePanel.playSE(20);
                 gp.ui.commandNum++;
-                if(gp.ui.commandNum < 0) gp.ui.commandNum = 2;
-                if(gp.ui.commandNum > 2) gp.ui.commandNum = 0;
+                if(gp.ui.commandNum < 0) gp.ui.commandNum = 3;
+                if(gp.ui.commandNum > 3) gp.ui.commandNum = 0;
             }
         }
 
@@ -229,9 +229,10 @@ public class KeyHandler implements KeyListener {
         if( GamePanel.gameState == GamePanel.GameState.LANGUAGE_STATE   ||
             GamePanel.gameState == GamePanel.GameState.TITLE_STATE      ||
             GamePanel.gameState == GamePanel.GameState.DIFFICULTY_STATE ||
-            GamePanel.gameState == GamePanel.GameState.GAME_OVER_STATE   ||
+            GamePanel.gameState == GamePanel.GameState.GAME_OVER_STATE  ||
             GamePanel.gameState == GamePanel.GameState.STATUS_STATE     ||
-            GamePanel.gameState == GamePanel.GameState.CONTROL_STATE) {
+            GamePanel.gameState == GamePanel.GameState.CONTROL_STATE    ||
+            GamePanel.gameState == GamePanel.GameState.RESOURCES_STATE_TITLESCREEN) {
             if (code == KeyEvent.VK_ENTER || code == KeyEvent.VK_SPACE) {
 
                 gp.ui.enterPressed = false;

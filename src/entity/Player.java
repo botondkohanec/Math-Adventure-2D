@@ -74,7 +74,7 @@ public class Player extends Entity{
         hasKey = 0;
         itemsNumber = 0;
         coin = 0;
-        speed = 4; 
+        speed = 4;
     }
 
     @Override
@@ -354,7 +354,7 @@ public class Player extends Entity{
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
-                GamePanel.gameState = GamePanel.GameState.RESOURCES_STATE;
+                GamePanel.gameState = GamePanel.GameState.RESOURCES_STATE_END;
             }
             else if(gp.npc[i] instanceof NPC_Boss) {
 

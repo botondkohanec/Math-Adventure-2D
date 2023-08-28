@@ -1,6 +1,6 @@
 
 7
 java:S1220""Move this file to a named package.8÷†ú”™1
-W	java:S125	"<This block of commented-out lines of code should be removed.(œÃÙ+8ÄµîÞ¢1
+W	java:S125"<This block of commented-out lines of code should be removed.(œÃÙ+8Áˆ¤Ô£1
 O
-java:S1128"-Remove this unused import 'combat.GraphDoor'.(õØÚÏþÿÿÿÿ8ÄµîÞ¢1
+java:S1128"-Remove this unused import 'combat.GraphDoor'.(õØÚÏþÿÿÿÿ8Ãˆ¤Ô£1

@@ -102,7 +102,10 @@ public class UI {
                 gp.ui.enterPressed = false;
                 if(gp.ui.commandNum == 0) GamePanel.gameState = GamePanel.GameState.DIFFICULTY_STATE;
                 if(gp.ui.commandNum == 1) GamePanel.gameState = GamePanel.GameState.LANGUAGE_STATE;
-                if(gp.ui.commandNum == 2) System.exit(0);
+                if(gp.ui.commandNum == 2) {
+                    GamePanel.gameState = GamePanel.GameState.RESOURCES_STATE_TITLESCREEN;
+                }
+                if(gp.ui.commandNum == 3) System.exit(0);
             }
 
             drawTitleScreen();
@@ -198,8 +201,9 @@ public class UI {
             drawGameOverScreen();
         }
 
-        // RESOURCES STATE
-        if(GamePanel.gameState == GamePanel.GameState.RESOURCES_STATE) {
+        // RESOURCES STATE (END)
+        if(GamePanel.gameState == GamePanel.GameState.RESOURCES_STATE_END) {
+
 
             if(commandNum == 0)         {
                 drawVictoryScreen();
@@ -226,6 +230,35 @@ public class UI {
                 changeAfter4seconds();
             }
             else if(commandNum == 6)    System.exit(0);
+        }
+
+        // RESOURCES STATE (TITLESCREEN)
+        if(GamePanel.gameState == GamePanel.GameState.RESOURCES_STATE_TITLESCREEN) {
+
+            if(commandNum == 0)    {
+                drawResourcesCodeScreen();
+                changeAfter4seconds();
+            }
+            else if(commandNum == 1)    {
+                drawResourcesSoundScreen();
+                changeAfter4seconds();
+            }
+            else if(commandNum == 2)    {
+                drawResourcesPictureScreen();
+                changeAfter4seconds();
+            }
+            else if(commandNum == 3)    {
+                drawResourcesTranslationsScreen();
+                changeAfter4seconds();
+            }
+            else if(commandNum == 4)    {
+                drawKohi();
+                changeAfter4seconds();
+            }
+            else if(commandNum == 5)    {
+                commandNum = 0;
+                GamePanel.gameState = GamePanel.GameState.TITLE_STATE;
+            }
         }
 
         // STATUS STATE
@@ -408,7 +441,7 @@ public class UI {
             g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
         }
 
-        text = GamePanel.switchLanguage("QUIT", "KILÉPÉS", "QUITTER");
+        text = GamePanel.switchLanguage("RESOURCES", "FORRÁSOK", "FRANCIA");
         x = getXforCenteredText(text);
         y += gp.tileSize;
         g2.setColor(Color.black);
@@ -416,6 +449,17 @@ public class UI {
         g2.setColor(new Color(28, 53, 45));
         g2.drawString(text, x, y);
         if(commandNum == 2) {
+            g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
+        }
+
+        text = GamePanel.switchLanguage("QUIT", "KILÉPÉS", "QUITTER");
+        x = getXforCenteredText(text);
+        y += gp.tileSize;
+        g2.setColor(Color.black);
+        g2.drawString(text, x+2, y+2);
+        g2.setColor(new Color(28, 53, 45));
+        g2.drawString(text, x, y);
+        if(commandNum == 3) {
             g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
         }
     }

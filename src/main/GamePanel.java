@@ -57,7 +57,8 @@ public class GamePanel extends JPanel implements Runnable {
         DIALOGUE_STATE,
         COMBAT_STATE,
         GAME_OVER_STATE,
-        RESOURCES_STATE,
+        RESOURCES_STATE_END,
+        RESOURCES_STATE_TITLESCREEN,
         STATUS_STATE,
         MENU_STATE,
         CONTROL_STATE;
@@ -301,11 +302,12 @@ public class GamePanel extends JPanel implements Runnable {
         if (keyH.checkDrawTime) { drawStart = System.nanoTime(); }
 
         // RESOURCES SCREEN
-        if (gameState == GameState.RESOURCES_STATE) { ui.draw(g2); }
+        if (gameState == GameState.RESOURCES_STATE_END) { ui.draw(g2); }
 
         // TITLE & LANGUAGE SCREEN
         if (gameState == GameState.TITLE_STATE || gameState == GameState.LANGUAGE_STATE ||
-                gameState == GameState.DIFFICULTY_STATE) {
+                gameState == GameState.DIFFICULTY_STATE ||
+                gameState == GameState.RESOURCES_STATE_TITLESCREEN) {
             ui.draw(g2);
         }
 
