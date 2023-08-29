@@ -1,0 +1,10 @@
+
+g	java:S112%"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8¶ùïà¢1
+g	java:S112,"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8¶ùïà¢1
+U	java:S106"9Replace this use of System.out or System.err by a logger.(”‚Áæ8åùïà¢1
+{
+java:S2142$"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8åùïà¢1
+{
+java:S2142+"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8åùïà¢1
+e
+java:S5361K"HReplace this call to "replaceAll()" by a call to the "replace()" method.(Ìù—ï8åùïà¢1

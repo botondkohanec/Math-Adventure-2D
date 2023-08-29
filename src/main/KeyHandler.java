@@ -59,14 +59,14 @@ public class KeyHandler implements KeyListener {
             if (code == KeyEvent.VK_W || code == KeyEvent.VK_UP) {
                 GamePanel.playSE(20);
                 gp.ui.commandNum--;
-                if(gp.ui.commandNum < 0) gp.ui.commandNum = 3;
-                if(gp.ui.commandNum > 3) gp.ui.commandNum = 0;
+                if(gp.ui.commandNum < 0) gp.ui.commandNum = 4;
+                if(gp.ui.commandNum > 4) gp.ui.commandNum = 0;
             }
             if (code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN) {
                 GamePanel.playSE(20);
                 gp.ui.commandNum++;
-                if(gp.ui.commandNum < 0) gp.ui.commandNum = 3;
-                if(gp.ui.commandNum > 3) gp.ui.commandNum = 0;
+                if(gp.ui.commandNum < 0) gp.ui.commandNum = 4;
+                if(gp.ui.commandNum > 4) gp.ui.commandNum = 0;
             }
         }
 

@@ -6,6 +6,7 @@ import object.OBJ_Key;
 import tile.TileManager;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
@@ -101,11 +102,28 @@ public class UI {
 
                 gp.ui.enterPressed = false;
                 if(gp.ui.commandNum == 0) GamePanel.gameState = GamePanel.GameState.DIFFICULTY_STATE;
-                if(gp.ui.commandNum == 1) GamePanel.gameState = GamePanel.GameState.LANGUAGE_STATE;
-                if(gp.ui.commandNum == 2) {
+                if(gp.ui.commandNum == 1) {
+                    enterPressed = false;
+                    gp.tileM = new TileManager(gp);
+                    gp.player.setDefaultValues();
+                    gp.aSetter.setObject();
+                    gp.aSetter.setNPC();
+                    GamePanel.gameState = GamePanel.GameState.PLAY_STATE;
+                    gp.playMusic(0);
+                    gp.ui.commandNum = 0;
+                    messageList = new ArrayList<>();
+                    messageCounter = new ArrayList<>();
+                    try {
+                            gp.load();
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                }
+                if(gp.ui.commandNum == 2) GamePanel.gameState = GamePanel.GameState.LANGUAGE_STATE;
+                if(gp.ui.commandNum == 3) {
                     GamePanel.gameState = GamePanel.GameState.RESOURCES_STATE_TITLESCREEN;
                 }
-                if(gp.ui.commandNum == 3) System.exit(0);
+                if(gp.ui.commandNum == 4) System.exit(0);
             }
 
             drawTitleScreen();
@@ -402,7 +420,7 @@ public class UI {
         text = GamePanel.switchLanguage("Math Adventure 2D", "Matek Kaland 2D",
                 "Aventures de Maths en 2D");
         int x = getXforCenteredText(text);
-        int y = gp.tileSize*3;
+        int y = 5*gp.tileSize/2;
 
         // SHADOW
         g2.setColor(Color.black);
@@ -413,7 +431,7 @@ public class UI {
 
         // CHARACTER IMAGE
         x = gp.screenWith/2 - gp.tileSize;
-        y += gp.tileSize*2;
+        y += gp.tileSize;
         g2.drawImage(gp.player.down1, x, y, gp.tileSize*2, gp.tileSize*2, null);
 
         // MENU
@@ -430,7 +448,7 @@ public class UI {
             g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
         }
 
-        text = GamePanel.switchLanguage("LANGUAGE", "NYELV", "FRANCIA");
+        text = GamePanel.switchLanguage("LOAD GAME", "FOLYTATÁS", "FRANCIA");
         x = getXforCenteredText(text);
         y += gp.tileSize;
         g2.setColor(Color.black);
@@ -441,7 +459,7 @@ public class UI {
             g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
         }
 
-        text = GamePanel.switchLanguage("RESOURCES", "FORRÁSOK", "FRANCIA");
+        text = GamePanel.switchLanguage("LANGUAGE", "NYELV", "FRANCIA");
         x = getXforCenteredText(text);
         y += gp.tileSize;
         g2.setColor(Color.black);
@@ -452,7 +470,7 @@ public class UI {
             g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
         }
 
-        text = GamePanel.switchLanguage("QUIT", "KILÉPÉS", "QUITTER");
+        text = GamePanel.switchLanguage("RESOURCES", "FORRÁSOK", "FRANCIA");
         x = getXforCenteredText(text);
         y += gp.tileSize;
         g2.setColor(Color.black);
@@ -460,6 +478,17 @@ public class UI {
         g2.setColor(new Color(28, 53, 45));
         g2.drawString(text, x, y);
         if(commandNum == 3) {
+            g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
+        }
+
+        text = GamePanel.switchLanguage("QUIT", "KILÉPÉS", "QUITTER");
+        x = getXforCenteredText(text);
+        y += gp.tileSize;
+        g2.setColor(Color.black);
+        g2.drawString(text, x+2, y+2);
+        g2.setColor(new Color(28, 53, 45));
+        g2.drawString(text, x, y);
+        if(commandNum == 4) {
             g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
         }
     }

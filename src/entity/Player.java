@@ -11,6 +11,7 @@ import object.SuperObject;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 public class Player extends Entity{
 
@@ -177,7 +178,10 @@ public class Player extends Entity{
                     boom(i);
                     break;
                 case "Math_Coin":
-                    pickUpMath_Coin(i);
+                    pickUpMathCoin(i);
+                    break;
+                case "Integral":
+                    reactToIntegral(i);
                     break;
                 default: break;
             }
@@ -326,7 +330,7 @@ public class Player extends Entity{
                 "Tu as obtenu une clé!");
         gp.ui.addMessage(text);
     }
-    private void pickUpMath_Coin(int i) {
+    private void pickUpMathCoin(int i) {
 
         String text = "";
         gp.playSE(19);
@@ -335,6 +339,21 @@ public class Player extends Entity{
         text = GamePanel.switchLanguage("You got a mathcoin!", "Szereztél egy matérmét!", "Francia!");
         gp.ui.addMessage(text);
     }
+    private void reactToIntegral(int i) {
+
+        gp.playSE(19);
+        if(worldY > gp.obj[i].worldY) worldY ++;
+        else worldY --;
+        try {
+            gp.save();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        String text = "";
+        text = GamePanel.switchLanguage("You saved your game!", "Lementetted a játékot!", "Francia!");
+        gp.ui.addMessage(text);
+    }
+
 
     public void interractNPC(int i) {
 

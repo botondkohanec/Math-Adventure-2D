@@ -13,6 +13,7 @@ import object.SuperObject;
 import tile.TileManager;
 import javax.swing.*;
 import java.awt.*;
+import java.io.*;
 
 public class GamePanel extends JPanel implements Runnable {
 
@@ -91,6 +92,24 @@ public class GamePanel extends JPanel implements Runnable {
         MEDIUM,
         HARD,
         MATHEMATICIAN;
+
+        @Override
+        public String toString() {
+            switch (this) {
+                case MEDIUM -> {
+                    return "MEDIUM";
+                }
+                case HARD -> {
+                    return "HARD";
+                }
+                case MATHEMATICIAN -> {
+                    return "MATHEMATICIAN";
+                }
+                default -> {
+                    return "EASY";
+                }
+            }
+        }
     }
     public static Difficulty difficulty;
 
@@ -361,6 +380,104 @@ public class GamePanel extends JPanel implements Runnable {
 
         se.setFile(i);
         se.play();
+    }
+
+    public void load() throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader("save.data"));
+        br.readLine();
+        switch (Integer.parseInt(br.readLine())) {
+            case 1 -> difficulty = Difficulty.MEDIUM;
+            case 2 -> difficulty = Difficulty.HARD;
+            case 3 -> difficulty = Difficulty.MATHEMATICIAN;
+            default -> difficulty = Difficulty.EASY;
+        }
+        Player.hp = Integer.parseInt(br.readLine());
+        Player.attack = Integer.parseInt(br.readLine());
+        Player.armor = Integer.parseInt(br.readLine());
+        player.speed = Integer.parseInt(br.readLine());
+        Player.exp = Integer.parseInt(br.readLine());
+        Player.nextLevel = Integer.parseInt(br.readLine());
+        Player.coin = Integer.parseInt(br.readLine());
+        Player.weapon = Integer.parseInt(br.readLine());
+        for(int i = 0; i < player.items.length; i++) {
+            String s = br.readLine();
+            if(!s.equals("null")) {
+                switch (s) {
+                    case "Key" -> player.items[i] = new OBJ_Key(Integer.parseInt(br.readLine()), this);
+                    default -> player.items[i] = new OBJ_Apple(Integer.parseInt(br.readLine()), this);
+                }
+            } else {
+                player.items[i] = null;
+            }
+        }
+        for(int i = 0; i < obj.length; i++) {
+            String s = br.readLine();
+            if(s.equals("null")) {
+                obj[i] = null;
+            }
+        }
+        for(int i = 0; i < npc.length; i++) {
+            String s = br.readLine();
+            if(s.equals("null")) {
+                npc[i] = null;
+            }
+        }
+    }
+
+    public void save() throws IOException {
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("save.data"));
+        switch (difficulty) {
+            case MEDIUM -> bufferedWriter.write("" + 1);
+            case HARD -> bufferedWriter.write("" + 2);
+            case MATHEMATICIAN -> bufferedWriter.write("" + 3);
+            default -> bufferedWriter.write("" + 0);
+        }
+        bufferedWriter.newLine();
+        bufferedWriter.write(""+Player.level);
+        bufferedWriter.newLine();
+        bufferedWriter.write(""+Player.hp);
+        bufferedWriter.newLine();
+        bufferedWriter.write(""+Player.attack);
+        bufferedWriter.newLine();
+        bufferedWriter.write(""+Player.armor);
+        bufferedWriter.newLine();
+        bufferedWriter.write(""+player.speed);
+        bufferedWriter.newLine();
+        bufferedWriter.write(""+Player.exp);
+        bufferedWriter.newLine();
+        bufferedWriter.write(""+Player.nextLevel);
+        bufferedWriter.newLine();
+        bufferedWriter.write(""+Player.coin);
+        bufferedWriter.newLine();
+        bufferedWriter.write(""+Player.weapon);
+        for(int i = 0; i < player.items.length; i++) {
+            bufferedWriter.newLine();
+            if(player.items[i] != null) {
+                bufferedWriter.write(player.items[i].name);
+                bufferedWriter.newLine();
+                bufferedWriter.write(player.items[i].index+"");
+            } else {
+                bufferedWriter.write("null");
+            }
+        }
+        for(int i = 0; i < obj.length; i++) {
+            bufferedWriter.newLine();
+            if(obj[i] != null) {
+                bufferedWriter.write("obj");
+            } else {
+                bufferedWriter.write("null");
+            }
+        }
+        for(int i = 0; i < npc.length; i++) {
+            bufferedWriter.newLine();
+            if(npc[i] != null) {
+                bufferedWriter.write("obj");
+            } else {
+                bufferedWriter.write("null");
+            }
+        }
+        bufferedWriter.close();
+
     }
 
 }

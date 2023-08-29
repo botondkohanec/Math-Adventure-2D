@@ -1,4 +1,7 @@
 import combat.GraphDoor;
+import main.GamePanel;
+
+import java.io.IOException;
 
 public class Main {
 
