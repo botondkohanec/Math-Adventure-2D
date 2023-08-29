@@ -69,10 +69,6 @@ E
 src/combat/Graph.java,7\1\719cff2b9e4ed3a3799b5690d315190efec70038
 =
 src/Main.java,9\2\924f089edb4af5ee45c8a9d1129cd28e2b368138
-H
-src/main/KeyHandler.java,8\a\8ac7f015107e4b34989cc598810a7da61fb6d4f7
-F
-src/entity/Player.java,5\2\523a6d6a865441bbb4d3f284442e8ab68be1a6a8
 @
 src/main/UI.java,0\c\0cf5fa1855dca159fafbd38815370f509da04523
 I
@@ -81,5 +77,3 @@ G
 src/object/OBJ_Key.java,3\7\3788ce4488b43885b271559d67f5bf7bba2500a2
 I
 src/main/AssetSetter.java,5\6\56295db6c09a5895e44eb80e56ccf293a058f80a
-G
-src/main/GamePanel.java,1\3\13f35e19e9b4030437bb683f84c6bf77cae0f07e

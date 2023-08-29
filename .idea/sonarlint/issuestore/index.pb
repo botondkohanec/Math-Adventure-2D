@@ -69,8 +69,6 @@ K
 src/entity/NPC_WolfMan.java,2\5\258b800a01bced1f4a879bc33486497e9af134e6
 =
 src/Main.java,9\2\924f089edb4af5ee45c8a9d1129cd28e2b368138
-H
-src/main/KeyHandler.java,8\a\8ac7f015107e4b34989cc598810a7da61fb6d4f7
 I
 src/object/OBJ_Apple.java,0\4\0489be422823311fcbb86b9bdee0e2971aa47d6d
 @
@@ -78,8 +76,4 @@ I
 I
 src/main/AssetSetter.java,5\6\56295db6c09a5895e44eb80e56ccf293a058f80a
 G
-src/main/GamePanel.java,1\3\13f35e19e9b4030437bb683f84c6bf77cae0f07e
-G
 src/object/OBJ_Key.java,3\7\3788ce4488b43885b271559d67f5bf7bba2500a2
-F
-src/entity/Player.java,5\2\523a6d6a865441bbb4d3f284442e8ab68be1a6a8

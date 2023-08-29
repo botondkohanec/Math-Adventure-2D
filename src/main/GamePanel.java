@@ -111,7 +111,7 @@ public class GamePanel extends JPanel implements Runnable {
             }
         }
     }
-    public static Difficulty difficulty;
+    public static Difficulty difficulty = Difficulty.EASY;
 
     int stop = 0;
     int coinIndex = 90;
@@ -399,6 +399,8 @@ public class GamePanel extends JPanel implements Runnable {
         Player.nextLevel = Integer.parseInt(br.readLine());
         Player.coin = Integer.parseInt(br.readLine());
         Player.weapon = Integer.parseInt(br.readLine());
+        player.hasKey = Integer.parseInt(br.readLine());
+        player.itemsNumber = Integer.parseInt(br.readLine());
         for(int i = 0; i < player.items.length; i++) {
             String s = br.readLine();
             if(!s.equals("null")) {
@@ -450,6 +452,10 @@ public class GamePanel extends JPanel implements Runnable {
         bufferedWriter.write(""+Player.coin);
         bufferedWriter.newLine();
         bufferedWriter.write(""+Player.weapon);
+        bufferedWriter.newLine();
+        bufferedWriter.write(""+player.hasKey);
+        bufferedWriter.newLine();
+        bufferedWriter.write(""+player.itemsNumber);
         for(int i = 0; i < player.items.length; i++) {
             bufferedWriter.newLine();
             if(player.items[i] != null) {
