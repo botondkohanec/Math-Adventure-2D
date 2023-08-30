@@ -13,6 +13,7 @@ import object.SuperObject;
 import tile.TileManager;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.*;
 
 public class GamePanel extends JPanel implements Runnable {
@@ -21,15 +22,22 @@ public class GamePanel extends JPanel implements Runnable {
     final int originalTileSize = 16;//16; // 16 x 16 tile
     final int scale = 3;
     public final int tileSize = originalTileSize * scale; // 48 x 48 tile
-    public final int maxScreenCol = 16;
+    public final int maxScreenCol = 20;
     public final int maxScreenRow = 12;
-    public final int screenWith = tileSize * maxScreenCol; // 768 pixels
+    public final int screenWith = tileSize * maxScreenCol; // 960 pixels
     public final int screenHeight = tileSize * maxScreenRow; // 576 pixels
 
     // WORLD SETTINGS
     public int maxWorldCol = 35;
     public int maxWorldRow = 43;
     public int mapNum = 2;
+
+    // FOR FULL SCREEN
+    int screenWith2 = screenWith;
+    int screenHeight2 = screenHeight;
+    BufferedImage tempScreen;
+    Graphics2D g2;
+    public boolean fullScreen = false;
 
     // FPS
     int FPS = 60;
@@ -76,9 +84,10 @@ public class GamePanel extends JPanel implements Runnable {
     public enum Language {
         ENG,
         HUN,
-        FR;
+        FR,
+        DEFAULT;
     }
-    public static Language language = Language.ENG;
+    public static Language language = Language.DEFAULT;
     public static String switchLanguage(String eng, String hun, String fr) {
         switch (GamePanel.language) {
             case HUN: return hun;
@@ -128,7 +137,6 @@ public class GamePanel extends JPanel implements Runnable {
 
     public void setUpGame() {
 
-        gameState = GameState.LANGUAGE_STATE;
         ui.commandNum = 0;
         if(mapNum == 1) {
 
@@ -139,6 +147,42 @@ public class GamePanel extends JPanel implements Runnable {
             maxWorldCol = 50;
             maxWorldRow = 30;
         }
+        tempScreen = new BufferedImage(screenWith, screenHeight, BufferedImage.TYPE_INT_ARGB);
+        g2 = (Graphics2D)tempScreen.getGraphics();
+        try {
+            loadConfig();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        if(language == Language.DEFAULT) {
+            gameState = GameState.LANGUAGE_STATE;
+        } else {
+            gameState = GameState.TITLE_STATE;
+        }
+    }
+
+    public void setFullScreen() {
+
+        // GET LOCAL SCREEN DEVICE
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        GraphicsDevice gd = ge.getDefaultScreenDevice();
+        gd.setFullScreenWindow(Main.window);
+
+        // GET FULL SCREEN WIDTH & HEIGHT
+        screenWith2 = Main.window.getWidth();
+        screenHeight2 = Main.window.getHeight();
+    }
+
+    public void setNormalScreen() {
+
+        // GET LOCAL SCREEN DEVICE
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        GraphicsDevice gd = ge.getDefaultScreenDevice();
+        gd.setFullScreenWindow(null);
+
+        // GET FULL SCREEN WIDTH & HEIGHT
+        screenWith2 = screenWith;
+        screenHeight2 = screenHeight;
     }
 
     public void startGameThread() {
@@ -156,7 +200,8 @@ public class GamePanel extends JPanel implements Runnable {
             double nextDrawTime = System.nanoTime() + drawInterval;
 
             update();
-            repaint();
+            drawToTempScreen(); // draw everything to the buffered image
+            drawToScreen(); // draw the buffered image to the screen
 
             try {
                 // erre van egy delta method is
@@ -310,12 +355,7 @@ public class GamePanel extends JPanel implements Runnable {
         }
     }
 
-    @Override
-    public void paintComponent(Graphics g) {
-
-        super.paintComponent(g);
-        Graphics2D g2 = (Graphics2D) g;
-
+    public void drawToTempScreen() {
         // DEBUG
         long drawStart = 0;
         if (keyH.checkDrawTime) { drawStart = System.nanoTime(); }
@@ -361,10 +401,13 @@ public class GamePanel extends JPanel implements Runnable {
             g2.drawString("Draw Time: "+passed, 10, 400);
             System.out.println("Draw Time: "+passed);
         }
-
-        g2.dispose();
     }
+    public void drawToScreen() {
 
+        Graphics g = getGraphics();
+        g.drawImage(tempScreen, 0, 0, screenWith2, screenHeight2, null);
+        g.dispose();
+    }
     public static void playMusic(int i) {
 
         music.setFile(i);
@@ -484,6 +527,47 @@ public class GamePanel extends JPanel implements Runnable {
         }
         bufferedWriter.close();
 
+    }
+
+    public void loadConfig() throws IOException {
+        BufferedReader br;
+        try {
+            br = new BufferedReader(new FileReader("config.data"));
+        } catch (Exception e) {
+            return;
+        }
+        int a = Integer.parseInt(br.readLine());
+        switch (a) {
+            case 1 -> language = language.HUN;
+            case 2 -> language = language.FR;
+            default -> language = language.ENG;
+        }
+        se.volumeScale = Integer.parseInt(br.readLine());
+        music.volumeScale = Integer.parseInt(br.readLine());
+        if(Integer.parseInt(br.readLine()) == 1) {
+            setFullScreen();
+            fullScreen = true;
+        }
+    }
+
+    public void saveConfig() throws IOException {
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("config.data"));
+        switch (language) {
+            case HUN -> bufferedWriter.write("" + 1);
+            case FR -> bufferedWriter.write("" + 2);
+            default -> bufferedWriter.write("" + 0);
+        }
+        bufferedWriter.newLine();
+        bufferedWriter.write(""+se.volumeScale);
+        bufferedWriter.newLine();
+        bufferedWriter.write(""+music.volumeScale);
+        bufferedWriter.newLine();
+        if(fullScreen) {
+            bufferedWriter.write("" + 1);
+        } else {
+            bufferedWriter.write("" + 0);
+        }
+        bufferedWriter.close();
     }
 
 }

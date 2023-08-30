@@ -15,14 +15,22 @@ public class OBJ_MathCoin extends SuperObject{
         super(index);
         this.gp = gp;
 
-        name = "Math_Coin";
+        setName("Math_Coin");
+        setImage("/objects/math_coin.png");
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+    @Override
+    public void setImage(String path) {
         try{
-            image = ImageIO.read(getClass().getResourceAsStream("/objects/math_coin.png"));
+            image = ImageIO.read(getClass().getResourceAsStream(path));
             uTool.scaleImage(image, gp.tileSize, gp.tileSize);
 
         } catch(IOException e) {
             e.printStackTrace();
         }
     }
-
 }

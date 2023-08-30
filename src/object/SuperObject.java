@@ -5,7 +5,7 @@ import main.UtilityTool;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class SuperObject {
+public abstract class SuperObject {
 
     public BufferedImage image;
     public String name;
@@ -34,5 +34,9 @@ public class SuperObject {
            worldY - gp.tileSize < gp.player.worldY + gp.player.screenY)
                 g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
     }
+
+    public abstract void setName(String name);
+
+    public abstract void setImage(String path);
 
 }

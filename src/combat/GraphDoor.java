@@ -73,6 +73,9 @@ public class GraphDoor extends Combat {
             int r1 = 200;
             int r2 = 150;
             int t = 0;
+
+            Graph graph1 = new Graph<Integer>();
+
             ArrayList<Integer> listX = new ArrayList<>();
             ArrayList<Integer> listY = new ArrayList<>();
 
@@ -82,21 +85,27 @@ public class GraphDoor extends Combat {
             for(t = 1; t <= v; t++) {
                 listX.add((int)(Math.cos(t) * r1) + x+10);
                 listY.add((int)(Math.sin(t) * r2) + y+10);
+                graph1.addVertex(t, (int)(Math.cos(t) * r1) + x+10, (int)(Math.sin(t) * r2) + y+10);
                 g.fillOval((int)(Math.cos(t) * r1) + x, (int)(Math.sin(t) * r2) + y, verticeSize, verticeSize);
+            }
+            for(int i = 0; i < graph1.listOfVertices.size(); i++) {
+                System.out.println(graph1.listOfVertices.get(i));
             }
             g.setColor(Color.red);
             for(t = 1; t <= 2*v-rand.nextInt(v); t++) {
                 g.setColor(new Color(50+rand.nextInt(205),50+rand.nextInt(205),50+rand.nextInt(205)));
                 first = rand.nextInt(v);
                 second = rand.nextInt(v);
-                if(first != second) {
-                    e++;
-                }
                 Graphics2D g2 = (Graphics2D)g;
                 g2.setStroke(new BasicStroke(3));
                 g2.drawLine(listX.get(first), listY.get(first), listX.get(second), listY.get(second));
+                graph1.addEdge((Graph.Vertex) graph1.listOfVertices.get(first), (Graph.Vertex) graph1.listOfVertices.get(second));
             }
 
+            for(int i = 0; i < graph1.listOfEdges.size(); i++) {
+                System.out.println(graph1.listOfEdges.get(i));
+            }
+            e = graph1.numberOfEdges;
             System.out.println("v = " + v);
             System.out.println("e = " + e);
         }

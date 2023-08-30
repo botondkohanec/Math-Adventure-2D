@@ -13,16 +13,24 @@ public class OBJ_Key extends SuperObject{
         super(index);
         this.gp = gp;
 
-        name = "Key";
+        setName("Key");
+        setImage("/objects/key_B.png");
         description = GamePanel.switchLanguage("Key - It's open a door",
                 "Kulcs - Kinyit egy\najtót", "Francia");
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+    @Override
+    public void setImage(String path) {
         try{
-            image = ImageIO.read(getClass().getResourceAsStream("/objects/key_B.png"));
+            image = ImageIO.read(getClass().getResourceAsStream(path));
             uTool.scaleImage(image, gp.tileSize, gp.tileSize);
 
         } catch(IOException e) {
             e.printStackTrace();
         }
     }
-
 }

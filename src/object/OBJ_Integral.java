@@ -15,15 +15,23 @@ public class OBJ_Integral extends SuperObject{
         super(index);
         this.gp = gp;
 
-        name = "Integral";
+        setName("Integral");
+        setImage("/objects/integral.png");
+        collision = true;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+    @Override
+    public void setImage(String path) {
         try{
-            image = ImageIO.read(getClass().getResourceAsStream("/objects/integral.png"));
+            image = ImageIO.read(getClass().getResourceAsStream(path));
             uTool.scaleImage(image, gp.tileSize, gp.tileSize);
 
         } catch(IOException e) {
             e.printStackTrace();
         }
-        collision = true;
     }
-
 }

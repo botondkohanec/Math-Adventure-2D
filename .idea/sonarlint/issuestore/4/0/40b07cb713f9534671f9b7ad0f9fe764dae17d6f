@@ -1,6 +1,0 @@
-
-
-java:S1319"kThe type of "openedClips" should be an interface such as "List" rather than the implementation "ArrayList".(íéİüÿÿÿÿ8ŒÅ³Ü¢1
-y
-java:S1104"WMake openedClips a static final constant or non-public and provide accessors if needed.(íéİüÿÿÿÿ8Å³Ü¢1
-C	java:S131C""Add a default case to this switch.(˜îÚ“ÿÿÿÿÿ8±Å³Ü¢1

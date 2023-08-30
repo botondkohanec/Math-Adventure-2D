@@ -7,7 +7,7 @@ import entity.NPC_WolfMan;
 import object.OBJ_Apple;
 import object.OBJ_Key;
 
-public class CollisionChecker {
+public final class CollisionChecker {
 
     GamePanel gp;
 

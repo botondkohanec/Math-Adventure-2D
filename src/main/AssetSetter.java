@@ -3,7 +3,7 @@ package main;
 import entity.*;
 import object.*;
 
-public class AssetSetter {
+public final class AssetSetter {
 
     GamePanel gp;
 

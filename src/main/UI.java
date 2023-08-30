@@ -123,7 +123,14 @@ public class UI {
                 if(gp.ui.commandNum == 3) {
                     GamePanel.gameState = GamePanel.GameState.RESOURCES_STATE_TITLESCREEN;
                 }
-                if(gp.ui.commandNum == 4) System.exit(0);
+                if(gp.ui.commandNum == 4) {
+                    try {
+                        gp.saveConfig();
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                    System.exit(0);
+                }
             }
 
             drawTitleScreen();
@@ -291,7 +298,15 @@ public class UI {
                 gp.ui.enterPressed = false;
                 if(gp.ui.commandNum == 0) ;
                 if(gp.ui.commandNum == 1) ;
-                if(gp.ui.commandNum == 2) ;
+                if(gp.ui.commandNum == 2) {
+                    if(!gp.fullScreen) {
+                        gp.setFullScreen();
+                        gp.fullScreen = true;
+                    } else {
+                        gp.setNormalScreen();
+                        gp.fullScreen = false;
+                    }
+                }
                 if(gp.ui.commandNum == 3) {
                     commandNum = 0;
                     GamePanel.gameState = GamePanel.GameState.CONTROL_STATE;
@@ -359,7 +374,7 @@ public class UI {
 
     public void drawLanguageScreen() {
 
-        for(int i = 0; i < 8; i++) {
+        for(int i = 0; i < 10; i++) {
             for(int j = 0; j < 7; j++)
                 g2.drawImage(tileImage, 2*gp.tileSize*i, 2*gp.tileSize*j, gp.tileSize * 2, gp.tileSize * 2, null);
         }
@@ -408,7 +423,7 @@ public class UI {
     }
     public void drawTitleScreen() {
 
-        for(int i = 0; i < 8; i++) {
+        for(int i = 0; i < 10; i++) {
             for(int j = 0; j < 7; j++)
                 g2.drawImage(tileImage, 2*gp.tileSize*i, 2*gp.tileSize*j, gp.tileSize * 2, gp.tileSize * 2, null);
         }
@@ -494,7 +509,7 @@ public class UI {
     }
     public void drawDifficultyScreen() {
 
-        for(int i = 0; i < 8; i++) {
+        for(int i = 0; i < 10; i++) {
             for(int j = 0; j < 7; j++)
                 g2.drawImage(tileImage, 2*gp.tileSize*i, 2*gp.tileSize*j, gp.tileSize * 2, gp.tileSize * 2, null);
         }
@@ -687,7 +702,7 @@ public class UI {
         g2.drawString(text, x, y);
         g2.drawImage(swordImageUp, x + 136, y - 40, 3 * gp.tileSize / 2, 3 * gp.tileSize / 2, null);
 
-        x = 9*gp.tileSize;
+        x = gp.screenWith-13*gp.tileSize/2;
         y = 3*gp.tileSize/4;
         width = gp.tileSize*6;
         height = gp.tileSize*6;
@@ -706,7 +721,7 @@ public class UI {
         }
 
 
-        x = 9*gp.tileSize;
+        x = gp.screenWith-13*gp.tileSize/2;
         y = 3*gp.tileSize/4+height+gp.tileSize/2;
         width = gp.tileSize*6;
         height = gp.tileSize*4;
@@ -721,9 +736,9 @@ public class UI {
     }
     public void drawMenuState() {
         // WINDOW
-        int x = 4*gp.tileSize;
+        int x = 11*gp.tileSize/2;
         int y = 2*gp.tileSize;
-        int width = gp.screenWith-8*gp.tileSize;
+        int width = gp.screenWith-11*gp.tileSize;
         int height = gp.screenHeight - 4*gp.tileSize;
         drawSubWindow(x, y, width, height);
 
@@ -754,7 +769,11 @@ public class UI {
 
         text = GamePanel.switchLanguage("Full screen","Teljes képernyő", "Francia");
         g2.drawString(text, x, y);
-        g2.drawRect(x + 220, y-24, 30, 30);
+        if(!gp.fullScreen) {
+            g2.drawRect(x + 220, y - 24, 30, 30);
+        } else {
+            g2.fillRect(x + 220, y - 24, 30, 30);
+        }
         if(commandNum == 2) {
             g2.drawImage(swordImage, x-gp.tileSize-20, y-gp.tileSize+5, 60, 60, null);
         }
@@ -782,9 +801,9 @@ public class UI {
     }
     public void drawControlState() {
         // WINDOW
-        int x = 4*gp.tileSize;
+        int x = 11*gp.tileSize/2;
         int y = 2*gp.tileSize;
-        int width = gp.screenWith-8*gp.tileSize;
+        int width = gp.screenWith-11*gp.tileSize;
         int height = gp.screenHeight - 4*gp.tileSize;
         drawSubWindow(x, y, width, height);
 

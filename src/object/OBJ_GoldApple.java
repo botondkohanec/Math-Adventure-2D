@@ -15,14 +15,22 @@ public class OBJ_GoldApple extends SuperObject{
         super(index);
         this.gp = gp;
 
-        name = "GApple";
+        setName("GApple");
+        setImage("/objects/goldapple_B.png");
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+    @Override
+    public void setImage(String path) {
         try{
-            image = ImageIO.read(getClass().getResourceAsStream("/objects/goldapple_B.png"));
+            image = ImageIO.read(getClass().getResourceAsStream(path));
             uTool.scaleImage(image, gp.tileSize, gp.tileSize);
 
         } catch(IOException e) {
             e.printStackTrace();
         }
     }
-
 }

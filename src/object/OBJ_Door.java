@@ -16,20 +16,29 @@ public class OBJ_Door extends SuperObject{
         super(index);
         this.gp = gp;
 
-        name = "Door"+type;
+        setName("Door"+type);
 
+
+        if(type.equals(AssetSetter.KEY)) {
+            setImage("/objects/door_K.png");
+        } else {
+            setImage("/objects/door_G.png");
+        }
+        collision = true;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+    @Override
+    public void setImage(String path) {
         try{
-            if(type.equals(AssetSetter.KEY)) {
-                image = ImageIO.read(getClass().getResourceAsStream("/objects/door_K.png"));
-            } else {
-                image = ImageIO.read(getClass().getResourceAsStream("/objects/door_G.png"));
-            }
+            image = ImageIO.read(getClass().getResourceAsStream(path));
             uTool.scaleImage(image, gp.tileSize, gp.tileSize);
 
         } catch(IOException e) {
             e.printStackTrace();
         }
-        collision = true;
     }
-
 }

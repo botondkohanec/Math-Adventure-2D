@@ -15,14 +15,22 @@ public class OBJ_Boots extends SuperObject{
         super(index);
         this.gp = gp;
 
-        name = "Boots";
+        setName("Boots");
+        setImage("/objects/boots.png");
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+    @Override
+    public void setImage(String path) {
         try{
-            image = ImageIO.read(getClass().getResourceAsStream("/objects/boots.png"));
+            image = ImageIO.read(getClass().getResourceAsStream(path));
             uTool.scaleImage(image, gp.tileSize, gp.tileSize);
 
         } catch(IOException e) {
             e.printStackTrace();
         }
     }
-
 }

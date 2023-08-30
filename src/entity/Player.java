@@ -13,7 +13,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public class Player extends Entity{
+public final class Player extends Entity{
 
     public KeyHandler keyH;
 
@@ -190,6 +190,8 @@ public class Player extends Entity{
 
     private void boom(int i) {
 
+        gp.playSE(11);
+
         entity.Player.hp = 0;
 
         gp.obj[0] = new OBJ_Boom(0, gp);
@@ -201,7 +203,6 @@ public class Player extends Entity{
         gp.obj[1].worldY = worldY;
 
         gp.ui.addMessage("Boom!!");
-        gp.playSE(11);
     }
     private void pickUpBoots(int i) {
 

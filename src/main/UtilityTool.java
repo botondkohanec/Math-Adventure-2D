@@ -3,7 +3,7 @@ package main;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class UtilityTool {
+public final class UtilityTool {
 
 
     public BufferedImage scaleImage(BufferedImage original, int width, int height) {

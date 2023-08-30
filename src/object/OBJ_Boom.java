@@ -16,14 +16,22 @@ public class OBJ_Boom extends SuperObject{
         this.gp = gp;
 
         solidArea = new Rectangle(0,0,96,96);
-        name = "Boom";
+        setName("Boom");
+        setImage("/objects/boom_B.png");
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+    @Override
+    public void setImage(String path) {
         try{
-            image = ImageIO.read(getClass().getResourceAsStream("/objects/boom_B.png"));
+            image = ImageIO.read(getClass().getResourceAsStream(path));
             uTool.scaleImage(image, gp.tileSize, gp.tileSize);
 
         } catch(IOException e) {
             e.printStackTrace();
         }
     }
-
 }
