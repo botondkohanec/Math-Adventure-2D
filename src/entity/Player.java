@@ -64,8 +64,8 @@ public final class Player extends Entity{
             worldY = gp.tileSize * 41;
         }
         else if(gp.mapNum == 2) {
-            worldX = gp.tileSize * 30;
-            worldY = gp.tileSize * 10;
+            worldX = gp.tileSize * 39;
+            worldY = gp.tileSize * 15;
         }
         direction = "down";
         for(int i = 0; i < items.length; i++) {
@@ -287,7 +287,7 @@ public final class Player extends Entity{
             keyH.downPressed = false;
             keyH.leftPressed = false;
             keyH.rightPressed = false;
-            Combat openTheDoor = new GeometryDoor();
+            Combat openTheDoor = new GeometryDoor(gp);
             String s = openTheDoor.play();
             if(worldY > gp.obj[i].worldY) worldY ++;
             else worldY --;

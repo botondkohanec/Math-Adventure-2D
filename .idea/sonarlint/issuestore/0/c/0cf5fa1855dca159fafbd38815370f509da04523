@@ -3,11 +3,11 @@ g	java:S112w"FDefine and throw a dedicated exception instead of using a generi
 h	java:S112‚"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8ì§«¶¤1
 h	java:S112Ó"FDefine and throw a dedicated exception instead of using a generic one.(¼ÿ¾¹ÿÿÿÿÿ8ì§«¶¤1
 g
-java:S1192•"IDefine a constant instead of duplicating this literal "Francia" 21 times.(áæ˜Ú8ò§«¶¤1
+java:S1192˜"IDefine a constant instead of duplicating this literal "Francia" 21 times.(áæ˜Ú8ò§«¶¤1
 k
-java:S1192Ò"HDefine a constant instead of duplicating this literal "FRANCIA" 3 times.(˜İ¾çùÿÿÿÿ8ò§«¶¤1
+java:S1192Õ"HDefine a constant instead of duplicating this literal "FRANCIA" 3 times.(˜İ¾çùÿÿÿÿ8ò§«¶¤1
 M
-java:S1066Ç"/Merge this if statement with the enclosing one.(¬ÿî8õ§«¶¤1
+java:S1066Ê"/Merge this if statement with the enclosing one.(¬ÿî8õ§«¶¤1
 ‡
 java:S1319!"kThe type of "messageList" should be an interface such as "List" rather than the implementation "ArrayList".(ÌÍõ!8ö§«¶¤1
 
@@ -82,31 +82,33 @@ java:S2696Ü"6Make the enclosing method "static" or remove this set.(ÍÚ¥Çùÿÿÿÿ
 X
 java:S2209İ"5Change this instance-reference to a static reference.(¨ÓÍ¦øÿÿÿÿ8§°«¶¤1
 T
-java:S2696"6Make the enclosing method "static" or remove this set.(êæïï8ª°«¶¤1
+java:S2696ƒ"6Make the enclosing method "static" or remove this set.(êæïï8¼¤õÎ¤1
+T
+java:S2696 "6Make the enclosing method "static" or remove this set.(êæïï8¼¤õÎ¤1
 ?
-java:S1116«"Remove this empty statement.(š°ëÚøÿÿÿÿ8ª°«¶¤1
+java:S1116®"Remove this empty statement.(š°ëÚøÿÿÿÿ8è…õÎ¤1
 :
-java:S1116¬"Remove this empty statement.(Û›§³8ª°«¶¤1
+java:S1116¯"Remove this empty statement.(Û›§³8ª°«¶¤1
 T
-java:S2696¸"6Make the enclosing method "static" or remove this set.(¯«­ó8ª°«¶¤1
+java:S2696»"6Make the enclosing method "static" or remove this set.(¯«­ó8¼¤õÎ¤1
 ?
-java:S1116¹"Remove this empty statement.(ôŸìúÿÿÿÿ8ª°«¶¤1
+java:S1116¼"Remove this empty statement.(ôŸìúÿÿÿÿ8¼¤õÎ¤1
 X
-java:S2209»"5Change this instance-reference to a static reference.(Ü¥³Ğüÿÿÿÿ8«°«¶¤1
+java:S2209¾"5Change this instance-reference to a static reference.(Ü¥³Ğüÿÿÿÿ8¼¤õÎ¤1
 T
-java:S2696¼"6Make the enclosing method "static" or remove this set.(êæïï8«°«¶¤1
+java:S2696¿"6Make the enclosing method "static" or remove this set.(êæïï8¼¤õÎ¤1
 T
-java:S2696¾"6Make the enclosing method "static" or remove this set.(²şËŠ8«°«¶¤1
+java:S2696Á"6Make the enclosing method "static" or remove this set.(²şËŠ8¼¤õÎ¤1
 Y
-java:S2696É"6Make the enclosing method "static" or remove this set.(ğŠÀïıÿÿÿÿ8­°«¶¤1
+java:S2696Ì"6Make the enclosing method "static" or remove this set.(ğŠÀïıÿÿÿÿ8¼¤õÎ¤1
 R
-java:S1117ã"5Rename "i" which hides the field declared at line 38.(¾ˆ¾8±°«¶¤1
+java:S1117æ"5Rename "i" which hides the field declared at line 38.(¾ˆ¾8¼¤õÎ¤1
 X
-java:S1117ù"5Rename "i" which hides the field declared at line 38.(Å‚ÉÎúÿÿÿÿ8µ°«¶¤1
+java:S1117ü"5Rename "i" which hides the field declared at line 38.(Å‚ÉÎúÿÿÿÿ8Ë¤õÎ¤1
 X
-java:S1117ª"5Rename "i" which hides the field declared at line 38.(Å‚ÉÎúÿÿÿÿ8¹°«¶¤1
+java:S1117­"5Rename "i" which hides the field declared at line 38.(Å‚ÉÎúÿÿÿÿ8Ë¤õÎ¤1
 X
-java:S1117€"5Rename "i" which hides the field declared at line 38.(Å‚ÉÎúÿÿÿÿ8Ã°«¶¤1
+java:S1117ƒ"5Rename "i" which hides the field declared at line 38.(Å‚ÉÎúÿÿÿÿ8Û¤õÎ¤1
 X
-java:S1117Ê"5Rename "i" which hides the field declared at line 38.(ÈŸ¤²úÿÿÿÿ8â°«¶¤1
-Y	java:S125Ş"<This block of commented-out lines of code should be removed.(“òÃ”8ã°«¶¤1
+java:S1117Í"5Rename "i" which hides the field declared at line 38.(ÈŸ¤²úÿÿÿÿ8ú¤õÎ¤1
+Y	java:S125á"<This block of commented-out lines of code should be removed.(“òÃ”8Š¥õÎ¤1

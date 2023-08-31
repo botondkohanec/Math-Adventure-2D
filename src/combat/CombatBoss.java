@@ -4,19 +4,20 @@ import main.GamePanel;
 import javax.swing.*;
 import java.awt.*;
 import static main.GamePanel.*;
+import static main.Main.window;
 
 public class CombatBoss extends Combat implements Runnable {
 
 
-    public CombatBoss() {
-        super();
+    public CombatBoss(GamePanel gp) {
+        super(gp);
     }
 
     @Override
     public void createObject() {
 
         JLabel objectLabel = new JLabel();
-        objectLabel.setBounds(0, 15, 300, 323);
+        objectLabel.setBounds(0, 100, 300, 323);
 
         ImageIcon objectIcon = new ImageIcon(getClass().getClassLoader().getResource("devil.png"));
         objectLabel.setIcon(objectIcon);
@@ -83,7 +84,6 @@ public class CombatBoss extends Combat implements Runnable {
                     }
                 }
                 enemyAttack = (random.nextInt(50)+145) / entity.Player.armor;
-                showEnemyAttack(enemyAttack);
                 entity.Player.hp -= enemyAttack;
                 showPlayerHP();
                 if(entity.Player.hp <= 0 || enemyHP <= 0) {
@@ -110,6 +110,7 @@ public class CombatBoss extends Combat implements Runnable {
                 }
                 showCountDown(0);
             } else {
+                gp.setVisible(true);
                 gameThread = null;
                 break;
             }
@@ -150,7 +151,14 @@ public class CombatBoss extends Combat implements Runnable {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            window.setVisible(false);
+            panel.setVisible(false);
+            inputPanel.setVisible(false);
+            enemyHPLabel.setVisible(false);
+            playerHPLabel.setVisible(false);
+            questionLabel.setVisible(false);
+            solutionLabel.setVisible(false);
+            bGLabel.setVisible(false);
+            countdownLabel.setVisible(false);
             text = switchLanguage("VICTORY! You defeated the Beast!",
                     "GYŐZELEM! Legyőzted a Szörnyeteget!",
                     "VICTOIRE! Tu as vaincu le Monstre!");
@@ -168,7 +176,14 @@ public class CombatBoss extends Combat implements Runnable {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            window.setVisible(false);
+            panel.setVisible(false);
+            inputPanel.setVisible(false);
+            enemyHPLabel.setVisible(false);
+            playerHPLabel.setVisible(false);
+            questionLabel.setVisible(false);
+            solutionLabel.setVisible(false);
+            bGLabel.setVisible(false);
+            countdownLabel.setVisible(false);
             text = GamePanel.switchLanguage("THE DEVIL DEFEATED YOU!",
                     "LEGYŐZÖTT AZ ÖRDÖG!", "LE DIABLE T'A VAINCU!");
             endText = text;
@@ -186,9 +201,9 @@ public class CombatBoss extends Combat implements Runnable {
         enemyHPLabel = new JLabel( text + enemyHP);
         enemyHPLabel.setBackground(Color.gray);
         enemyHPLabel.setForeground(Color.red);
-        enemyHPLabel.setBounds(50, 0, 350, 50);
+        enemyHPLabel.setBounds(150, 0, 350, 50);
         enemyHPLabel.setFont(font);
-        container.add(enemyHPLabel);
+        containerB.add(enemyHPLabel);
         window.invalidate();
         window.validate();
         window.repaint();

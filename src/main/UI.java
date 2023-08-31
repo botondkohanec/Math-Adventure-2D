@@ -254,7 +254,10 @@ public class UI {
                 drawKohi();
                 changeAfter4seconds();
             }
-            else if(commandNum == 6)    System.exit(0);
+            else if(commandNum == 6) {
+                commandNum = 0;
+                GamePanel.gameState = GamePanel.GameState.TITLE_STATE;
+            }
         }
 
         // RESOURCES STATE (TITLESCREEN)

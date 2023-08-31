@@ -4,13 +4,14 @@ import main.GamePanel;
 import javax.swing.*;
 import java.awt.*;
 import static main.GamePanel.*;
+import static main.Main.window;
 
 public class CombatOrc extends Combat implements Runnable {
 
 
-    public CombatOrc() {
+    public CombatOrc(GamePanel gp) {
 
-        super();
+        super(gp);
         enemyHP = 250;
         enemyAttack = 0;
     }
@@ -19,7 +20,7 @@ public class CombatOrc extends Combat implements Runnable {
     public void createObject() {
 
         JLabel objectLabel = new JLabel();
-        objectLabel.setBounds(0, 50, 200, 300);
+        objectLabel.setBounds(0, 100, 200, 300);
 
         ImageIcon objectIcon = new ImageIcon(getClass().getClassLoader().getResource("orc02.png"));
         objectLabel.setIcon(objectIcon);
@@ -87,7 +88,6 @@ public class CombatOrc extends Combat implements Runnable {
                     }
                 }
                 enemyAttack = (random.nextInt(50)+71) / entity.Player.armor;
-                showEnemyAttack(enemyAttack);
                 entity.Player.hp -= enemyAttack;
                 showPlayerHP();
 
@@ -116,7 +116,7 @@ public class CombatOrc extends Combat implements Runnable {
                 showCountDown(0);
 
             } else {
-
+                gp.setVisible(true);
                 gameThread = null;
                 break;
             }
@@ -157,7 +157,14 @@ public class CombatOrc extends Combat implements Runnable {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            window.setVisible(false);
+            panel.setVisible(false);
+            inputPanel.setVisible(false);
+            enemyHPLabel.setVisible(false);
+            playerHPLabel.setVisible(false);
+            questionLabel.setVisible(false);
+            solutionLabel.setVisible(false);
+            bGLabel.setVisible(false);
+            countdownLabel.setVisible(false);
 
             text = GamePanel.switchLanguage("VICTORY! You defeated the Beast!",
                     "GYŐZELEM! Legyőzted a Szörnyeteget!",
@@ -176,7 +183,14 @@ public class CombatOrc extends Combat implements Runnable {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            window.setVisible(false);
+            panel.setVisible(false);
+            inputPanel.setVisible(false);
+            enemyHPLabel.setVisible(false);
+            playerHPLabel.setVisible(false);
+            questionLabel.setVisible(false);
+            solutionLabel.setVisible(false);
+            bGLabel.setVisible(false);
+            countdownLabel.setVisible(false);
 
             text = GamePanel.switchLanguage("THE ORC DEFEATED YOU!", "LEGYŐZÖTT AZ ORK!",
                     "LE ORC T'A VAINCU!");
@@ -197,9 +211,9 @@ public class CombatOrc extends Combat implements Runnable {
         enemyHPLabel = new JLabel( text + enemyHP);
         enemyHPLabel.setBackground(Color.gray);
         enemyHPLabel.setForeground(Color.red);
-        enemyHPLabel.setBounds(50, 0, 300, 50);
+        enemyHPLabel.setBounds(150, 0, 300, 50);
         enemyHPLabel.setFont(font);
-        container.add(enemyHPLabel);
+        containerB.add(enemyHPLabel);
         window.invalidate();
         window.validate();
         window.repaint();

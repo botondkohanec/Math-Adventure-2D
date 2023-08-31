@@ -1,10 +1,12 @@
 package main;
 
 import javax.swing.*;
+import java.awt.*;
 
 public final class Main {
 
     public static JFrame window;
+    public static Container container;
 
     public static void main(String[] args) {
 
@@ -14,8 +16,10 @@ public final class Main {
         window.setTitle("Math Adventure 2D");
         window.setUndecorated(true);
 
+        container = window.getContentPane();
+
         GamePanel gamePanel = new GamePanel();
-        window.add(gamePanel);
+        container.add(gamePanel);
 
         window.pack();
 

@@ -31,7 +31,8 @@ public class GraphDoor extends Combat {
     int verticeFour;
     int verticeFive;
 
-    public GraphDoor() {
+    public GraphDoor(GamePanel gp) {
+        super(gp);
         createMainField();
     }
 

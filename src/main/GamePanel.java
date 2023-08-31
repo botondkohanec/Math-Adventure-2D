@@ -16,6 +16,9 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
 
+import static main.Main.container;
+import static main.Main.window;
+
 public class GamePanel extends JPanel implements Runnable {
 
     //SCREEN SETTINGS
@@ -33,8 +36,8 @@ public class GamePanel extends JPanel implements Runnable {
     public int mapNum = 2;
 
     // FOR FULL SCREEN
-    int screenWith2 = screenWith;
-    int screenHeight2 = screenHeight;
+    public int screenWith2 = screenWith;
+    public int screenHeight2 = screenHeight;
     BufferedImage tempScreen;
     Graphics2D g2;
     public boolean fullScreen = false;
@@ -123,12 +126,14 @@ public class GamePanel extends JPanel implements Runnable {
     public static Difficulty difficulty = Difficulty.EASY;
 
     int stop = 0;
+    int stop2 = 0;
     int coinIndex = 90;
 
 
     public GamePanel() {
 
-        this.setPreferredSize(new Dimension(screenWith,screenHeight));
+        window.setPreferredSize(new Dimension(screenWith2,screenHeight2));
+//        this.setPreferredSize(new Dimension(screenWith2,screenHeight2));
         this.setBackground(Color.black);
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
@@ -144,8 +149,8 @@ public class GamePanel extends JPanel implements Runnable {
             maxWorldRow = 43;
         } else if (mapNum == 2){
 
-            maxWorldCol = 50;
-            maxWorldRow = 30;
+            maxWorldCol = 68;
+            maxWorldRow = 40;
         }
         tempScreen = new BufferedImage(screenWith, screenHeight, BufferedImage.TYPE_INT_ARGB);
         g2 = (Graphics2D)tempScreen.getGraphics();
@@ -163,17 +168,25 @@ public class GamePanel extends JPanel implements Runnable {
 
     public void setFullScreen() {
 
+
         // GET LOCAL SCREEN DEVICE
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         GraphicsDevice gd = ge.getDefaultScreenDevice();
-        gd.setFullScreenWindow(Main.window);
+        gd.setFullScreenWindow(window);
 
         // GET FULL SCREEN WIDTH & HEIGHT
-        screenWith2 = Main.window.getWidth();
-        screenHeight2 = Main.window.getHeight();
+        screenWith2 = window.getWidth();
+        screenHeight2 = window.getHeight();
+
+        this.setSize(new Dimension(screenWith2,screenHeight2));
+
+        System.out.println(this.getWidth());
+        System.out.println(this.getHeight());
     }
 
     public void setNormalScreen() {
+
+        this.setSize(new Dimension(screenWith2,screenHeight2));
 
         // GET LOCAL SCREEN DEVICE
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
@@ -183,6 +196,9 @@ public class GamePanel extends JPanel implements Runnable {
         // GET FULL SCREEN WIDTH & HEIGHT
         screenWith2 = screenWith;
         screenHeight2 = screenHeight;
+
+        System.out.println(this.getWidth());
+        System.out.println(this.getHeight());
     }
 
     public void startGameThread() {
@@ -230,7 +246,6 @@ public class GamePanel extends JPanel implements Runnable {
             }
         }
         if(gameState == GameState.PLAY_STATE) {
-
             stop = 0;
 
             // PLAYER
@@ -256,7 +271,7 @@ public class GamePanel extends JPanel implements Runnable {
                 String s = "";
                 if (combatNPC == CombatNPC.ORC) {
 
-                    CombatOrc combatOrc = new CombatOrc();
+                    CombatOrc combatOrc = new CombatOrc(this);
                     s = combatOrc.play();
                     if(Combat.playerVictory) {
                         if(Combat.perfect) {
@@ -275,7 +290,7 @@ public class GamePanel extends JPanel implements Runnable {
                 }
                 else if(combatNPC == CombatNPC.WOLF) {
 
-                    CombatWolfMan combatWolfMan = new CombatWolfMan();
+                    CombatWolfMan combatWolfMan = new CombatWolfMan(this);
                     s = combatWolfMan.play();
                     if(Combat.playerVictory) {
                         if(Combat.perfect) {
@@ -299,7 +314,7 @@ public class GamePanel extends JPanel implements Runnable {
                 }
                 else if(combatNPC == CombatNPC.BOSS) {
 
-                    CombatBoss combatBoss = new CombatBoss();
+                    CombatBoss combatBoss = new CombatBoss(this);
                     s = combatBoss.play();
 
                     if(Combat.playerVictory) {
@@ -318,6 +333,10 @@ public class GamePanel extends JPanel implements Runnable {
                     }
                     stopMusic();
                 }
+                System.out.println(this.getWidth());
+                System.out.println(this.getHeight());
+                this.setVisible(true);
+                this.requestFocus();
 
                 ui.addMessage(s);
                 try {
@@ -405,6 +424,7 @@ public class GamePanel extends JPanel implements Runnable {
     public void drawToScreen() {
 
         Graphics g = getGraphics();
+
         g.drawImage(tempScreen, 0, 0, screenWith2, screenHeight2, null);
         g.dispose();
     }

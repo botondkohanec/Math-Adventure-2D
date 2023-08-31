@@ -4,10 +4,16 @@ import main.GamePanel;
 import javax.swing.*;
 import java.awt.*;
 
+import static main.Main.window;
+
 public class GeometryDoor extends Combat {
 
     int i = 0;
     boolean ok = false;
+
+    public GeometryDoor(GamePanel gp) {
+        super(gp);
+    }
 
 
     @Override
@@ -59,7 +65,7 @@ public class GeometryDoor extends Combat {
         questionLabel.setOpaque(true);
         questionLabel.setBounds(50, 410, 700, 50);
         questionLabel.setFont(new Font("Times New Roman", Font.PLAIN, 23));
-        container.add(questionLabel);
+        containerB.add(questionLabel);
         window.invalidate();
         window.validate();
         window.repaint();
@@ -105,7 +111,7 @@ public class GeometryDoor extends Combat {
         solutionLabel.setOpaque(true);
         solutionLabel.setBounds(50, 510, 700, 50);
         solutionLabel.setFont(font);
-        container.add(solutionLabel);
+        containerB.add(solutionLabel);
         window.invalidate();
         window.validate();
         window.repaint();

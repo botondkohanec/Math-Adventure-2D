@@ -5,17 +5,19 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.Random;
-
 import static main.GamePanel.*;
+import static main.Main.window;
 
 public abstract class Combat implements Runnable {
 
-    JFrame window;
+
+    GamePanel gp;
+//    JFrame window;
     ImageIcon icon = new ImageIcon(getClass().getClassLoader().getResource("player_down_1.png"));
-    Container container;
+    Container containerB;
     JPanel panel, inputPanel;
     public JLabel enemyHPLabel, playerHPLabel, questionLabel, solutionLabel,
-            bGLabel, enemyAttackLabel, playerAttackLabel, countdownLabel;
+            bGLabel, countdownLabel;
     JTextField textField;
     JButton enterB;
     int answerInt = 0;
@@ -38,9 +40,12 @@ public abstract class Combat implements Runnable {
     public static boolean playerVictory = true;
     public static boolean perfect = true;
 
-    protected Combat() {
+    protected Combat(GamePanel gp) {
 
+        this.gp = gp;
+        gp.setVisible(false);
         Combat.perfect = true;
+
 
         createMainField();
         createPanel();
@@ -56,24 +61,29 @@ public abstract class Combat implements Runnable {
 
     public void createMainField() {
 
-        window = new JFrame("Combat");
-        window.setPreferredSize(new Dimension(800,600));
-        window.setSize(800, 600);
-        window.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        window.setPreferredSize(new Dimension(gp.screenWith2,gp.screenHeight2));
+        window.setSize(gp.screenWith2,gp.screenHeight2);
+//        window = new JFrame("Combat");
+//        window.setSize(gp.screenWith,gp.screenHeight);
+//        window.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         window.getContentPane().setBackground(Color.black);
+        // GET LOCAL SCREEN DEVICE
+
         window.setLocationRelativeTo(null);
-        window.setLayout(null);
-        window.setIconImage(icon.getImage());
-        container = window.getContentPane();
+
+//        window.setIconImage(icon.getImage());
+        containerB = window.getContentPane();
+
+        containerB.setLayout(null);
     }
 
     public void createPanel() {
 
         panel = new JPanel();
-        panel.setBounds(50, 50, 700, 350);
+        panel.setBounds(100, 50, gp.screenWith2-200, gp.screenHeight2/2+50);
         panel.setBackground(Color.blue);
         panel.setLayout(null);
-        container.add(panel);
+        containerB.add(panel);
     }
 
     public abstract void createObject();
@@ -83,7 +93,7 @@ public abstract class Combat implements Runnable {
         JLabel objectLabel;
         ImageIcon objectIcon;
         objectLabel = new JLabel();
-        objectLabel.setBounds(500, 50, 200, 300);
+        objectLabel.setBounds(gp.screenWith2-400, 100, 200, 300);
 
         objectIcon = new ImageIcon(getClass().getClassLoader().getResource("knight01.png"));
         objectLabel.setIcon(objectIcon);
@@ -94,8 +104,8 @@ public abstract class Combat implements Runnable {
     public void createBackGround() {
 
         bGLabel = new JLabel();
-        bGLabel.setBounds(0,0,700,350);
-        ImageIcon bgIcon = new ImageIcon(getClass().getClassLoader().getResource("forest01.jpg"));
+        bGLabel.setBounds(0,0,1200,450);
+        ImageIcon bgIcon = new ImageIcon(getClass().getClassLoader().getResource("forest02.jpg"));
         bGLabel.setIcon(bgIcon);
         panel.add(bGLabel);
     }
@@ -103,7 +113,7 @@ public abstract class Combat implements Runnable {
     public void createInputPanel() {
 
         inputPanel = new JPanel();
-        inputPanel.setBounds(50, 460, 700, 50);
+        inputPanel.setBounds(100, gp.screenHeight2/2+150, gp.screenWith2-200, 50);
         inputPanel.setBackground(Color.black);
         inputPanel.setLayout(new GridLayout(1, 2));
 
@@ -118,7 +128,8 @@ public abstract class Combat implements Runnable {
         enterB.addActionListener(inputHandler);
         textField.addKeyListener(inputHandler);
         inputPanel.add(enterB);
-        container.add(inputPanel);
+        containerB.add(inputPanel);
+        textField.requestFocus();
     }
 
     public abstract String play();
@@ -136,9 +147,9 @@ public abstract class Combat implements Runnable {
         questionLabel.setBackground(Color.getHSBColor(50,200,200));
         questionLabel.setForeground(Color.black);
         questionLabel.setOpaque(true);
-        questionLabel.setBounds(50, 410, 700, 50);
+        questionLabel.setBounds(100, gp.screenHeight2/2+100, gp.screenWith2-200, 50);
         questionLabel.setFont(font);
-        container.add(questionLabel);
+        containerB.add(questionLabel);
         window.invalidate();
         window.validate();
         window.repaint();
@@ -167,7 +178,6 @@ public abstract class Combat implements Runnable {
             solutionLabel.setForeground(Color.black);
             solutionLabel.setBackground(Color.green);
             entity.Player.attack = random.nextInt(10)+1+45;
-            showPlayerAttack(entity.Player.attack);
             enemyHP = enemyHP - entity.Player.attack;
             showEnemyHP();
         } else if(entity.Player.hp > 0) {
@@ -182,7 +192,6 @@ public abstract class Combat implements Runnable {
             if(GamePanel.difficulty == Difficulty.HARD) enemyAttack = 20 + random.nextInt(10);
             else if(GamePanel.difficulty == Difficulty.MATHEMATICIAN) enemyAttack = 1000;
             else enemyAttack = random.nextInt(5);
-            showEnemyAttack(enemyAttack);
             entity.Player.hp = entity.Player.hp - enemyAttack;
         } else if(entity.Player.hp <= 0) {
             solutionLabel = new JLabel(":(");
@@ -190,9 +199,9 @@ public abstract class Combat implements Runnable {
             solutionLabel.setBackground(Color.red);
         }
         solutionLabel.setOpaque(true);
-        solutionLabel.setBounds(50, 510, 700, 50);
+        solutionLabel.setBounds(100, gp.screenHeight2/2+200, gp.screenWith2-200, 50);
         solutionLabel.setFont(font);
-        container.add(solutionLabel);
+        containerB.add(solutionLabel);
         window.invalidate();
         window.validate();
         window.repaint();
@@ -207,44 +216,15 @@ public abstract class Combat implements Runnable {
         playerHPLabel = new JLabel( text + entity.Player.hp);
         playerHPLabel.setBackground(Color.gray);
         playerHPLabel.setForeground(Color.red);
-        playerHPLabel.setBounds(540, 0, 300, 50);
+        playerHPLabel.setBounds(gp.screenWith2-300, 0, 300, 50);
         playerHPLabel.setFont(font);
-        container.add(playerHPLabel);
+        containerB.add(playerHPLabel);
         window.invalidate();
         window.validate();
         window.repaint();
     }
 
     public void showEnemyHP() {}
-
-    public void showPlayerAttack(int attack) {
-
-        if(playerAttackLabel != null) playerAttackLabel.setVisible(false);
-        playerAttackLabel = new JLabel( "-" + attack);
-        playerAttackLabel.setBackground(Color.gray);
-        playerAttackLabel.setForeground(Color.red);
-        playerAttackLabel.setBounds(200, 40, 100, 50);
-        playerAttackLabel.setFont(font);
-        bGLabel.add(playerAttackLabel);
-        window.invalidate();
-        window.validate();
-        window.repaint();
-    }
-
-    public void showEnemyAttack(int attack)  {
-
-        if(enemyAttackLabel != null) enemyAttackLabel.setVisible(false);
-        enemyAttackLabel = new JLabel( "-" + attack);
-        enemyAttackLabel.setBackground(Color.gray);
-        enemyAttackLabel.setForeground(Color.red);
-        enemyAttackLabel.setBounds(490, 40, 100, 50);
-        enemyAttackLabel.setFont(font);
-        bGLabel.add(enemyAttackLabel);
-        window.invalidate();
-        window.validate();
-        window.repaint();
-    }
-
     public void showCountDown(int time) {
 
         if(countdownLabel != null) countdownLabel.setVisible(false);
